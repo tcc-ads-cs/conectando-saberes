@@ -1,0 +1,8 @@
+.botaoMenuPrincipal {
+    text-decoration: 'none';
+    display: 'flex';
+    align-items: 'center';
+    padding: '50px';
+}
+
+/* criar o grid + tamanho dos grids */
