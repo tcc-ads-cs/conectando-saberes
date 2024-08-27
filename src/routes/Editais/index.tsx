@@ -1,6 +1,7 @@
+import LinkPlaceholder from "../../components/LinkPlaceholder"
+
 const Editais: React.FC = () => {
-    return <>oier</>
-  };
+    return <LinkPlaceholder />
+}
 
-  export default Editais;
-
+export default Editais;

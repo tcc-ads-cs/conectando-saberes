@@ -1,8 +1,8 @@
-import React from 'react';
+import './index.css';
+
 import { Link } from 'react-router-dom';
 import { SvgIconComponent } from '@mui/icons-material';
 import { Typography } from '@mui/material';
-import './MenuItem.css';
 
 interface MenuItemProps {
   title: string;

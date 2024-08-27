@@ -1,14 +1,13 @@
-import React from 'react';
-import MenuItem from './MenuItem/MenuItem';
+import './index.css';
 
-//icons
+// Icons
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import WorkIcon from '@mui/icons-material/Work';
 import HelpIcon from '@mui/icons-material/Help';
 
-import './MenuPrincipal.css';
+import MenuItem from './components/MenuItem';
 
 const menuItems = [
   { title: 'Home', to: '/', Icon: HomeIcon },
