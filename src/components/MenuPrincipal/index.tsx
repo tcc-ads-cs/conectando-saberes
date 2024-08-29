@@ -15,7 +15,7 @@ const menuItems = [
   { id: "Notificacoes", to: '/notificacoes', Icon: NotificationsIcon },
   { id: "Perfil", title: 'Meu Perfil', to: '/meu-perfil', Icon: PersonIcon },
   { id: "Editais", title: 'Dicas e Informações sobre Editais', to: '/editais', Icon: LightbulbIcon },
-  { id: "Postagem", title: 'Publicar postagem', to: '/postagem', Icon: CreateIcon },
+  { id: "Postagem", title: 'Publicar postagem', to: '/nova-postagem', Icon: CreateIcon },
 ];
 
 const MenuPrincipal: React.FC = () => {

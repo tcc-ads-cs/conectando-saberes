@@ -1,4 +1,5 @@
 :root {
+    /* Paleta de cores */
     --corBotao: #E3D4FF;
     --corBGGrids: #FAF7FF;
     --corTextoBranco: #F4EDFF;
@@ -6,5 +7,11 @@
     --corBGIcons: #ECE1FF;
     --corInfo: #66157A;
     --corEnfase: #4E148C;
-}
 
+    /* Padrão de tamanhos (Crazy8s) */
+    --t8px: 0.5em;
+    --t16px: 1em;
+    --t20px: 1.25em;
+    --t24px: 1.5em; 
+    --t32px: 2em;
+}

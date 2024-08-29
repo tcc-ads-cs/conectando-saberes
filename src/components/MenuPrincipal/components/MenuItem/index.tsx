@@ -15,7 +15,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ id, title, to, Icon }) => {
   return (
       <Link id={"menu" + id} to={to} className='linkContainer'>
           <Icon />
-          <Typography fontFamily={'poppins'} variant={'h5'}>{title}</Typography>
+          <Typography fontFamily={'poppins'} variant={'h6'}>{title}</Typography>
       </Link>
   );
 };
