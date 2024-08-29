@@ -1,49 +1,70 @@
-@import url('/src/variaveis.css');
+@import "/src/variaveis.css";
 
 .containerMenuPrincipal {
-    background-color: var(--corBGGrids);
-    padding: 1em;
-    display: grid;
-    grid-template-areas:
+  display: grid;
+  max-height: 21em;
+  gap: var(--t8px);
+  padding: var(--t20px); 
+  border-radius: var(--t16px);
+  background-color: var(--corBGGrids);
+  grid-template-areas:
     "a a a b"
     "c c d d"
-    "e e e e"
     "e e e e";
 }
 
 .containerMenuPrincipal .linkContainer {
-    display: flex;
-    padding: 1em;
+  display: flex;
+  padding: var(--t8px);
+  text-decoration: none;
+  border-radius: var(--t8px);
+  color: var(--corTextoPreto);
+  justify-content: space-between;
+  background-color: var(--corBotao);
+}
+
+.containerMenuPrincipal .linkContainer:last-child {
+  color: var(--corTextoBranco);
+  background-color: var(--corEnfase);
 }
 
 #menuPesquisa {
-    grid-area: a;
-    background-color: var(--corBotao);
-    justify-content: space-around;
-    color: var(--corTextoPreto);
+  grid-area: a;
+  align-items: center;
 }
 
 #menuNotificacoes {
-    background-color: var(--corBotao);
-    color: var(--corTextoPreto);
-    grid-area: b;
-    padding: 1em;
-    border-radius: 0.5em;
+  grid-area: b;
+  align-items: center;
+  justify-content: center;
 }
 
 #menuPerfil {
-    grid-area: c;
-    flex-direction: column;
+  grid-area: c;
+  flex-direction: column;
+  
+  /* ? Não sei se o gap é grande o suficiente pra não quebrar a linha estranho. */
+  gap: var(--t32px);
+}
+
+#menuPerfil > h6 {
+  text-align: end;
 }
 
 #menuEditais {
-    grid-area: d;
-    background-color: black;
+  grid-area: d;
+  text-align: end;
+  flex-direction: column;
+}
+
+#menuEditais > h5 {
+  text-align: end;
 }
 
 #menuPostagem {
-    grid-area: e;
-    justify-content: center;
-    padding: 1em;
+  grid-area: e;
+  gap: var(--t16px);
+  align-items: center;
+  padding: var(--t24px);
+  justify-content: center;
 }
-

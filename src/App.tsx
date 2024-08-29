@@ -1,5 +1,3 @@
-import './App.css'
-
 //* Sistema de rotas
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
