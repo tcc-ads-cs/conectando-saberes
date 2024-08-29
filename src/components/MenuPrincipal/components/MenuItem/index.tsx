@@ -5,16 +5,17 @@ import { SvgIconComponent } from '@mui/icons-material';
 import { Typography } from '@mui/material';
 
 interface MenuItemProps {
-  title: string;
+  title?: string;
   to: string;
   Icon: SvgIconComponent;
+  id?: string;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ title, to, Icon }) => {
+const MenuItem: React.FC<MenuItemProps> = ({ id, title, to, Icon }) => {
   return (
-      <Link to={to} className="botaoMenuPrincipal">
-        <Icon style={{ marginRight: '10px' }} />
-        <Typography>{title}</Typography>
+      <Link id={"menu" + id} to={to} className='linkContainer'>
+          <Icon />
+          <Typography fontFamily={'poppins'} variant={'h5'}>{title}</Typography>
       </Link>
   );
 };

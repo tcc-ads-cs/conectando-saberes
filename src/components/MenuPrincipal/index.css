@@ -1,3 +1,49 @@
+@import url('/src/variaveis.css');
+
 .containerMenuPrincipal {
-    background-color: white;
+    background-color: var(--corBGGrids);
+    padding: 1em;
+    display: grid;
+    grid-template-areas:
+    "a a a b"
+    "c c d d"
+    "e e e e"
+    "e e e e";
 }
+
+.containerMenuPrincipal .linkContainer {
+    display: flex;
+    padding: 1em;
+}
+
+#menuPesquisa {
+    grid-area: a;
+    background-color: var(--corBotao);
+    justify-content: space-around;
+    color: var(--corTextoPreto);
+}
+
+#menuNotificacoes {
+    background-color: var(--corBotao);
+    color: var(--corTextoPreto);
+    grid-area: b;
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+#menuPerfil {
+    grid-area: c;
+    flex-direction: column;
+}
+
+#menuEditais {
+    grid-area: d;
+    background-color: black;
+}
+
+#menuPostagem {
+    grid-area: e;
+    justify-content: center;
+    padding: 1em;
+}
+
