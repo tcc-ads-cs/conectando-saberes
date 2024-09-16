@@ -3,13 +3,3 @@
   background-color: #fffff9;
   text-decoration: none;
 }
-
-#root {
-  display: grid;
-  grid-template-areas:
-    "a a a a"
-    "b c c c"
-    "b d d d"
-    "e d d d"
-    "f d d d";
-}

@@ -1,9 +1,12 @@
 import MenuPrincipal from "../../components/MenuPrincipal";
 import './index.css';
+import '../../estruturas.css';
 
 const LandingPage: React.FC = () => {
     return <>
-        <MenuPrincipal />
+        <div className="grid">
+            <MenuPrincipal />
+        </div>
     </>;
 }
 
