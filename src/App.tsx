@@ -48,9 +48,9 @@ const routerCS = createBrowserRouter([
 ])
 
 function App() {
-  return (
-    <RouterProvider router={ routerCS } />
-  )
+  return <>
+      <RouterProvider router={ routerCS } />
+    </>
 }
 
 export default App;
