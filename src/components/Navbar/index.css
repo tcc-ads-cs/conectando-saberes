@@ -1,0 +1,56 @@
+@import "/src/variaveis.css";
+
+header {   
+    display: flex;
+    justify-content: space-between;
+    padding: 0 var(--t40px);
+    height: var(--t64px);
+}
+
+.linkLogo {
+    text-decoration: none;
+    color: var(--corTextoPreto);
+}
+
+.containerLogo {
+    display: flex;
+    align-items: center;
+    gap: var(--t16px)
+}
+
+.containerLogo h1 {
+    font-size: var(--t32px);
+}
+
+.containerBtn {
+    display: flex;
+    gap: var(--t16px);
+    align-items: center;
+}
+
+.containerBtn a {
+    border-radius: var(--t24px);
+    padding: var(--t4px) var(--t16px);
+    text-decoration: none;
+}
+
+#btnLogin {
+    border: solid 2px var(--corEnfase);
+    color: var(--corEnfase);
+}
+
+#btnCadastro {
+    background-color: var(--corEnfase);
+    color: var(--corTextoBranco);
+}
+
+
+@media (max-width: 800px) {
+    .linkLogo h1 {
+        display: none;
+    }
+
+    #btnCadastro {
+        display: none;
+    }
+}

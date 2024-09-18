@@ -1,5 +1,7 @@
 import { Typography } from "@mui/material";
 
+import './index.css';
+
 const RodapeDA: React.FC = () => {
     return (
         <footer>

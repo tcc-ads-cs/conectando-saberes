@@ -1,0 +1,10 @@
+footer {
+    text-align: center;
+    color: var(--corTextoBranco);
+    background-color: var(--corEnfase);
+    padding: 1em;
+}
+
+footer h6 {
+    width: 100%;
+}

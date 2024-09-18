@@ -8,7 +8,7 @@ interface BotaoProps {
 }
 
 const Botao: React.FC<BotaoProps> = ({funcao, id, placeholder}) => {
-    return <Link to={"/" + funcao} id={id}><Typography>{placeholder}</Typography></Link>
+    return <Link to={"/" + funcao} id={id}><Typography fontWeight={'bold'} fontFamily={'poppins'}>{placeholder}</Typography></Link>
 }
 
 export default Botao;
