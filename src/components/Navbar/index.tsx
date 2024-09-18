@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import Botao from "./components/Botao";
 
 const Navbar: React.FC = () => {
     return (
@@ -12,26 +12,11 @@ const Navbar: React.FC = () => {
                 <Typography variant={'h1'}>Conectando Saberes</Typography>
             </div>
             <div>
-                
-                <button
-                    onClick={() => {alert("oi")}}
-                > <Typography variant={'h4'}>{LoginLogout()}</Typography>
-                </button>
-                
-                {/* O link abaixo não deve aparecer se a pessoa estiver LOGADA. */}
-                <Link
-                    to="/cadastro"
-                > <Typography variant={'h4'}>Cadastre-se</Typography>
-                </Link>
+                <Botao id="btnLogin" funcao="login" placeholder="Entrar" />
+                <Botao id="btnCadastro" funcao="cadastro" placeholder="Cadastre-se" />
             </div>
         </header>
     );
-  };
-
-function LoginLogout() {
-    var statusLogin: string = "Sair"
-    return statusLogin;
-    // Função para logar/deslogar E alterar o texto do botão entre Entrar/Sair.
-}
+};
   
 export default Navbar;
