@@ -1,1 +1,12 @@
-/* Fazer a estilização dos campos aqui mesmo. */
+label {
+    padding-left: var(--t16px);
+}
+
+input {
+    height: var(--t48px);
+    border-radius: var(--t8px);
+    border-style: none;
+    padding-left: var(--t16px);
+    font-family: 'poppins';
+}
+
