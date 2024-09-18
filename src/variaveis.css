@@ -7,11 +7,15 @@
     --corBGIcons: #ECE1FF;
     --corInfo: #66157A;
     --corEnfase: #4E148C;
+    --corNavbar: #FFFFF9;
 
     /* Padrão de tamanhos (Crazy8s) */
+    --t4px: 0.25em;
     --t8px: 0.5em;
     --t16px: 1em;
     --t20px: 1.25em;
     --t24px: 1.5em; 
     --t32px: 2em;
+    --t40px: 2.5em;
+    --t64px: 4em;
 }
