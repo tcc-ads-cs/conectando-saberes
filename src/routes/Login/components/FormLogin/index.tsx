@@ -1,14 +1,14 @@
-import Campo from "./components/Campo"
+import Campo from "../../../../components/Campo"
 import { Link } from "react-router-dom";
 
-const Form: React.FC = () => {
+const FormLogin: React.FC = () => {
     return <>
         <form
         // action=""
         // method="post"
         >
-            <Campo tipo='email' />
-            <Campo tipo='senha' />
+            <Campo tipo="email" label="E-mail:" placeholder="seuemail@ifsp.edu.br"/>
+            <Campo tipo="senha" label="Senha:" placeholder="********"/>
             <Link
                 to="/redefinir-senha"
             >Esqueceu sua senha?</Link>
@@ -17,4 +17,4 @@ const Form: React.FC = () => {
     </>
 }
 
-export default Form;
+export default FormLogin;
