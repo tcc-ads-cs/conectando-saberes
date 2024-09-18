@@ -1,4 +1,7 @@
 import Campo from "../../../../components/Campo"
+import './index.css';
+
+import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const FormLogin: React.FC = () => {
@@ -12,7 +15,7 @@ const FormLogin: React.FC = () => {
             <Link
                 to="/redefinir-senha"
             >Esqueceu sua senha?</Link>
-            <button type="submit">Acessar</button>
+            <button type="submit"><Typography fontFamily={'poppins'} fontWeight={'bold'}>Acessar</Typography></button>
         </form>
     </>
 }

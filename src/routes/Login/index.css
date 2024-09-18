@@ -1,0 +1,18 @@
+@import "/src/variaveis.css";
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 10em 1em;
+}
+
+.formContainer {
+    background-color: var(--corBGGrids);
+    border-radius: var(--t24px);
+    padding: var(--t48px);
+}
+
+.formContainer h2 {
+    color: var(--corTextoPreto);
+    font-size: var(--t32px);
+}

@@ -1,5 +1,7 @@
 import { Typography } from "@mui/material";
 
+import './index.css';
+
 export interface CampoProps {
     id?: string,
     label: string,
@@ -11,7 +13,7 @@ const Campo: React.FC<CampoProps> = ({id, label, placeholder, tipo}) => {
     switch (tipo) {
         case "senha":
         return <>
-            <label htmlFor={tipo}><Typography>{label}</Typography></label>
+            <label htmlFor={tipo}><Typography fontFamily={'poppins'}>{label}</Typography></label>
             <input
             required
             name={tipo}
@@ -20,7 +22,7 @@ const Campo: React.FC<CampoProps> = ({id, label, placeholder, tipo}) => {
         </>
         case "email":
         return <>
-            <label htmlFor={tipo}><Typography>{label}</Typography></label>
+            <label htmlFor={tipo}><Typography fontFamily={'poppins'}>{label}</Typography></label>
             <input
             required
             id={id}
@@ -30,7 +32,7 @@ const Campo: React.FC<CampoProps> = ({id, label, placeholder, tipo}) => {
         </>
         case "dtNasc":
         return <>
-            <label htmlFor={tipo}><Typography>{label}</Typography></label>
+            <label htmlFor={tipo}><Typography fontFamily={'poppins'}>{label}</Typography></label>
             <input
             required
             name={tipo}
@@ -39,7 +41,7 @@ const Campo: React.FC<CampoProps> = ({id, label, placeholder, tipo}) => {
         </>
         case "dropdown":
             return <> 
-            <label htmlFor={tipo}><Typography>{label}</Typography></label>
+            <label htmlFor={tipo}><Typography fontFamily={'poppins'}>{label}</Typography></label>
             <input
             required
             name={tipo}
@@ -50,9 +52,10 @@ const Campo: React.FC<CampoProps> = ({id, label, placeholder, tipo}) => {
             </>         
         default:
         return <>
-            <label htmlFor={tipo}><Typography>{label}</Typography></label>
+            <label htmlFor={tipo}><Typography fontFamily={'poppins'}>{label}</Typography></label>
             <input
             required
+            id={id}
             type="text"
             name={tipo}
             placeholder={placeholder} />
