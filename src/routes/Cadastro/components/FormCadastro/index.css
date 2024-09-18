@@ -1,0 +1,16 @@
+.etapasForm {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.conteudoForm input {
+    margin-bottom: var(--t24px);
+}
+.passos {
+    background-color: var(--corTextoBranco);
+    padding: var(--t4px) var(--t8px);
+    border-radius: var(--t32px);
+    align-self: center;
+    color: var(--corTextoPreto);
+}
