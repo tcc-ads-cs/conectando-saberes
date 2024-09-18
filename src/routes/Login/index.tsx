@@ -10,8 +10,10 @@ const Login: React.FC = () => {
         <Navbar />
         <main className="BGGradiente">
             <div className="formContainer">
-                <Typography variant='h2' fontFamily={'poppins'}>Bora continuar sua jornada?</Typography>
-                <Typography fontFamily={'poppins'}>Insira seu e-mail e senha para fazer login.</Typography>
+                <div className="tituloForm">
+                    <Typography variant='h2' fontFamily={'poppins'}>Bora continuar sua jornada?</Typography>
+                    <Typography fontFamily={'poppins'}>Insira seu e-mail e senha para fazer login.</Typography>
+                </div>
                 <FormLogin />
             </div>
         </main>

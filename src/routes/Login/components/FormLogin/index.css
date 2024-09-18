@@ -1,5 +1,3 @@
-@import "/src/variaveis.css";
-
 form {
     display: flex;
     flex-direction: column;
@@ -11,20 +9,6 @@ form a {
     padding: var(--t16px) 0 var(--t44px) 0;
 }
 
-input[type="email"] {
+#emailLogin {
     margin-bottom: var(--t40px);
-}
-
-button {
-    width: min-content;
-    align-self: center;
-    padding: var(--t8px) var(--t32px);
-    border-style: none;
-    border-radius: var(--t8px);
-    color: var(--corTextoBranco);
-    background-color: var(--corEnfase);
-}
-
-button:hover {
-    cursor: pointer;
 }

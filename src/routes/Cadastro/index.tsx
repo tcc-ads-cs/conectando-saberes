@@ -6,9 +6,15 @@ import FormCadastro from "./components/FormCadastro";
 const Cadastro: React.FC = () => {
     return <>
         <Navbar />
-        <Typography variant="h2">Dados de usuário</Typography>
-        <Typography>Vamos definir seu acesso na plataforma.</Typography>
-        <FormCadastro />
+            <main className="BGGradiente">
+                <div className="formContainer">
+                    <div className="tituloForm">
+                        <Typography variant="h2" fontFamily={'poppins'}>Começe sua jornada no CS</Typography>
+                        <Typography fontFamily={'poppins'}>Nos diga um pouco sobre você!</Typography>
+                    </div>
+                    <FormCadastro />
+                </div>
+            </main>
         <RodapeDA />
     </>
 }

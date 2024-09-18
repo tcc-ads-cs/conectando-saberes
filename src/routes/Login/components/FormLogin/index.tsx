@@ -10,12 +10,12 @@ const FormLogin: React.FC = () => {
         // action=""
         // method="post"
         >
-            <Campo tipo="email" label="E-mail:" placeholder="seuemail@ifsp.edu.br"/>
-            <Campo tipo="senha" label="Senha:" placeholder="********"/>
+            <Campo id="emailLogin" tipo="email" label="E-mail:" placeholder="seuemail@ifsp.edu.br"/>
+            <Campo id="senhaLogin" tipo="senha" label="Senha:" placeholder="********"/>
             <Link
                 to="/redefinir-senha"
             >Esqueceu sua senha?</Link>
-            <button type="submit"><Typography fontFamily={'poppins'} fontWeight={'bold'}>Acessar</Typography></button>
+            <button className="btnForm" type="submit"><Typography fontFamily={'poppins'} fontWeight={'bold'}>Acessar</Typography></button>
         </form>
     </>
 }

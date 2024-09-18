@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import Campo from "../../../../components/Campo";
 
 export const Etapa1 = () => {
@@ -51,7 +52,7 @@ export const Etapa1 = () => {
             - O que busca na plataforma (dropdown)
             - 3 categorias (dropdown)
             */}
-          <button type='submit'>Finalizar</button>
+          <button type='submit' className="btnForm"><Typography fontFamily={'poppins'} fontWeight={'bold'}>Finalizar</Typography></button>
         </form>
       </div>
     );
