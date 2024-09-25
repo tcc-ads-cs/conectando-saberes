@@ -4,25 +4,27 @@ import './index.css';
 
 export interface CampoProps {
     id?: string,
-    label: string,
+    label?: string,
     placeholder?: string,
-    tipo: string
+    tipo: string,
+    grupo?: string
 }
 
-const Campo: React.FC<CampoProps> = ({id, label, placeholder, tipo}) => {    
+const Campo: React.FC<CampoProps> = ({grupo, id, label, placeholder, tipo}) => {    
     switch (tipo) {
         case "senha":
         return <>
-            <label htmlFor={tipo}><Typography fontFamily={'poppins'}>{label}</Typography></label>
+            <label htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
             <input
             required
+            id={id}
             name={tipo}
             type="password"
             placeholder={placeholder} />
         </>
         case "email":
         return <>
-            <label htmlFor={tipo}><Typography fontFamily={'poppins'}>{label}</Typography></label>
+            <label htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
             <input
             required
             id={id}
@@ -32,27 +34,35 @@ const Campo: React.FC<CampoProps> = ({id, label, placeholder, tipo}) => {
         </>
         case "dtNasc":
         return <>
-            <label htmlFor={tipo}><Typography fontFamily={'poppins'}>{label}</Typography></label>
+            <label htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
             <input
             required
+            id={id}
             name={tipo}
             type="date"
             placeholder={placeholder} />
         </>
-        case "dropdown":
-            return <> 
-            <label htmlFor={tipo}><Typography fontFamily={'poppins'}>{label}</Typography></label>
+        case "radio":
+        return <>
             <input
-            required
-            name={tipo}
+            id={id}
+            name={grupo}
+            type="radio"
             placeholder={placeholder} />
-            
-            {/* Pensar numa lógica para renderizar as opções também! */}
-            
-            </>         
+            <label htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
+        </>
+        case "checkbox":
+        return <>
+            <input
+            id={id}
+            name={grupo}
+            type="checkbox"
+            placeholder={placeholder} />
+            <label htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
+        </>       
         default:
         return <>
-            <label htmlFor={tipo}><Typography fontFamily={'poppins'}>{label}</Typography></label>
+            <label htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
             <input
             required
             id={id}

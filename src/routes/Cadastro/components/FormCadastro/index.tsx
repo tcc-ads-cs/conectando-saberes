@@ -7,22 +7,6 @@ import './index.css';
 const FormCadastro: React.FC = () => {
     const [etapaAtual, setEtapaAtual] = useState(1);
 
-    // const proximaEtapaConsistente = () => {
-    //     switch (etapaAtual) {
-    //         case 1:
-    //             Exemplo: 
-    //             if (document.getElementById('email')?.innerText.includes('@')) {
-    //                 alert("Por favor, insira um e-mail válido.");
-    //             } else {  setEtapaAtual(etapaAtual + 1); }
-    //             
-    //             break;
-    //         case 2: 
-    //             break;
-    //         case 3:
-    //             break;
-    //     }
-    // };
-
     const proximaEtapa = () => {setEtapaAtual(etapaAtual + 1)}
 
     return (
