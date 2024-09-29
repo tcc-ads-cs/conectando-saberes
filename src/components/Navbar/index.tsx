@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
                         src="src/components/Navbar/assets/iconografiaLogo.svg"
                         alt="Logo da plataforma com as letras C e S com pontos em seu formato, simbolizando pontos de parada."
                     />
-                    <Typography variant={'h1'} fontFamily={'poppins'} >Conectando Saberes</Typography>
+                    <Typography variant={'h1'} fontFamily={'poppins'} fontWeight={'bold'}>Conectando Saberes</Typography>
                 </div>
             </Link>
             <div className="containerBtn">

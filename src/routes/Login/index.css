@@ -1,7 +1,0 @@
-@import "/src/variaveis.css";
-
-main {
-    display: flex;
-    justify-content: center;
-    padding: 10em 1em;
-}

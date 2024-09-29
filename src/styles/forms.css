@@ -1,1 +1,86 @@
 /* Estilização dos forms de Login e Cadastro */
+
+.checkinContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.formContainer {
+    background-color: var(--corBGGrids);
+    border-radius: var(--t24px);
+    padding: var(--t48px);
+    max-width: 30vw;
+}
+
+.titulo {
+    color: var(--corTextoPreto);
+    font-size: var(--t32px) !important;
+    font-weight: bold !important;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    padding: var(--t24px) 0;
+}
+
+.input {
+    height: var(--t48px);
+    border-radius: var(--t8px);
+    border-style: none;
+    padding-left: var(--t16px);
+    font-family: 'poppins';
+}
+
+.inputLabel {
+    padding-left: var(--t16px);
+}
+
+.inputLogin {
+    margin-bottom: var(--t40px);
+}
+
+.inputCadastro {
+    margin-bottom: var(--t24px);
+}
+
+.linkForm {
+    text-align: end;
+    padding: var(--t16px) 0 var(--t44px) 0;
+    color: var(--corTextoPreto);
+}
+
+.etapasForm {
+    display: flex;
+    justify-content: space-between;
+}
+
+.passos {
+    background-color: var(--corTextoBranco);
+    padding: var(--t4px) var(--t8px);
+    border-radius: var(--t32px);
+    align-self: center;
+    color: var(--corTextoPreto);
+}
+
+.btnForm {
+    width: min-content;
+    align-self: center;
+    padding: var(--t8px) var(--t32px);
+    border-style: none;
+    border-radius: var(--t8px);
+    color: var(--corTextoBranco);
+    background-color: var(--corEnfase);
+    cursor: pointer;
+}
+
+/* Estilizações do /cadastro */
+
+#obsNomeSocial {
+    font-size: var(--t12px);
+    margin-bottom: var(--t24px);
+}
+

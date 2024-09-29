@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { Etapa1, Etapa2, Etapa3 } from './Etapas';
 import { Typography } from '@mui/material';
 
-import './index.css';
-
 const FormCadastro: React.FC = () => {
     const [etapaAtual, setEtapaAtual] = useState(1);
 
@@ -14,7 +12,7 @@ const FormCadastro: React.FC = () => {
         method=""
         action=""
         >
-            <div className="conteudoForm">
+            <div className="inputContainer formCadastro">
                 {etapaAtual === 1 && <Etapa1 />}
                 {etapaAtual === 2 && <Etapa2 />}
                 {etapaAtual === 3 && <Etapa3 />}
