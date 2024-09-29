@@ -1,22 +1,22 @@
 import { Typography } from "@mui/material";
 
-import './index.css';
-
 export interface CampoProps {
     id?: string,
     label?: string,
     placeholder?: string,
     tipo: string,
-    grupo?: string
+    grupo?: string,
+    classe?: string
 }
 
-const Campo: React.FC<CampoProps> = ({grupo, id, label, placeholder, tipo}) => {    
+const Campo: React.FC<CampoProps> = ({classe, grupo, id, label, placeholder, tipo}) => {    
     switch (tipo) {
         case "senha":
         return <>
-            <label htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
+            <label className="inputLabel" htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
             <input
             required
+            className={"input " + classe}
             id={id}
             name={tipo}
             type="password"
@@ -24,9 +24,10 @@ const Campo: React.FC<CampoProps> = ({grupo, id, label, placeholder, tipo}) => {
         </>
         case "email":
         return <>
-            <label htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
+            <label className="inputLabel" htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
             <input
             required
+            className={"input " + classe}
             id={id}
             name={tipo}
             type="email"
@@ -34,9 +35,10 @@ const Campo: React.FC<CampoProps> = ({grupo, id, label, placeholder, tipo}) => {
         </>
         case "dtNasc":
         return <>
-            <label htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
+            <label className="inputLabel" htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
             <input
             required
+            className={"input " + classe}
             id={id}
             name={tipo}
             type="date"
@@ -62,9 +64,10 @@ const Campo: React.FC<CampoProps> = ({grupo, id, label, placeholder, tipo}) => {
         </>       
         default:
         return <>
-            <label htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
+            <label className="inputLabel" htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
             <input
             required
+            className={"input " + classe}
             id={id}
             type="text"
             name={tipo}

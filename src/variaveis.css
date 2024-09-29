@@ -12,6 +12,7 @@
     /* Padrão de tamanhos (Crazy8s) */
     --t4px: 0.25em;
     --t8px: 0.5em;
+    --t12px: 0.75em;
     --t16px: 1em;
     --t20px: 1.25em;
     --t24px: 1.5em; 
@@ -51,26 +52,4 @@
     0%{background-position:0% 78%}
     50%{background-position:100% 23%}
     100%{background-position:0% 78%}
-}
-
-/* Formulários de /login e /cadastro */
-.btnForm {
-    width: min-content;
-    align-self: center;
-    padding: var(--t8px) var(--t32px);
-    border-style: none;
-    border-radius: var(--t8px);
-    color: var(--corTextoBranco);
-    background-color: var(--corEnfase);
-    cursor: pointer;
-}
-.tituloForm h2 {
-    color: var(--corTextoPreto);
-    font-size: var(--t32px);
-    font-weight: bold;
-}
-.formContainer {
-    background-color: var(--corBGGrids);
-    border-radius: var(--t24px);
-    padding: var(--t48px);
 }

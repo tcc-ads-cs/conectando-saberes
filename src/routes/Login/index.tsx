@@ -1,17 +1,17 @@
 import { Typography } from "@mui/material";
+
 import Navbar from "../../components/Navbar";
 import RodapeDA from "../../components/RodapeDA";
 import FormLogin from "./components/FormLogin";
-
-import './index.css';
+import '../../styles/forms.css';
 
 const Login: React.FC = () => {
     return <>
         <Navbar />
-        <main className="BGGradiente">
+        <main className="BGGradiente checkinContainer">
             <div className="formContainer">
-                <div className="tituloForm">
-                    <Typography variant='h2' fontFamily={'poppins'}>Bora continuar sua jornada?</Typography>
+                <div>
+                    <Typography className="titulo" variant='h2' fontFamily={'poppins'}>Bora continuar sua jornada?</Typography>
                     <Typography fontFamily={'poppins'}>Insira seu e-mail e senha para fazer login.</Typography>
                 </div>
                 <FormLogin />
