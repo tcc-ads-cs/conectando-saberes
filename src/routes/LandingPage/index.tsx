@@ -1,6 +1,6 @@
 import MenuPrincipal from "../../components/MenuPrincipal";
 import './index.css';
-import '../../estruturas.css';
+import '../../styles/estruturas.css';
 
 const LandingPage: React.FC = () => {
     return <>
