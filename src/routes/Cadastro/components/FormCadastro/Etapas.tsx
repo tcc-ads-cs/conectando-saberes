@@ -12,7 +12,6 @@ export const Etapa1 = () => {
     );
   };
 
-  
   export const Etapa2 = () => {
     return (
       <div className="etapa">
@@ -53,7 +52,6 @@ export const Etapa1 = () => {
         <select name="estado">
           {/* API de estados */}
         </select>
-
       </div>
     );
   };
