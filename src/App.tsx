@@ -9,10 +9,10 @@ import Postagem from './routes/Postagem';
 import Erro404 from './routes/Erro404';
 import Editais from './routes/Editais';
 import LandingPage from './routes/LandingPage';
+import Perfil from './routes/Perfil';
 
 //TODO: Pensar em como será a verificação do ID do usuário para o perfil. 
 //* Ideia: Quando a pessoa faz login, as infos do perfil dela já são baixadas e alocadas. (Mas e se ela quiser ver o perfil de outra pessoa?)
-////import Perfil from './routes/Perfil';
 
 const routerCS = createBrowserRouter([
   {
@@ -43,8 +43,11 @@ const routerCS = createBrowserRouter([
   {
     path: "nova-postagem",
     element: <Postagem />
+  },
+  {
+    path: "perfil",
+    element: <Perfil />
   }
-  //! Falta colocar o perfil.
 ])
 
 function App() {
