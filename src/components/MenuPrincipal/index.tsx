@@ -13,7 +13,7 @@ import MenuItem from './components/MenuItem';
 const menuItems = [
   { id: "Pesquisa", title: 'Pesquisa', to: '/pesquisa', Icon: SearchIcon },
   { id: "Notificacoes", to: '/notificacoes', Icon: NotificationsIcon },
-  { id: "Perfil", title: 'Meu Perfil', to: '/meu-perfil', Icon: PersonIcon },
+  { id: "Perfil", title: 'Meu Perfil', to: '/perfil', Icon: PersonIcon },
   { id: "Editais", title: 'Dicas e Informações sobre Editais', to: '/editais', Icon: LightbulbIcon },
   { id: "Postagem", title: 'Publicar postagem', to: '/nova-postagem', Icon: CreateIcon },
 ];

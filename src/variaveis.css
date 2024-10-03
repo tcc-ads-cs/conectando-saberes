@@ -32,6 +32,10 @@
     animation: AnimationName 0s ease infinite;
 }
 
+.none {
+    display: none;
+}
+
 /* Animação do Background */
 @-webkit-keyframes AnimationName {
     0%{background-position:0% 78%}
