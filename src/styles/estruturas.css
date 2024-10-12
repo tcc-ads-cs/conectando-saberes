@@ -13,8 +13,8 @@
     grid-template-areas:
     "a a a a"
     "c c c b"
-    "d d d e"
-    "d d d e";
+    "c c c d"
+    "c c c d";
 }
 
 .grid-a {

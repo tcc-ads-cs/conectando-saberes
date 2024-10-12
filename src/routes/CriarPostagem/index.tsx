@@ -1,7 +1,7 @@
 import LinkPlaceholder from "../../components/LinkPlaceholder"
 
-const Postagem: React.FC = () => {
+const CriarPostagem: React.FC = () => {
     return <LinkPlaceholder />
 }
 
-export default Postagem;
+export default CriarPostagem;
