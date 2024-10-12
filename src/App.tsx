@@ -5,7 +5,7 @@ import Cadastro from './routes/Cadastro';
 import Feed from './routes/Feed';
 import Login from './routes/Login';
 import Pesquisa from './routes/Pesquisa';
-import Postagem from './routes/Postagem';
+import CriarPostagem from './routes/CriarPostagem';
 import Erro404 from './routes/Erro404';
 import Editais from './routes/Editais';
 import LandingPage from './routes/LandingPage';
@@ -42,7 +42,7 @@ const routerCS = createBrowserRouter([
   },
   {
     path: "nova-postagem",
-    element: <Postagem />
+    element: <CriarPostagem />
   },
   {
     path: "perfil",

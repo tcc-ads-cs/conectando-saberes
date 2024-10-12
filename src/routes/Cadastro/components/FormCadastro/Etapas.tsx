@@ -24,6 +24,7 @@ export const Etapa1 = () => {
           <option value="medio">Ensino Médio</option>
           <option value="grad">Graduação</option>
           <option value="pos-grad">Pós-graduação</option>
+          <option value="mba">MBA</option>
           <option value="mest">Mestrado</option>
           <option value="dout">Doutorado</option>
           <option value="pos-dout">Pós Doutorado</option>
