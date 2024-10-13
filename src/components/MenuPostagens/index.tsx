@@ -20,8 +20,19 @@ const MenuPostagem: React.FC<MenuPostagemProps> = ({req}) => {
         setShowComunidade(true);
     };
 
+    //Lógica para separar o tipo de lista a ser exibida!
     let json = JSON.parse(req);
     let posts = json.posts;
+    let postagensComunidade: any = [];
+    let postagens: any = [];
+
+    posts.forEach((p: { type: number; }) => {
+        if (p.type == 0) {
+            postagensComunidade.push(p);
+        } else {
+            postagens.push(p)
+        }
+    });
 
     return <>
         <div id="menu">
@@ -29,8 +40,8 @@ const MenuPostagem: React.FC<MenuPostagemProps> = ({req}) => {
             <a onClick={btnComunidade}>Comunidade</a>
         </div>
 
-        {showArtigo && <FeedPerfil req={posts} />}
-        {showComunidade && <FeedPerfil req={posts} />}
+        {showArtigo && <FeedPerfil req={postagens} />}
+        {showComunidade && <FeedPerfil req={postagensComunidade} />}
 
     </>
 }
