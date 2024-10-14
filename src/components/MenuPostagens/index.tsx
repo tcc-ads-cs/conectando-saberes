@@ -34,6 +34,7 @@ const MenuPostagem: React.FC<MenuPostagemProps> = ({req}) => {
         }
     });
 
+    //TODO: Fazer a lógica para renderizar a lista de 8 em 8 postagens e depois, refazer a requisição.
     return <>
         <div id="menu">
             <a onClick={btnArtigo}>Artigo</a>
