@@ -1,6 +1,5 @@
-//* Sistema de rotas
+// Sistema de rotas
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
 import Cadastro from './routes/Cadastro';
 import Feed from './routes/Feed';
 import Login from './routes/Login';
@@ -10,6 +9,8 @@ import Erro404 from './routes/Erro404';
 import Editais from './routes/Editais';
 import LandingPage from './routes/LandingPage';
 import Perfil from './routes/Perfil';
+import Notificacoes from './routes/Notificacoes';
+import PaginaInicial from './routes/PaginaInicial';
 
 //TODO: Pensar em como será a verificação do ID do usuário para o perfil. 
 //* Ideia: Quando a pessoa faz login, as infos do perfil dela já são baixadas e alocadas. (Mas e se ela quiser ver o perfil de outra pessoa?)
@@ -17,8 +18,12 @@ import Perfil from './routes/Perfil';
 const routerCS = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage />,
+    element: <PaginaInicial />,
     errorElement: <Erro404 />,
+  },
+  {
+    path: "/home",
+    element: <LandingPage />
   },
   {
     path: "login",
@@ -27,6 +32,10 @@ const routerCS = createBrowserRouter([
   {
     path: "cadastro",
     element: <Cadastro />
+  },
+  {
+    path: "notificacoes",
+    element: <Notificacoes />
   },
   {
     path: "meu-feed",

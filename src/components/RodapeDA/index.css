@@ -1,10 +1,22 @@
-footer {
-    text-align: center;
-    color: var(--corTextoBranco);
-    background-color: var(--corEnfase);
-    padding: 1em;
+@media (min-width:320px) {
+    footer {
+        background-color: var(--corEnfase);
+        color: var(--corTextoBranco);
+        text-align: center;
+        padding: var(--t8px); 
+    }
+
+    footer h6 {
+        font-size: var(--t16px) !important;
+    }
 }
 
-footer h6 {
-    width: 100%;
+@media (min-width:768px) {
+    footer {
+        background-color: var(--corEnfase);
+        color: var(--corTextoBranco);
+        text-align: center;
+        padding: var(--t8px); 
+    }
+
 }

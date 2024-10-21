@@ -12,15 +12,15 @@ const FormCadastro: React.FC = () => {
         method=""
         action=""
         >
-            <div className="inputContainer formCadastro">
+            <div className="inputContainer">
                 {etapaAtual === 1 && <Etapa1 />}
                 {etapaAtual === 2 && <Etapa2 />}
                 {etapaAtual === 3 && <Etapa3 />}
             </div>
             <div className="etapasForm">
-                <Typography className="passos" fontFamily={'poppins'}>{"Passo " + etapaAtual + " de 3"}</Typography>
-                {etapaAtual < 3 && (
-                <button className="btnForm" type="button" onClick={proximaEtapa}><Typography fontFamily={'poppins'} fontWeight={'bold'}>Próximo</Typography></button>
+                {etapaAtual < 3 && (<>
+                    <Typography className="passos" fontFamily={'poppins'}>{"Passo " + etapaAtual + " de 3"}</Typography>
+                    <button className="btnForm" type="button" onClick={proximaEtapa}><Typography fontFamily={'poppins'} fontWeight={'bold'}>Próximo</Typography></button></>
                 )}
             </div>
         </form>

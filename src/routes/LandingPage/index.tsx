@@ -1,12 +1,7 @@
-import MenuPrincipal from "../../components/MenuPrincipal";
-import '../../styles/estruturas.css';
+import LinkPlaceholder from "../../components/LinkPlaceholder";
 
 const LandingPage: React.FC = () => {
-    return <>
-        <div className="grid">
-            <MenuPrincipal />
-        </div>
-    </>;
+    return <LinkPlaceholder></LinkPlaceholder>
 }
 
 export default LandingPage;

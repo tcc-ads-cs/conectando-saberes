@@ -1,10 +1,26 @@
 import { Typography } from "@mui/material";
-import Botao from "./components/Botao";
-
-import './index.css';
 import { Link } from "react-router-dom";
 
+import './index.css';
+
 const Navbar: React.FC = () => {
+    function btnLogin() {
+        //TODO: Fazer função onde loga/desloga + altera o texto do botão.
+        
+        let logado = true;
+        let btn = document.getElementById('btnCheckIn');
+        
+        if (logado && btn != null) {
+            try {
+                var textoBtn = "Sair"
+                btn.innerHTML = '<p class="MuiTypography-root MuiTypography-body1 css-7fd3ay-MuiTypography-root">' + textoBtn + '</p>';
+                logado = false;
+            } catch (e) {
+                console.log(e);
+            }          
+        }
+    }
+    
     return (
         <header>
             <Link to="/" className="linkLogo">
@@ -16,10 +32,7 @@ const Navbar: React.FC = () => {
                     <Typography variant={'h1'} fontFamily={'poppins'} fontWeight={'bold'}>Conectando Saberes</Typography>
                 </div>
             </Link>
-            <div className="containerBtn">
-                <Botao id="btnLogin" funcao="login" placeholder="Entrar" />
-                <Botao id="btnCadastro" funcao="cadastro" placeholder="Cadastre-se" />
-            </div>
+            <Link to={''} id="btnCheckIn" onClick={btnLogin}><Typography fontFamily={'poppins'}>Voltar</Typography></Link>
         </header>
     );
 };

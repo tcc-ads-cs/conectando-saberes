@@ -8,8 +8,8 @@ interface PostagemProps {
     type: string,
     ftPerfil: string,
     nmAutor: string,
-    escolaridade: string,
-    dcBroche: number,
+    grauEscolaridade: string,
+    dcInteresse: number,
     dcTags: string,
     dcTitulo: string,
     textPost: string, 
@@ -18,7 +18,7 @@ interface PostagemProps {
     nbComentarios: string
 }
 
-const Postagem: React.FC<PostagemProps> = ({ftPerfil, nmAutor, escolaridade, dcBroche, textPost, type, dcTags, dcTitulo, lkDownload, nbComentarios, quantityLikes}) => {
+let Postagem: React.FC<PostagemProps> = ({ftPerfil, nmAutor, grauEscolaridade, dcInteresse, textPost, type, dcTags, dcTitulo, lkDownload, nbComentarios, quantityLikes}) => {
     switch (type) {
         case "0":
             return <>
@@ -26,8 +26,8 @@ const Postagem: React.FC<PostagemProps> = ({ftPerfil, nmAutor, escolaridade, dcB
                     <div id="infoPostagem">
                         <img src={ftPerfil} alt="" />
                         <Typography>{nmAutor}</Typography>
-                        <Broche tipo={dcBroche} />
-                        <Typography>{escolaridade}</Typography>
+                        <Broche tipo={dcInteresse} />
+                        <Typography>{grauEscolaridade}</Typography>
                     </div>
                     <div id="opcoesMenu">
                         <ArrowDropDownIcon />
@@ -54,8 +54,8 @@ const Postagem: React.FC<PostagemProps> = ({ftPerfil, nmAutor, escolaridade, dcB
                     <div id="infoPostagem">
                         <img src={ftPerfil} alt="" />
                         <Typography>{nmAutor}</Typography>
-                        <Broche tipo={dcBroche} />
-                        <Typography>{escolaridade}</Typography>
+                        <Broche tipo={dcInteresse} />
+                        <Typography>{grauEscolaridade}</Typography>
                     </div>
                     <div id="opcoesMenu">
                         <ArrowDropDownIcon />
@@ -76,3 +76,5 @@ const Postagem: React.FC<PostagemProps> = ({ftPerfil, nmAutor, escolaridade, dcB
             </>
     }
 }
+
+Postagem = Postagem;

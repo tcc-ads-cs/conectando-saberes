@@ -60,7 +60,7 @@ const Campo: React.FC<CampoProps> = ({classe, grupo, id, label, placeholder, tip
             name={grupo}
             type="checkbox"
             placeholder={placeholder} />
-            <label htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
+            <label htmlFor={id} className="checkboxMargin"><Typography fontFamily={'poppins'}>{label}</Typography></label><br></br>
         </>       
         default:
         return <>
