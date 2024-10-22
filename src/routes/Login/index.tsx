@@ -12,7 +12,7 @@ const Login: React.FC = () => {
         <div className="cta">
             <Typography className="text" fontFamily={'poppins'}>Deseja se cadastrar? <Link to='/cadastro'><em>Clique aqui</em></Link></Typography>
         </div>
-        <main className="BGGradiente checkinContainer">
+        <main className="BGGradiente checkinContainer login">
             <div className="formContainer">
                 <div className="formHeader">
                     <Typography className="titulo" variant='h2' fontFamily={'poppins'}>Bora continuar sua jornada?</Typography>

@@ -1,55 +1,60 @@
 import { Typography } from "@mui/material";
 
 export interface CampoProps {
-    id?: string,
-    label?: string,
-    placeholder?: string,
+    id: string,
     tipo: string,
-    grupo?: string,
+    label: string,
+    name: string,
     classe?: string
+    placeholder?: string,
+
 }
 
-const Campo: React.FC<CampoProps> = ({classe, grupo, id, label, placeholder, tipo}) => {    
+const Campo: React.FC<CampoProps> = ({classe, id, label, name, placeholder, tipo}) => {    
     switch (tipo) {
-        case "senha":
-        return <>
-            <label className="inputLabel" htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
-            <input
-            required
-            className={"input " + classe}
-            id={id}
-            name={tipo}
-            type="password"
-            placeholder={placeholder} />
-        </>
         case "email":
         return <>
             <label className="inputLabel" htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
             <input
             required
-            className={"input " + classe}
             id={id}
-            name={tipo}
-            type="email"
-            placeholder={placeholder} />
+            name={name}
+            type={tipo}
+            placeholder={placeholder}
+            className={classe? "input " + classe : "input"} />
         </>
-        case "dtNasc":
+        case "password":
         return <>
             <label className="inputLabel" htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
             <input
             required
-            className={"input " + classe}
             id={id}
-            name={tipo}
-            type="date"
-            placeholder={placeholder} />
+            name={name}
+            type={tipo}
+
+            // Alinhar com o Ronald ⬇️
+            maxLength={20}
+
+            placeholder={placeholder}
+            className={classe? "input " + classe : "input"} />
+        </>
+        case "date":
+        return <>
+            <label className="inputLabel" htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
+            <input
+            required
+            id={id}
+            name={name}
+            type={tipo}
+            placeholder={placeholder}
+            className={classe? "input " + classe : "input"} />
         </>
         case "radio":
         return <>
             <input
             id={id}
-            name={grupo}
-            type="radio"
+            name={name}
+            type={tipo}
             placeholder={placeholder} />
             <label htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
         </>
@@ -57,8 +62,8 @@ const Campo: React.FC<CampoProps> = ({classe, grupo, id, label, placeholder, tip
         return <>
             <input
             id={id}
-            name={grupo}
-            type="checkbox"
+            name={name}
+            type={tipo}
             placeholder={placeholder} />
             <label htmlFor={id} className="checkboxMargin"><Typography fontFamily={'poppins'}>{label}</Typography></label><br></br>
         </>       
@@ -67,11 +72,10 @@ const Campo: React.FC<CampoProps> = ({classe, grupo, id, label, placeholder, tip
             <label className="inputLabel" htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
             <input
             required
-            className={"input " + classe}
             id={id}
-            type="text"
-            name={tipo}
-            placeholder={placeholder} />
+            name={name}
+            placeholder={placeholder}
+            className={classe? "input " + classe : "input"} />
         </> 
     }
 }

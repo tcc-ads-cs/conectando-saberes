@@ -11,9 +11,7 @@ import LandingPage from './routes/LandingPage';
 import Perfil from './routes/Perfil';
 import Notificacoes from './routes/Notificacoes';
 import PaginaInicial from './routes/PaginaInicial';
-
-//TODO: Pensar em como será a verificação do ID do usuário para o perfil. 
-//* Ideia: Quando a pessoa faz login, as infos do perfil dela já são baixadas e alocadas. (Mas e se ela quiser ver o perfil de outra pessoa?)
+import LinkPlaceholder from './components/LinkPlaceholder';
 
 const routerCS = createBrowserRouter([
   {
@@ -56,6 +54,12 @@ const routerCS = createBrowserRouter([
   {
     path: "perfil",
     element: <Perfil />
+    //TODO: Implementar rotas dinâmicas utilizando o ID do usuário como parâmetro (perfil/id-da-pessoa).
+  },
+  {
+    path: "postagem",
+    element: <LinkPlaceholder />
+    //TODO: Implementar rotas dinâmicas utilizando o GUID da postagem como parâmetro (postagem/guid-da-postagem).
   }
 ])
 
