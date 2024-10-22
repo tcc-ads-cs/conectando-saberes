@@ -12,7 +12,7 @@ const Perfil: React.FC = () => {
     return <>
         <Navbar />
         <div className="grid-alt">
-            <main className="grid-a" style={{borderStyle:"solid"}}>
+            <main className="grid-a">
                 <InfoPerfil req={json}/>
             </main>
             <aside>

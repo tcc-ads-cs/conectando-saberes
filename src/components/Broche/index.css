@@ -1,0 +1,9 @@
+abbr {
+    display: block;
+    margin: var(--t8px) var(--t8px) var(--t8px) 0;
+}
+
+abbr img {
+    height: var(--t24px);
+    width: auto;
+}

@@ -1,0 +1,42 @@
+@media (min-width: 320px) {   
+    .containerInfoUsuario {
+        display: flex;
+        padding: var(--t16px);
+        justify-content: space-between;
+        background: linear-gradient(0deg, rgba(227,212,255,0) 0%, rgba(227,212,255,1) 100%);
+    }
+
+    .infoUsuario h2 {
+        font-size: var(--t24px);
+        margin-bottom: var(--t8px);
+        color: var(--corTextoPreto);
+    }
+
+    .contatoUsuario {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .contatoUsuario button {
+        padding: var(--t8px) var(--t24px);
+        border-radius: var(--t32px);
+        border-style: none;
+        color: var(--corTextoBranco);
+        font-size: var(--t16px);
+        background-color: var(--corEnfase);
+    }
+
+    .contatoUsuario img {
+        border-radius: var(--t64px);
+        object-fit: cover;
+        width: 120px;
+        height: 120px;
+    }
+
+    .grid-b {
+        display: none;
+    }
+
+}

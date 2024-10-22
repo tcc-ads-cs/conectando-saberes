@@ -2,7 +2,7 @@
     /* Paleta de cores */
     --corBotao: #E3D4FF;
     --corBGGrids: #FAF7FF;
-    --corBGForms: #EEE8fA;
+    --corBGForms: #EEE8FA;
     --corTextoBranco: #F4EDFF;
     --corTextoPreto: #2C0735;
     --corBGIcons: #ECE1FF;
@@ -22,6 +22,8 @@
     --t44px: 2.75em;
     --t48px: 3em;
     --t64px: 4em;
+
+    overflow-x: hidden;
 }
 
 .BGGradiente {
@@ -35,6 +37,10 @@
 
 .none {
     display: none;
+}
+
+.bold {
+    font-weight: 500 !important;
 }
 
 /* Animação do Background */
@@ -57,4 +63,46 @@
     0%{background-position:0% 78%}
     50%{background-position:100% 23%}
     100%{background-position:0% 78%}
+}
+
+@media (min-width: 768px) {
+    .grid-alt {
+        display: grid;
+        grid-template-areas:
+        "a a a a"
+        "c c c b"
+        "c c c d"
+        "c c c d";
+    }
+    
+    .grid-a {
+        display: block;
+        grid-area: a;
+    }
+    
+    .grid-b {
+        display: block;
+        grid-area: b;
+    }
+    
+    .grid-c {
+        display: block;
+        grid-area: c;
+    }
+    
+    .grid-d {
+        display: block;
+        grid-area: d;
+    }
+    
+    .grid-e {
+        display: block;
+        grid-area: e;
+    }
+    
+    .grid-f {
+        display: block;
+        grid-area: f;
+    }
+    
 }

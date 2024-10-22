@@ -8,35 +8,3 @@
     "f d d d";
 }
 
-.grid-alt {
-    display: grid;
-    grid-template-areas:
-    "a a a a"
-    "c c c b"
-    "c c c d"
-    "c c c d";
-}
-
-.grid-a {
-    grid-area: a;
-}
-
-.grid-b {
-    grid-area: b;
-}
-
-.grid-c {
-    grid-area: c;
-}
-
-.grid-d {
-    grid-area: d;
-}
-
-.grid-e {
-    grid-area: e;
-}
-
-.grid-f {
-    grid-area: f;
-}
