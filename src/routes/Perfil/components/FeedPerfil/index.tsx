@@ -5,11 +5,11 @@ interface FeedPerfilProps {
 }
 
 const FeedPerfil: React.FC<FeedPerfilProps> = ({req}) => {
-    return <div>
+    return <>
         {req.map((r: any) => {
             return <Postagem key={r.guid} post={r} />
         })}
-    </div>
+    </>
 }
 
 export default FeedPerfil;

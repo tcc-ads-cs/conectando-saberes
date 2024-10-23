@@ -1,0 +1,22 @@
+@media (min-width: 320px) {
+    .containerMenuPostagem {
+        display: flex;
+        gap: var(--t16px);
+        font-size: var(--t26px);
+        justify-content: center;
+        box-shadow: 0 5px 8px var(--corBotao);
+        padding: var(--t16px) 0;
+        border-radius: var(--t8px);
+        color: var(--corEnfase);
+        align-items: center;
+    }
+
+    .linkSelecionado {
+        color: var(--corTextoPreto);
+        font-size: var(--t24px);
+    }
+
+    .conteudoMenuPostagem {
+        padding: var(--t16px);
+    }
+}

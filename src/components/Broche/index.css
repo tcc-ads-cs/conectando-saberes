@@ -1,5 +1,5 @@
 abbr {
-    display: block;
+    display: inline-block;
     margin: var(--t8px) var(--t8px) var(--t8px) 0;
 }
 

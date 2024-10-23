@@ -13,7 +13,7 @@
     "e e e e";
 }
 
-.containerMenuPrincipal .linkContainer {
+.containerMenuPrincipal .menuLinkContainer {
   display: flex;
   padding: var(--t8px);
   text-decoration: none;
@@ -23,7 +23,7 @@
   background-color: var(--corBotao);
 }
 
-.containerMenuPrincipal .linkContainer:last-child {
+.containerMenuPrincipal .menuLinkContainer:last-child {
   color: var(--corTextoBranco);
   background-color: var(--corEnfase);
 }

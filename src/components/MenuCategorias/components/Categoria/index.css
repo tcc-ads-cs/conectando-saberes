@@ -1,0 +1,29 @@
+@media (min-width: 320px) {
+    .categoriaLinkContainer {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: var(--t16px);
+        color: var(--corTextoPreto);
+        border-radius: var(--t8px);
+        padding: var(--t8px);
+    }
+
+    .iconCategoriaContainer {
+        width: var(--t32px);
+        height: var(--t32px);
+        background-color: var(--corBotao);
+        border-radius: var(--t16px);
+        display: flex;
+    }
+
+    .iconCategoriaContainer {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .qtdeCategoria {
+        color: var(--corEnfase);
+    }
+
+}

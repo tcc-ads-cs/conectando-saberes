@@ -1,0 +1,25 @@
+@media (min-width: 320px) {     
+    .containerInfoUsuario {
+        display: flex;
+        padding: var(--t16px);
+        justify-content: space-between;
+        background: linear-gradient(0deg, rgba(227,212,255,0) 0%, rgba(227,212,255,1) 100%);
+    }
+
+    .containerMenuCategorias {
+        padding: var(--t16px);
+        border-radius: var(--t16px);
+        box-shadow: 0 5px 8px var(--corBotao);
+        width: fit-content;
+    }
+        
+    aside {
+        display: none;
+    }
+}
+
+@media (min-width: 1280px) {
+    .grid-b {
+        display: block;
+    }
+}

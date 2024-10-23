@@ -22,7 +22,9 @@
     --t44px: 2.75em;
     --t48px: 3em;
     --t64px: 4em;
-
+    --t80px: 5em;
+    --t96px: 6em;
+    
     overflow-x: hidden;
 }
 
@@ -63,46 +65,4 @@
     0%{background-position:0% 78%}
     50%{background-position:100% 23%}
     100%{background-position:0% 78%}
-}
-
-@media (min-width: 768px) {
-    .grid-alt {
-        display: grid;
-        grid-template-areas:
-        "a a a a"
-        "c c c b"
-        "c c c d"
-        "c c c d";
-    }
-    
-    .grid-a {
-        display: block;
-        grid-area: a;
-    }
-    
-    .grid-b {
-        display: block;
-        grid-area: b;
-    }
-    
-    .grid-c {
-        display: block;
-        grid-area: c;
-    }
-    
-    .grid-d {
-        display: block;
-        grid-area: d;
-    }
-    
-    .grid-e {
-        display: block;
-        grid-area: e;
-    }
-    
-    .grid-f {
-        display: block;
-        grid-area: f;
-    }
-    
 }

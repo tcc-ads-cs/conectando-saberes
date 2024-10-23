@@ -13,7 +13,7 @@ interface MenuItemProps {
 
 const MenuItem: React.FC<MenuItemProps> = ({ id, title, to, Icon }) => {
   return (
-      <Link id={"menu" + id} to={to} className='linkContainer'>
+      <Link id={"menu" + id} to={to} className='menuLinkContainer'>
           <Icon />
           <Typography fontFamily={'poppins'} variant={'h6'}>{title}</Typography>
       </Link>

@@ -1,0 +1,7 @@
+@media (min-width: 320px) {
+    .containerMenuCategorias h2 {
+        font-size: var(--t24px);
+        color: var(--corTextoPreto);
+        margin-bottom: var(--t8px);
+    }
+}

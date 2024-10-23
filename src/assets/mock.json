@@ -3,6 +3,7 @@
   "nmUsuario": "Ronald Evangelista",
   "dtNasc": "2024-09-26T00:00:00",
   "email": "ronald.pereira.evangelista@aluno.ifsp.edu.br",
+  "ftPerfil": "https://yavuzceliker.github.io/sample-images/image-1.jpg",
   "tpPreferencia": 1,
   "descTitulo": 1,
   "seguidores": 0,
@@ -32,10 +33,17 @@
   "posts": [
     {
       "guid": "0dc630e58efc4cb4a5802a4432e20b2c",
-      "postDate": "2024-10-06T19:26:24",
-      "textPost": "post para user 68 apenas (2)",
-      "quantityLikes": 0,
-      "type": 0
+      "type": 0,
+      "ftPerfil": "https://yavuzceliker.github.io/sample-images/image-1.jpg",
+      "nmAutor": "João Silva",
+      "grauEscolaridade": 1,
+      "tpInteresse": 1,
+      "dcCategorias": [2, 3],
+      "dcTitulo": "A Revolução da Educação Online",
+      "textPost": "Este é um artigo detalhado sobre como a educação online está transformando o aprendizado.",
+      "flDownload": "https://example.com/download/artigo.pdf",
+      "qtLikes": 150,
+      "qtComentarios": 25
     },
     {
       "guid": "67c227825b4b4841b5bb14bd6db54f41",
