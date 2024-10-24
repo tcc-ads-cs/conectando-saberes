@@ -1,6 +1,7 @@
 @media (min-width: 320px) {
     .containerMenuPostagem {
         display: flex;
+        flex-direction: column;
         gap: var(--t16px);
         font-size: var(--t26px);
         justify-content: center;
@@ -18,5 +19,11 @@
 
     .conteudoMenuPostagem {
         padding: var(--t16px);
+    }
+}
+
+@media (min-width: 768px) {
+    .containerMenuPostagem {
+        flex-direction: row;
     }
 }

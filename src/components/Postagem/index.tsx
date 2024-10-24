@@ -12,29 +12,30 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
     switch (post.type) {
         case 0:
             return <>
-                <div id="containerPostagem">
-                    <div id="infoPostagem">
+                <div id={post.guid} className="containerPostagem">
+                    <div className="infoPostagem">
                         <img src={post.ftPerfil} alt="" />
                         <Typography>{post.nmAutor}</Typography>
-                        <Broche tipo={post.dcInteresse} />
+                        <Broche tipo={post.tpInteresse} />
                         <Typography>{post.grauEscolaridade}</Typography>
                     </div>
-                    <div id="opcoesMenu">
+                    <div className="opcoesMenu">
                         <ArrowDropDownIcon />
                     </div>
-                    <div id="conteudoPostagem">
+                    <div className="conteudoPostagem">
                         <Typography>{post.dcTitulo}</Typography>
                         <Typography>{post.dcTags}</Typography>
                         <Typography>{post.textPost}</Typography>
                         
-                        <div id="downloadPostagem">
+                        <div className="downloadPostagem">
                             <FileOpenIcon />
                             <Typography>{post.lkDownload}</Typography>
                         </div>
                     </div>
-                    <div id="interacaoPostagem">
+                    <div className="interacaoPostagem">
                         <BtnInteracao tipo="curtida" curtidas={post.quantityLikes}/>
                         <BtnInteracao tipo="comentario" curtidas={post.nbComentarios}/>
+                        Acabou o post aqui
                     </div>
                 </div>
             </>
