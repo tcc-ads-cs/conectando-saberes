@@ -25,7 +25,9 @@
   },
   "guidPosts": [
     "0dc630e58efc4cb4a5802a4432e20b2c",
-    "67c227825b4b4841b5bb14bd6db54f41",
+    "1fa2b7e68e754f88a98d8f22e6a0e72e",
+    "3cb63eab4f9f4b9da5c34fbe00c4de35",
+    "4da47cbb65704a1c8355bcd334bb4c1a",
     "eb69602ce26848878595abb3f53382cf",
     "4f248634b60a42a98530eeb738b1335e",
     "2905cac50e894d07a3d282ae8c805ee0"
@@ -46,11 +48,46 @@
       "qtComentarios": 25
     },
     {
-      "guid": "67c227825b4b4841b5bb14bd6db54f41",
-      "postDate": "2024-10-06T19:26:15",
-      "textPost": "post para user 68 apenas",
-      "quantityLikes": 0,
-      "type": 0
+      "guid": "1fa2b7e68e754f88a98d8f22e6a0e72e",
+      "type": 0,
+      "ftPerfil": "https://yavuzceliker.github.io/sample-images/image-2.jpg",
+      "nmAutor": "Maria Oliveira",
+      "grauEscolaridade": 2,
+      "tpInteresse": 2,
+      "dcCategorias": [1, 4],
+      "dcTitulo": "O Futuro das Cidades Inteligentes",
+      "textPost": "Neste artigo, exploramos as inovações que estão moldando as cidades do futuro.",
+      "flDownload": "https://example.com/download/cidades-inteligentes.pdf",
+      "qtLikes": 200,
+      "qtComentarios": 30
+    },
+    {
+      "guid": "3cb63eab4f9f4b9da5c34fbe00c4de35",
+      "type": 0,
+      "ftPerfil": "https://yavuzceliker.github.io/sample-images/image-3.jpg",
+      "nmAutor": "Pedro Santos",
+      "grauEscolaridade": 3,
+      "tpInteresse": 3,
+      "dcCategorias": [2, 5],
+      "dcTitulo": "Sustentabilidade na Indústria",
+      "textPost": "Analisamos as práticas sustentáveis que estão sendo implementadas na indústria moderna.",
+      "flDownload": "https://example.com/download/sustentabilidade.pdf",
+      "qtLikes": 180,
+      "qtComentarios": 22
+    },
+    {
+      "guid": "4da47cbb65704a1c8355bcd334bb4c1a",
+      "type": 0,
+      "ftPerfil": "https://yavuzceliker.github.io/sample-images/image-4.jpg",
+      "nmAutor": "Ana Costa",
+      "grauEscolaridade": 1,
+      "tpInteresse": 1,
+      "dcCategorias": [3, 6],
+      "dcTitulo": "Tendências em Tecnologia da Informação",
+      "textPost": "Uma visão geral das principais tendências que estão moldando o setor de TI.",
+      "flDownload": "https://example.com/download/tecnologia.pdf",
+      "qtLikes": 220,
+      "qtComentarios": 40
     },
     {
       "guid": "eb69602ce26848878595abb3f53382cf",

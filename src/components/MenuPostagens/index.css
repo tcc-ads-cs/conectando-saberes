@@ -22,7 +22,7 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 400px) {
     .containerMenuPostagem {
         flex-direction: row;
     }
