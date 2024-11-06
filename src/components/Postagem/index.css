@@ -6,11 +6,14 @@
         border-radius: var(--t8px);
         box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
         padding: var(--t16px);
+        margin-bottom: var(--t32px);
     }
     
     .headerPostagem {
         display: flex;
         align-items: center;
+        color: var(--corTextoPreto);
+        text-decoration: none;
     }
 
     .headerPostagem img {
@@ -39,13 +42,17 @@
         margin-left: var(--t12px);
     }
 
+    .conteudoPostagem {
+        text-decoration: none;
+        color: var(--corTextoPreto);
+    }
+
     .conteudoPostagem h3 {
         font-size: var(--t24px);
     }
     
     .categoriasPostagem {
         padding: var(--t8px) 0 var(--t4px) 0;
-        
     }
     
     .categoria {
@@ -54,7 +61,30 @@
         display: inline-block;
         padding: var(--t4px) var(--t12px);
         border-radius: var(--t24px);
-        text-decoration: underline;
+        text-decoration: none;
         margin: var(--t4px) var(--t4px) var(--t4px) 0;
+    }
+
+    .containerDownloadPostagem {
+        display: flex;
+        gap: var(--t8px);
+    }
+
+    .downloadPostagem {
+        padding: var(--t16px);
+        background-color: var(--corBotao);
+        border-radius: var(--t8px);
+        color: var(--corTextoPreto);
+    }
+
+    .containerInteracaoPostagem {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+
+    .interacaoPostagem {
+        display: flex;
+        gap: var(--t16px);
     }
 }

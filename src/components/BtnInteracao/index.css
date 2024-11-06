@@ -1,0 +1,18 @@
+@media (min-width: 320px) {
+    .btnInteracao {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--t8px);
+        color: var(--corTextoPreto);
+    }
+    
+    .iconInteracao {
+        background-color: var(--corBotao);
+        border-style: none;
+        border-radius: var(--t32px);
+        padding: var(--t16px);
+        display: flex;
+        cursor: pointer;
+    }
+}

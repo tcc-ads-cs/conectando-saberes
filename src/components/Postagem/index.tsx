@@ -1,24 +1,29 @@
 import { Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import FileOpenIcon from '@mui/icons-material/FileOpen';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
 import Broche from "../Broche";
 import BtnInteracao from "../BtnInteracao";
 import { getCategorias } from "../functions/getCategorias";
-import './index.css'
 import { getGrauEscolaridade } from "../functions/getGrauEscolaridade";
+
+import './index.css'
 
 interface PostagemProps {
     post: string | any;
 }
 
+// TODO: Adicionar o ID do perfil na requisição
+var idPerfil = "id-do-perfil";
 
 const Postagem: React.FC<PostagemProps> = ({post}) => {  
     switch (post.type) {
         case 0:
-        // Postagem simples
+        // Postagem longa com anexo
             return <>
                 <div id={post.guid} className="containerPostagem">
-                    <div className="headerPostagem">
+                    <Link to={"perfil/" + idPerfil} className="headerPostagem">
                         <img src={post.ftPerfil} alt="" />
                         <div className="infoAutorPostagem">
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.nmAutor}</Typography>
@@ -26,8 +31,8 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.grauEscolaridade)}</Typography>
                         </div>
                         <ArrowDropDownIcon />
-                    </div>
-                    <div className="conteudoPostagem">
+                    </Link>
+                    <Link to={"/postagem/" + post.guid} className="conteudoPostagem">
                         <Typography fontFamily={'poppins'} variant={'h3'}>{post.dcTitulo}</Typography>
                         <div className="categoriasPostagem">
                         {
@@ -37,14 +42,20 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                         }
                         </div>
                         <Typography fontFamily={'source-serif-4'}>{post.textPost}</Typography>
-                    </div>
-                    <div className="interacaoPostagem">
-                        <div className="downloadPostagem">
-                            <FileOpenIcon />
-                            <Typography fontFamily={'poppins'}>{post.lkDownload}</Typography>
+                    </Link>
+                    <div className="containerInteracaoPostagem">
+                        <div className="containerDownloadPostagem">
+                            <Link to={post.flDownload} className="downloadPostagem">
+                                <FileOpenIcon />
+                            </Link>
+                            
+                            {/*TODO: Fazer uma lógica onde a partir do tamanho da tela, adiciona a classe none */}
+                            <Typography id="altTextDownload" className="none" fontFamily={'poppins'}>Anexo disponível para download</Typography>
                         </div>
-                        <BtnInteracao tipo="curtida" curtidas={post.quantityLikes}/>
-                        <BtnInteracao tipo="comentario" curtidas={post.nbComentarios}/>
+                        <div className="interacaoPostagem">   
+                            <BtnInteracao tipo="curtida" qtInteracao={post.qtLikes}/>
+                            <BtnInteracao tipo="comentario" qtInteracao={post.qtComentarios}/>
+                        </div>
                     </div>
                 </div>
             </>

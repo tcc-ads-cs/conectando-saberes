@@ -11,11 +11,11 @@ import * as categorias from '../../assets/tags.json';
 let jsonCat = JSON.stringify(categorias);
 
 const MenuPostagem: React.FC<MenuPostagemProps> = ({req}) => {
-    //Lógica dos botões
     const [showPostagens, setShowPostagens] = useState(true);
     const [showComunidade, setShowComunidade] = useState(false);
     const [showCategorias, setShowCategorias] = useState(false);
-
+    
+    //TODO: Transformar a estilização dos botões em funções
     let btnA = document.getElementById('btnPostagens');
     let btnCo = document.getElementById('btnComunidade');
     let btnCa = document.getElementById('btnCategorias');
