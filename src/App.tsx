@@ -54,12 +54,12 @@ const routerCS = createBrowserRouter([
   {
     path: "perfil",
     element: <Perfil />
-    //TODO: Implementar rotas dinâmicas utilizando o ID do usuário como parâmetro (perfil/id-da-pessoa).
+    //TODO: 1 - Implementar rotas dinâmicas utilizando o ID do usuário como parâmetro (perfil/id-da-pessoa).
   },
   {
     path: "postagem",
     element: <LinkPlaceholder />
-    //TODO: Implementar rotas dinâmicas utilizando o GUID da postagem como parâmetro (postagem/guid-da-postagem).
+    //TODO: 2 - Implementar rotas dinâmicas utilizando o GUID da postagem como parâmetro (postagem/guid-da-postagem).
   }
 ])
 

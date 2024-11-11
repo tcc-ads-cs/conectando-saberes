@@ -1,70 +1,50 @@
 import { useState } from 'react';
-import FeedPerfil from "../../routes/Perfil/components/FeedPerfil";
+import FeedPostagem from "../../routes/Perfil/components/FeedPostagem";
 import MenuCategorias from '../MenuCategorias';
+import { togglePostagem, toggleComunidade, toggleCategoria } from '../functions/toggleBtnClassse';
 import './index.css';
+
+import * as categorias from '../../assets/tags.json';
+let jsonCat = JSON.stringify(categorias);
 
 interface MenuPostagemProps {
     req: string | any;
 }
 
-import * as categorias from '../../assets/tags.json';
-let jsonCat = JSON.stringify(categorias);
-
 const MenuPostagem: React.FC<MenuPostagemProps> = ({req}) => {
     const [showPostagens, setShowPostagens] = useState(true);
     const [showComunidade, setShowComunidade] = useState(false);
     const [showCategorias, setShowCategorias] = useState(false);
-    
-    //TODO: Transformar a estilização dos botões em funções
-    let btnA = document.getElementById('btnPostagens');
-    let btnCo = document.getElementById('btnComunidade');
-    let btnCa = document.getElementById('btnCategorias');
 
     const btnPostagens = () => {
-        if (!(btnA?.classList.contains('linkSelecionado'))) { btnA?.classList.add('linkSelecionado'); };
-        if (btnCo?.classList.contains('linkSelecionado')) { btnCo?.classList.remove('linkSelecionado'); };
-        if (btnCa?.classList.contains('linkSelecionado')) { btnCa?.classList.remove('linkSelecionado'); };
-
+        togglePostagem();
         setShowPostagens(true);
         setShowComunidade(false);
         setShowCategorias(false);        
     };
 
     const btnComunidade = () => {
-        if (btnA?.classList.contains('linkSelecionado')) { btnA?.classList.remove('linkSelecionado'); };
-        if (!(btnCo?.classList.contains('linkSelecionado'))) { btnCo?.classList.add('linkSelecionado'); };
-        if (btnCa?.classList.contains('linkSelecionado')) { btnCa?.classList.remove('linkSelecionado'); };
-        
+        toggleComunidade();
         setShowPostagens(false);
         setShowComunidade(true);
         setShowCategorias(false);
     };
 
     const btnCategorias = () => {
-        if (btnA?.classList.contains('linkSelecionado')) { btnA?.classList.remove('linkSelecionado'); };
-        if (btnCo?.classList.contains('linkSelecionado')) { btnCo?.classList.remove('linkSelecionado'); };
-        if (!(btnCa?.classList.contains('linkSelecionado'))) { btnCa?.classList.add('linkSelecionado'); };
-        
+        toggleCategoria();
         setShowPostagens(false);
         setShowComunidade(false);
         setShowCategorias(true);
     };
 
-    //Lógica para separar o tipo de lista a ser exibida! (transformar em função?)
     let json = JSON.parse(req);
     let posts = json.posts;
     let postagensComunidade: any = [];
     let postagens: any = [];
 
-    posts.forEach((p: { type: number; }) => {
-        if (p.type == 3) {
-            postagensComunidade.push(p);
-        } else {
-            postagens.push(p);
-        }
-    });
+    posts.forEach((p: { type: number; }) => { p.type == 3 ? postagensComunidade.push(p) : postagens.push(p); });
 
-    //TODO: Fazer a lógica para renderizar a lista de 8 em 8 postagens e depois, refazer a requisição.
+    //TODO: 4 - Fazer a lógica para renderizar a lista de 8 em 8 postagens e depois, refazer a requisição.
     return <>
         <div className="containerMenuPostagem">
             <a id="btnPostagens" className="linkSelecionado" onClick={btnPostagens}>Postagens</a>
@@ -72,8 +52,8 @@ const MenuPostagem: React.FC<MenuPostagemProps> = ({req}) => {
             <a id="btnCategorias" onClick={btnCategorias}>Categorias</a>
         </div>
         <div className="conteudoMenuPostagem">
-            {showPostagens && <FeedPerfil req={postagens} />}
-            {showComunidade && <FeedPerfil req={postagensComunidade} />}
+            {showPostagens && <FeedPostagem req={postagens} />}
+            {showComunidade && <FeedPostagem req={postagensComunidade} />}
             {showCategorias && <MenuCategorias req={jsonCat} />}
         </div>
         

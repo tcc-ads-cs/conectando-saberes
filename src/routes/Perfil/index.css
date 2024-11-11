@@ -37,3 +37,9 @@
         padding-left: var(--t32px);
     }
 }
+
+@media (min-width: 1400px) {
+    .padding-left {
+        padding-left: 10em;
+    }
+}

@@ -1,10 +1,10 @@
 import Postagem from "../../../../components/Postagem";
 
-interface FeedPerfilProps {
+interface FeedPostagemProps {
     req: string | any;
 }
 
-const FeedPerfil: React.FC<FeedPerfilProps> = ({req}) => {
+const FeedPostagem: React.FC<FeedPostagemProps> = ({req}) => {
     return <>
         {req.map((r: any) => {
             return <Postagem key={r.guid} post={r} />
@@ -12,4 +12,4 @@ const FeedPerfil: React.FC<FeedPerfilProps> = ({req}) => {
     </>
 }
 
-export default FeedPerfil;
+export default FeedPostagem;

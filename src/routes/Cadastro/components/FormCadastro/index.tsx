@@ -25,10 +25,10 @@ const FormCadastro: React.FC = () => {
                 
                 <label htmlFor="inputAvatar" className='inputLabel'><Typography fontFamily={'poppins'}>Selecione sua foto de perfil:</Typography></label>
                 <input type="file" id="inputAvatar" name="IAvatar" className='input inputMargin' required />
-                {/*TODO: Entender como salvar o arquivo selecionado */}
+                {/*TODO: 7 - Entender como salvar o arquivo selecionado */}
 
                 <Campo id="inputDtNasc" tipo="date" label="Data de Nascimento:" name="IDtNasc" classe="inputMargin"/>
-                {/*TODO: Implementar o cenário de erro: https://www.notion.so/arielmartins/Detalhamento-de-Processos-018145894451445aa06d3aa88ecb343d?pvs=4#ebbd36482bce4cc2862521e0df73045c */}
+                {/*TODO: 8 - Implementar o cenário de erro: https://www.notion.so/arielmartins/Detalhamento-de-Processos-018145894451445aa06d3aa88ecb343d?pvs=4#ebbd36482bce4cc2862521e0df73045c */}
                 
                 <label className='inputLabel' htmlFor="grauEsc"><Typography fontFamily={'poppins'}>Grau de Escolaridade:</Typography></label>
                 <select id="grauEsc" className="input inputMargin" name="IGrauEsc">

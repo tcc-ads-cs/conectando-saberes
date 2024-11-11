@@ -11,6 +11,13 @@ interface BtnInteracaoProps {
 }
 
 const BtnInteracao: React.FC<BtnInteracaoProps> = ({guid, tipo, qtInteracao}) => {
+    let btns = document.querySelectorAll('button');
+    btns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            btn.classList.toggle("iconClicado");
+        });
+    });
+    
     switch (tipo) {
         case "curtida":
             return <>

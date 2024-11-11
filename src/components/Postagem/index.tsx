@@ -13,7 +13,7 @@ interface PostagemProps {
     post: string | any;
 }
 
-// TODO: Adicionar o ID do perfil na requisição
+// TODO: 6 - Adicionar o ID do perfil na requisição
 var idPerfil = "id-do-perfil";
 
 const Postagem: React.FC<PostagemProps> = ({post}) => {  
