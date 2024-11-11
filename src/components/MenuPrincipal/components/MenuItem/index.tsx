@@ -1,5 +1,3 @@
-import './index.css';
-
 import { Link } from 'react-router-dom';
 import { SvgIconComponent } from '@mui/icons-material';
 import { Typography } from '@mui/material';
@@ -8,7 +6,7 @@ interface MenuItemProps {
   title?: string;
   to: string;
   Icon: SvgIconComponent;
-  id?: string;
+  id: string;
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({ id, title, to, Icon }) => {

@@ -20,16 +20,16 @@ const Perfil: React.FC = () => {
             <main className="grid-a containerInfoUsuario">
                 <InfoPerfil req={jsonPe}/>
             </main>
-            <aside>
-                <div className="grid-d containerMenuCategorias">
+            <aside className="grid-b padding-right">
+                <section>
+                    <MenuPrincipal />
+                </section>
+                <section className="containerMenuCategorias">
                     <Typography fontFamily={'poppins'} variant={'h2'} fontWeight={500}>Categorias favoritas</Typography>
                     <MenuCategorias req={jsonPo}/>
-                </div>
-                <div className="grid-b">
-                    <MenuPrincipal />
-                </div>
+                </section>
             </aside>
-            <section className="grid-c">
+            <section className="grid-c padding-left">
                 <MenuPostagem req={jsonPe}/>
             </section>
         </div>

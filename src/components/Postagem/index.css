@@ -30,7 +30,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        padding-left: var(--t8px);
+        padding-left: var(--t16px);
     }
 
     .itemInfoAutorPostagem:last-child {
@@ -50,6 +50,10 @@
     .conteudoPostagem h3 {
         font-size: var(--t24px);
     }
+
+    .conteudoPostagem p {
+        font-size: var(--t20px);
+    }
     
     .categoriasPostagem {
         padding: var(--t8px) 0 var(--t4px) 0;
@@ -62,12 +66,16 @@
         padding: var(--t4px) var(--t12px);
         border-radius: var(--t24px);
         text-decoration: none;
+        font-size: var(--t12px);
         margin: var(--t4px) var(--t4px) var(--t4px) 0;
     }
-
+    
     .containerDownloadPostagem {
         display: flex;
-        gap: var(--t8px);
+    }
+
+    #altTextDownload {
+        display: none;
     }
 
     .downloadPostagem {
@@ -75,6 +83,7 @@
         background-color: var(--corBotao);
         border-radius: var(--t8px);
         color: var(--corTextoPreto);
+        height: fit-content;
     }
 
     .containerInteracaoPostagem {
@@ -86,5 +95,17 @@
     .interacaoPostagem {
         display: flex;
         gap: var(--t16px);
+    }
+}
+
+@media (min-width: 1000px) {
+    .containerDownloadPostagem {
+        display: flex;
+        gap: var(--t8px);
+        align-items: center;
+    }
+
+    #altTextDownload {
+        display: inline;
     }
 }

@@ -45,6 +45,14 @@
     font-weight: 500 !important;
 }
 
+.padding-right {
+    padding-right: 5em;
+}
+
+.padding-left {
+    padding-left: 5em;
+}
+
 /* Animação do Background */
 @-webkit-keyframes AnimationName {
     0%{background-position:0% 78%}

@@ -1,0 +1,6 @@
+@media (min-width: 1000px) {
+    .grid {
+        padding: var(--t32px) 10em 0 10em;
+        gap: var(--t16px);
+    }
+}

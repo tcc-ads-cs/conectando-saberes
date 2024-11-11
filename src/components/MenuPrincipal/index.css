@@ -1,70 +1,125 @@
 @import "/src/variaveis.css";
 
-.containerMenuPrincipal {
-  display: grid;
-  max-height: 21em;
-  gap: var(--t8px);
-  padding: var(--t20px); 
-  border-radius: var(--t16px);
-  background-color: var(--corBGGrids);
-  grid-template-areas:
-    "a a a b"
-    "c c d d"
-    "e e e e";
-}
-
-.containerMenuPrincipal .menuLinkContainer {
-  display: flex;
-  padding: var(--t8px);
-  text-decoration: none;
-  border-radius: var(--t8px);
-  color: var(--corTextoPreto);
-  justify-content: space-between;
-  background-color: var(--corBotao);
-}
-
-.containerMenuPrincipal .menuLinkContainer:last-child {
-  color: var(--corTextoBranco);
-  background-color: var(--corEnfase);
-}
-
-#menuPesquisa {
-  grid-area: a;
-  align-items: center;
-}
-
-#menuNotificacoes {
-  grid-area: b;
-  align-items: center;
-  justify-content: center;
-}
-
-#menuPerfil {
-  grid-area: c;
-  flex-direction: column;
+@media (min-width: 320px) {
+  .containerMenuPrincipal {
+    display: flex;
+    position: fixed;
+    bottom: 1%; left: 0; right: 0;
+    margin: auto;
+    background-color: var(--corBGGrids);
+    padding: var(--t12px) var(--t24px);
+    gap: var(--t24px);
+    border-radius: var(--t16px);
+    border: solid var(--corEnfase) 1px;
+    align-items: center;
+    width: fit-content;
+  }
   
-  /* ? Não sei se o gap é grande o suficiente pra não quebrar a linha estranho. */
-  gap: var(--t32px);
+  .menuLinkContainer {
+    color: var(--corTextoPreto);
+  }
+
+  .menuLinkContainer h6 {
+    display: none;
+  }
+
+  #menuPostagem {
+    padding: var(--t8px);
+    color: var(--corTextoBranco);
+    background-color: var(--corEnfase);
+    border-radius: var(--t8px);
+  }
 }
 
-#menuPerfil > h6 {
-  text-align: end;
+@media (min-width: 600px) {
+  .containerMenuPrincipal {
+    display: flex;
+    position: fixed;
+    bottom: 2.5%; left: 2.5%; right: 2.5%;
+    margin: auto;
+    padding: var(--t8px) var(--t16px);
+    gap: var(--t32px);
+    border: solid var(--corEnfase) 1px;
+    align-items: center;
+    width: fit-content;
+  }
+
+  .menuLinkContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .menuLinkContainer h6 {
+    display: inline;
+    font-size: var(--t12px);
+  }
 }
 
-#menuEditais {
-  grid-area: d;
-  text-align: end;
-  flex-direction: column;
-}
+@media (min-width: 1000px) {
+  .containerMenuPrincipal {
+    position: inherit;
+    display: grid;
+    gap: var(--t8px);
+    padding: var(--t20px);
+    background-color: var(--corBGGrids);
+    border-style: none;
+    grid-template-areas:
+      "a a a b"
+      "c c d d"
+      "e e e e";
+  }
+  
+  .menuLinkContainer {
+    background-color: var(--corBotao);
+    padding: var(--t8px);
+    font-size: var(--t24px);
+    border-radius: var(--t8px);
+  }
+  
+  #menuPesquisa {
+    grid-area: a;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  #menuNotificacoes {
+    grid-area: b;
+    align-items: center;
+    justify-content: center;
+  }
 
-#menuEditais > h5 {
-  text-align: end;
-}
-
-#menuPostagem {
-  grid-area: e;
-  gap: var(--t16px);
-  align-items: center;
-  padding: var(--t24px);
-  justify-content: center;
+  #menuNotificacoes h6 {
+    display: none;
+  }
+  
+  #menuPerfil {
+    grid-area: c;
+    gap: var(--t32px);
+    align-items: initial;
+    min-width: var(--t64px);
+    min-height: 120px;
+    justify-content: space-between;
+  }
+  
+  #menuEditais {
+    grid-area: d;
+    text-align: end;
+    align-items: initial;
+    justify-content: space-between;
+    min-height: 120px;
+  }
+  
+  #menuPostagem {
+    grid-area: e;
+    gap: var(--t16px);
+    align-items: center;
+    padding: var(--t16px);
+    justify-content: center;
+    color: var(--corTextoBranco);
+    background-color: var(--corEnfase);
+    flex-direction: row;
+  }
 }

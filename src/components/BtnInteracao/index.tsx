@@ -5,22 +5,18 @@ import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
 import './index.css';
 
 interface BtnInteracaoProps {
+    guid: string,
     tipo: string,
     qtInteracao: number
 }
 
-function clicar() {
-    let btnA = document.getElementsByClassName("iconInteracao");
-    console.log(btnA);
-}
-
-const BtnInteracao: React.FC<BtnInteracaoProps> = ({tipo, qtInteracao}) => {
+const BtnInteracao: React.FC<BtnInteracaoProps> = ({guid, tipo, qtInteracao}) => {
     switch (tipo) {
         case "curtida":
             return <>
                 <div className="btnInteracao">
                     <Typography fontFamily={'poppins'}>Curtir</Typography>
-                    <button onClick={clicar} className="iconInteracao"><FavoriteBorderIcon /></button>
+                    <button type="button" id={"btnCur-" + guid} className="iconInteracao"><FavoriteBorderIcon /></button>
                     <Typography fontFamily={'poppins'}>{qtInteracao}</Typography>
                 </div>
             </>
@@ -28,7 +24,7 @@ const BtnInteracao: React.FC<BtnInteracaoProps> = ({tipo, qtInteracao}) => {
             return <>
                 <div className="btnInteracao">
                     <Typography fontFamily={'poppins'}>Comentar</Typography>
-                    <button onClick={clicar} className="iconInteracao"><CommentOutlinedIcon /></button>
+                    <button type="button" id={"btnCom-" + guid} className="iconInteracao"><CommentOutlinedIcon /></button>
                     <Typography fontFamily={'poppins'}>{qtInteracao}</Typography>
                 </div>
             </>

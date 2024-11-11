@@ -5,6 +5,7 @@
         align-items: center;
         padding: 0 var(--t16px);
         height: var(--t64px);
+        box-shadow: 0px -5px 31px 0px rgba(0,0,0,0.25);
     }
 
     header h1 {
@@ -36,5 +37,17 @@
 
     .linkLogo {
         text-decoration: none;
+    }
+}
+
+@media (min-width: 600px) {
+    header {
+        padding: 0 var(--t32px);
+    }
+}
+
+@media (min-width: 1000px) {
+    header {
+        padding: 0 10em;
     }
 }

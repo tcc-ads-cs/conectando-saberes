@@ -57,7 +57,7 @@ const MenuPostagem: React.FC<MenuPostagemProps> = ({req}) => {
     let postagens: any = [];
 
     posts.forEach((p: { type: number; }) => {
-        if (p.type == 1) {
+        if (p.type == 3) {
             postagensComunidade.push(p);
         } else {
             postagens.push(p);

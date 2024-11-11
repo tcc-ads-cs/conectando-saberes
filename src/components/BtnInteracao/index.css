@@ -15,4 +15,14 @@
         display: flex;
         cursor: pointer;
     }
+
+    .iconClicado {
+        background-color: var(--corEnfase);
+        border-style: none;
+        border-radius: var(--t32px);
+        padding: var(--t16px);
+        display: flex;
+        cursor: pointer;
+        color: var(--corTextoBranco);
+    }
 }

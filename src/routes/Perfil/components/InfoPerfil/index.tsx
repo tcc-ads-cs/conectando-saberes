@@ -15,7 +15,7 @@ const InfoPerfil: React.FC<InfoPerfilProps> = ({req}) => {
     return <>
         <div className="infoUsuario">
                 <Typography className="bold" fontFamily={'poppins'} variant="h2">{obj.nmUsuario}</Typography>
-                <Typography fontFamily={'poppins'}>{getGrauEscolaridade(obj.descTitulo)}</Typography>
+                <Typography fontFamily={'poppins'}>{getGrauEscolaridade(obj.descTitulo)} • {obj.nmInstituicao}</Typography>
                 <Typography fontFamily={'poppins'}>{(obj.dtNasc).split('T')[0].split('-').reverse().join('/')}</Typography>
                 <Typography fontFamily={'poppins'}>{obj.cidade.name}/{getSiglaEstado(obj.cidade.estado)}</Typography>
                 <Typography fontFamily={'poppins'}>{formataNumero(obj.seguidores) + " seguidores"}</Typography>

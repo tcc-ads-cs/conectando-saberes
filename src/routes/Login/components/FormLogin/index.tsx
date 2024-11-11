@@ -10,8 +10,8 @@ const FormLogin: React.FC = () => {
         // method="post"
         className="inputContainer"
         >
-            <Campo classe="inputMargin" tipo="email" label="E-mail:" placeholder="seuemail@ifsp.edu.br"/>
-            <Campo tipo="senha" label="Senha:" placeholder="********"/>
+            <Campo classe="inputMargin" tipo="email" label="E-mail:" placeholder="seuemail@ifsp.edu.br" id={"inputLogin"} name={"ILogin"}/>
+            <Campo tipo="senha" label="Senha:" placeholder="********" id={"inputSenha"} name={"ISenha"}/>
             <Link
                 to="/redefinir-senha"
                 className="linkForm"

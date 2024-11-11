@@ -7,19 +7,33 @@
     }
 
     .containerMenuCategorias {
-        padding: var(--t16px);
-        border-radius: var(--t16px);
-        box-shadow: 0 5px 8px var(--corBotao);
-        width: fit-content;
-    }
-        
-    aside {
         display: none;
     }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 600px) {
+    .containerInfoUsuario {
+        padding: var(--t24px) var(--t32px);
+    }
+}
+
+@media (min-width: 1000px) {   
+    .containerInfoUsuario {
+        padding: var(--t24px) 10em;
+    }
+
+    .containerMenuCategorias {
+        display: inline;
+        padding: var(--t16px);
+        border-radius: var(--t16px);
+        box-shadow: 0 5px 8px var(--corBotao);
+    }
+
     .grid-b {
-        display: block;
+        gap: var(--t24px);
+        display: flex;
+        flex-direction: column;
+        max-width: 25em;
+        padding-left: var(--t32px);
     }
 }

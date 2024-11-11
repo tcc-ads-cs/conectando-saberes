@@ -5,6 +5,10 @@
         color: var(--corTextoPreto);
     }
 
+    .infoUsuario p {
+        color: var(--corTextoPreto);
+    }
+
     .contatoUsuario {
         display: flex;
         flex-direction: column;
@@ -19,6 +23,7 @@
         color: var(--corTextoBranco);
         font-size: var(--t16px);
         background-color: var(--corEnfase);
+        cursor: pointer;
     }
 
     .contatoUsuario img {
@@ -30,13 +35,29 @@
 }
 
 @media (min-width: 768px) {
-    .containerInfoUsuario {
-        padding: var(--t16px) var(--t64px);
+    .infoUsuario {
+        max-width: 60%;
     }
-}
+    
+    .infoUsuario h2 {
+        font-size: var(--t40px);
+    }
 
-@media (min-width: 1280px) {
-    .containerInfoUsuario {
-        padding: var(--t16px) var(--t96px);
+    .infoUsuario p {
+        font-size: var(--t20px);
+    }
+
+    .infoUsuario abbr {
+        font-size: var(--t24px);
+    }
+    
+    .contatoUsuario {
+        gap: var(--t64px);
+    }
+    
+    .contatoUsuario img {
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
     }
 }
