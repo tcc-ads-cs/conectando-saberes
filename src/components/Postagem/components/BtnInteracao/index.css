@@ -6,14 +6,25 @@
         gap: var(--t8px);
         color: var(--corTextoPreto);
     }
+
+    .btnInteracao a {
+        color: var(--corTextoPreto);
+    }
+
+    .btnInteracao button {
+        height: 56px;
+        width: 56px;
+    }
     
     .iconInteracao {
         background-color: var(--corBotao);
         border-style: none;
-        border-radius: var(--t32px);
+        border-radius: var(--t48px);
         padding: var(--t16px);
         display: flex;
         cursor: pointer;
+        justify-content: center;
+        align-items: center;
     }
 
     .iconClicado {

@@ -50,10 +50,6 @@
     .conteudoPostagem h3 {
         font-size: var(--t24px);
     }
-
-    .conteudoPostagem p {
-        font-size: var(--t20px);
-    }
     
     .categoriasPostagem {
         padding: var(--t8px) 0 var(--t4px) 0;

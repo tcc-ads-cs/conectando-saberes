@@ -2,8 +2,8 @@ import { Typography } from "@mui/material";
 import Navbar from "../../components/Navbar";
 import RodapeDA from "../../components/RodapeDA";
 import FormCadastro from "./components/FormCadastro";
-
 import '../../styles/forms.css';
+
 import { Link } from "react-router-dom";
 
 const Cadastro: React.FC = () => {

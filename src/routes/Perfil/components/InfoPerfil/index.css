@@ -16,7 +16,14 @@
         align-items: center;
     }
 
-    .contatoUsuario button {
+    .ctaUsuario {
+        display: flex;
+        flex-direction: column;
+        gap: var(--t8px);
+        align-items: center;
+    }
+
+    .btnUsuario {
         padding: var(--t8px) var(--t24px);
         border-radius: var(--t32px);
         border-style: none;

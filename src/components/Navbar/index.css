@@ -16,8 +16,10 @@
         background-color: var(--corEnfase);
         color: var(--corTextoBranco);
         height: fit-content;
-        padding: var(--t4px) var(--t16px);
-        border-radius: var(--t16px);
+        padding: var(--t8px) var(--t24px);
+        border-radius: var(--t24px);
+        border-style: none;
+        cursor: pointer;
         text-decoration: none;
     }
 }

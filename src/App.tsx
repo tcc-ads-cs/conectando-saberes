@@ -1,4 +1,3 @@
-// Sistema de rotas
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Cadastro from './routes/Cadastro';
 import Feed from './routes/Feed';
@@ -12,6 +11,8 @@ import Perfil from './routes/Perfil';
 import Notificacoes from './routes/Notificacoes';
 import PaginaInicial from './routes/PaginaInicial';
 import LinkPlaceholder from './components/LinkPlaceholder';
+
+localStorage.setItem("logado", "false"); // Informação será estipulada através do login/JWT.
 
 const routerCS = createBrowserRouter([
   {

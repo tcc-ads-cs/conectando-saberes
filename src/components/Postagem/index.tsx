@@ -1,27 +1,25 @@
-import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import { Typography } from "@mui/material";
 import FileOpenIcon from '@mui/icons-material/FileOpen';
 
 import Broche from "../Broche";
-import BtnInteracao from "../BtnInteracao";
+import BtnInteracao from "./components/BtnInteracao";
 import { getCategorias } from "../functions/getCategorias";
 import { getGrauEscolaridade } from "../functions/getGrauEscolaridade";
-
-import './index.css'
+import { formataTextoPostagem } from "./functions/formataTextoPostagem";
+import { formataNumero } from "../functions/formataNumero";
+import './index.css';
 
 interface PostagemProps {
     post: string | any;
 }
-
-// TODO: 6 - Adicionar o ID do perfil na requisição
-var idPerfil = "id-do-perfil";
 
 const Postagem: React.FC<PostagemProps> = ({post}) => {  
     switch (post.type) {
         case 0:
             return <>
                 <div id={post.guid} className="containerPostagem">
-                    <Link to={"perfil/" + idPerfil} className="headerPostagem">
+                    <Link to={"perfil/" + post.lkPerfil} className="headerPostagem">
                         <img src={post.ftPerfil} alt="" />
                         <div className="infoAutorPostagem">
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.nmAutor}</Typography>
@@ -30,7 +28,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                         </div>
                     </Link>
                     <Link to={"/postagem/" + post.guid} className="conteudoPostagem">
-                        <Typography fontFamily={'source-serif-4'}>{post.textPost}</Typography>
+                        <Typography fontFamily={'source-serif-4'}>{formataTextoPostagem(post.textPost)}</Typography>
                         <div className="categoriasPostagem">
                         {
                             (post.dcCategorias).map((e: any) => {
@@ -41,8 +39,8 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     </Link>
                     <div className="containerInteracaoPostagem">
                         <div className="interacaoPostagem">   
-                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={post.qtLikes}/>
-                            <BtnInteracao guid={post.guid} tipo="comentario" qtInteracao={post.qtComentarios}/>
+                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.qtLikes)}/>
+                            <BtnInteracao guid={post.guid} tipo="comentario" qtInteracao={formataNumero(post.qtComentarios)}/>
                         </div>
                     </div>
                 </div>
@@ -50,7 +48,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
         case 1:
             return <>
                 <div id={post.guid} className="containerPostagem">
-                    <Link to={"perfil/" + idPerfil} className="headerPostagem">
+                    <Link to={"perfil/" + post.lkPerfil} className="headerPostagem">
                         <img src={post.ftPerfil} alt="" />
                         <div className="infoAutorPostagem">
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.nmAutor}</Typography>
@@ -59,7 +57,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                         </div>
                     </Link>
                     <Link to={"/postagem/" + post.guid} className="conteudoPostagem">
-                        <Typography fontFamily={'source-serif-4'}>{post.textPost}</Typography>
+                        <Typography fontFamily={'source-serif-4'}>{formataTextoPostagem(post.textPost)}</Typography>
                         <div className="categoriasPostagem">
                         {
                             (post.dcCategorias).map((e: any) => {
@@ -76,8 +74,8 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                             <Typography id="altTextDownload" fontFamily={'poppins'}>Anexo disponível para download</Typography>
                         </div>
                         <div className="interacaoPostagem">   
-                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={post.qtLikes}/>
-                            <BtnInteracao guid={post.guid} tipo="comentario" qtInteracao={post.qtComentarios}/>
+                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.qtLikes)}/>
+                            <BtnInteracao guid={post.guid} tipo="comentario" qtInteracao={formataNumero(post.qtComentarios)}/>
                         </div>
                     </div>
                 </div>
@@ -85,7 +83,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
         case 2:
             return <>
                 <div id={post.guid} className="containerPostagem">
-                    <Link to={"perfil/" + idPerfil} className="headerPostagem">
+                    <Link to={"perfil/" + post.lkPerfil} className="headerPostagem">
                         <img src={post.ftPerfil} alt="" />
                         <div className="infoAutorPostagem">
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.nmAutor}</Typography>
@@ -102,12 +100,12 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                             })
                         }
                         </div>
-                        <Typography fontFamily={'source-serif-4'}>{post.textPost}</Typography>
+                        <Typography fontFamily={'source-serif-4'}>{formataTextoPostagem(post.textPost)}</Typography>
                     </Link>
                     <div className="containerInteracaoPostagem">
                         <div className="interacaoPostagem">   
-                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={post.qtLikes}/>
-                            <BtnInteracao guid={post.guid} tipo="comentario" qtInteracao={post.qtComentarios}/>
+                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.qtLikes)}/>
+                            <BtnInteracao guid={post.guid} tipo="comentario" qtInteracao={formataNumero(post.qtComentarios)}/>
                         </div>
                     </div>
                 </div>
@@ -115,7 +113,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
         case 3:
             return <>
                 <div id={post.guid} className="containerPostagem">
-                    <Link to={"perfil/" + idPerfil} className="headerPostagem">
+                    <Link to={"perfil/" + post.lkPerfil} className="headerPostagem">
                         <img src={post.ftPerfil} alt="" />
                         <div className="infoAutorPostagem">
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.nmAutor}</Typography>
@@ -132,7 +130,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                             })
                         }
                         </div>
-                        <Typography fontFamily={'source-serif-4'}>{post.textPost}</Typography>
+                        <Typography fontFamily={'source-serif-4'}>{formataTextoPostagem(post.textPost)}</Typography>
                     </Link>
                     <div className="containerInteracaoPostagem">
                         <div className="containerDownloadPostagem">
@@ -142,8 +140,8 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                             <Typography id="altTextDownload" fontFamily={'poppins'}>Anexo disponível para download</Typography>
                         </div>
                         <div className="interacaoPostagem">   
-                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={post.qtLikes}/>
-                            <BtnInteracao guid={post.guid} tipo="comentario" qtInteracao={post.qtComentarios}/>
+                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.qtLikes)}/>
+                            <BtnInteracao guid={post.guid} tipo="comentario" qtInteracao={formataNumero(post.qtComentarios)}/>
                         </div>
                     </div>
                 </div>

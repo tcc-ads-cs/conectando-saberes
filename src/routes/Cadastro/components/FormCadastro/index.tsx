@@ -4,11 +4,12 @@ import Campo from '../../../../components/Campo';
 import * as categorias from '../../../../assets/tags.json';
 const obj = JSON.parse(JSON.stringify(categorias)).categorias;
 
-const FormCadastro: React.FC = () => { 
+const FormCadastro: React.FC = () => {  
     return (
         <form
         method=""
         action=""
+        id="formCadastro"
         >
             <div id="etapa1" className="inputContainer">
                 <Campo id="inputEmail" tipo="email" label="E-mail:" name="IEmail" classe="inputMargin" placeholder="seuemail@ifsp.edu.br"/>
@@ -27,9 +28,7 @@ const FormCadastro: React.FC = () => {
                 <input type="file" id="inputAvatar" name="IAvatar" className='input inputMargin' required />
                 {/*TODO: 7 - Entender como salvar o arquivo selecionado */}
 
-                <Campo id="inputDtNasc" tipo="date" label="Data de Nascimento:" name="IDtNasc" classe="inputMargin"/>
-                {/*TODO: 8 - Implementar o cenário de erro: https://www.notion.so/arielmartins/Detalhamento-de-Processos-018145894451445aa06d3aa88ecb343d?pvs=4#ebbd36482bce4cc2862521e0df73045c */}
-                
+                <Campo id="inputDtNasc" tipo="date" label="Data de Nascimento:" name="IDtNasc" classe="inputMargin"/>                
                 <label className='inputLabel' htmlFor="grauEsc"><Typography fontFamily={'poppins'}>Grau de Escolaridade:</Typography></label>
                 <select id="grauEsc" className="input inputMargin" name="IGrauEsc">
                     <option value="emt">Ensino Médio/Técnico</option>
@@ -69,7 +68,6 @@ const FormCadastro: React.FC = () => {
                         }
                     </div>
             </div>
-
             <button type='submit' className="btnForm submit"><Typography fontFamily={'poppins'} fontWeight={'bold'}>Finalizar</Typography></button>
         </form>
     );

@@ -3,18 +3,25 @@ import { Link } from "react-router-dom";
 
 import './index.css';
 
-const Navbar: React.FC = () => {
-    localStorage.setItem("logado", "false"); // Informação será estipulada através do login/JWT.
-    let btn = document.getElementById('btnCheckIn');
-    
-    btn?.addEventListener("click", () => {
+document.addEventListener('DOMContentLoaded', function() {
+    let btn: HTMLElement = document.querySelector('#btnCheckIn') as HTMLElement;
+    btn.addEventListener("click", () => {
         if (localStorage.getItem("logado") == "true") {
-            localStorage.setItem("logado", "false");
-        } else if (localStorage.getItem("logado") == "false") {
+            localStorage.setItem("logado", "false");  
+            btn.innerHTML = "<p class=\"MuiTypography-root MuiTypography-body1 css-7fd3ay-MuiTypography-root\">Entrar</p>";
+        } else {
             localStorage.setItem("logado", "true");
+            btn.innerHTML = "<p class=\"MuiTypography-root MuiTypography-body1 css-7fd3ay-MuiTypography-root\">Sair</p>";
         }
-    })
-    
+    });
+});
+
+function loginUser() {
+    // Lógica de login/logoff
+    console.log("Clicou");
+}
+
+const Navbar: React.FC = () => { 
     return (
         <header>
             <Link to="/" className="linkLogo">
@@ -26,7 +33,7 @@ const Navbar: React.FC = () => {
                     <Typography variant={'h1'} fontFamily={'poppins'} fontWeight={'bold'}>Conectando Saberes</Typography>
                 </div>
             </Link>
-            <Link to={''} id="btnCheckIn"><Typography fontFamily={'poppins'}>Entrar</Typography></Link>
+            <button onClick={loginUser} id="btnCheckIn"><Typography fontFamily={'poppins'}>Entrar</Typography></button>
         </header>
     );
 };

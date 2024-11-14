@@ -3,6 +3,8 @@ import Broche from "../../../../components/Broche"
 import { formataNumero } from "../../../../components/functions/formataNumero";
 import { getGrauEscolaridade } from "../../../../components/functions/getGrauEscolaridade";
 import { getSiglaEstado } from "../../../../components/functions/getSiglaEstado";
+import seguirUsuario from "./functions/seguirUsuario";
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import './index.css';
 
 interface InfoPerfilProps {
@@ -24,7 +26,10 @@ const InfoPerfil: React.FC<InfoPerfilProps> = ({req}) => {
             </div>
             <div className="contatoUsuario">
                 <img src={obj.ftPerfil} alt="" />
-                <button className="btnUsuario" type="reset" onClick={() => {navigator.clipboard.writeText(obj.email)}}><Typography fontFamily={'poppins'}>Contato</Typography></button>
+                <div className="ctaUsuario">
+                <button id="btnSeguir "className="iconInteracao" onClick={seguirUsuario}><PersonAddIcon /></button>
+                <button className="btnUsuario" type="button" onClick={() => {navigator.clipboard.writeText(obj.email)}}><Typography fontFamily={'poppins'}>Contato</Typography></button>
+                </div>
         </div>
     </>
 }
