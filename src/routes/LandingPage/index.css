@@ -1,0 +1,156 @@
+@media (min-width: 320px) {
+    .landingPage {
+        padding: var(--t40px) var(--t16px) var(--t24px) var(--t16px);
+    }
+
+    .heroSection {
+        display: flex;
+        gap: var(--t12px);
+        margin-bottom: var(--t40px);
+    }
+
+    .containerHeroSection {
+        display: grid;
+        grid-template-areas: "a a a" "b b c";
+        gap: var(--t12px);
+    }
+
+    .heroSection img {
+        display: none;
+    }
+
+    .tituloHeroSection {
+        background-color: var(--corBGIcons);
+        border-radius: var(--t16px);
+        padding: var(--t16px);
+        display: flex;
+        flex-direction: column;
+        min-height: 12.5em;
+        justify-content: space-between;
+        grid-area: a;
+    }
+    
+    .tituloHeroSection h1 {
+        font-size: var(--t24px);
+    }
+
+    .tituloHeroSection h1:last-child {
+        font-size: var(--t32px);
+        font-style: italic;
+        font-weight: 500;
+    }
+
+    .textoHeroSection {
+        text-wrap: wrap;
+        padding: var(--t16px);
+        background-color: #232672;
+        color: var(--corTextoBranco);
+        border-radius: var(--t8px);
+        font-weight: 200;
+        grid-area: b;
+    }
+
+    .ctaHeroSection {
+        padding: var(--t16px);
+        color: var(--corTextoBranco);
+        background-color: var(--corTextoPreto);
+        border-radius: var(--t8px);
+        display: flex;
+        grid-area: c;
+    }
+
+    .ctaHeroSection svg {
+        width: var(--t32px);
+        height: auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .landingPage h2 {
+        font-size: var(--t32px);
+        font-weight: 600;
+        text-align: center;
+        color: var(--corTextoBranco);
+        margin-bottom: var(--t4px);
+    }
+
+    .subtituloLandingPage {
+        font-style: italic;
+        color: var(--corTextoBranco);
+        text-align: center;
+        margin-bottom: var(--t24px) !important;
+    }
+
+    .funcionalidadeLandingPage {
+        display: flex;
+        flex-direction: column;
+        padding: var(--t24px);
+        border-radius: var(--t16px);
+        text-align: center;
+        margin-bottom: var(--t16px);
+        background-color: var(--corBotao);
+    }
+
+    .funcionalidadeLandingPage:last-child {
+        margin-bottom: var(--t32px);
+    }
+
+    .tituloFuncionalidadeLandingPage h3 {
+        font-size: var(--t32px);
+        margin-bottom: var(--t16px);
+    }
+
+    .funcionalidadeLandingPage svg {
+        color: var(--corTextoBranco);
+        padding: var(--t8px);
+        background-color: var(--corTextoPreto);
+        border-radius: var(--t16px);
+    }
+
+    .grupoLandingPage {
+        text-align: center;
+        color: var(--corTextoBranco);
+    }
+
+    .integranteLandingPage h3{
+        font-size: var(--t24px);
+    }
+
+    .integranteLandingPage img {
+        border-radius: var(--t64px);
+        object-fit: cover;
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (min-width: 600px) {
+    .landingPage {
+        padding: var(--t56px) var(--t32px) var(--t48px) var(--t32px);
+    }
+
+    .heroSection img {
+        display: inline-block;
+        object-fit: cover;
+        width: 240px;
+        height: 348px;
+        border-radius: var(--t16px);
+    }
+
+    .funcionalidadeLandingPage {
+        display: flex;
+        flex-direction: row;
+        gap: var(--t24px);
+        align-items: center;
+    }
+
+    .tituloFuncionalidadeLandingPage h3 {
+        font-size: var(--t24px);
+        margin-bottom: unset;
+    }
+
+    .integranteLandingPage {
+        display: inline-block;
+        padding: var(--t32px);
+    }
+}

@@ -1,7 +1,7 @@
-import LinkPlaceholder from "../../components/LinkPlaceholder"
+import LandingPage from "../LandingPage";
 
 const Pesquisa: React.FC = () => {
-    return <LinkPlaceholder />
+    return <LandingPage />
 }
 
 export default Pesquisa;
