@@ -24,27 +24,29 @@ const LandingPage: React.FC = () => {
         <section>
             <Typography fontFamily='poppins' variant="h2">O que nossa plataforma oferece...</Typography>
             <Typography fontFamily='poppins' className="subtituloLandingPage">Aqui você conhece nossas principais funcionalidades.</Typography>
-            <article className="funcionalidadeLandingPage">
-                <div className="tituloFuncionalidadeLandingPage">
-                    <Tv />
-                    <Typography fontFamily='poppins' variant="h3" fontWeight={'bold'}>Mostra e Interações</Typography>
-                </div>
-                <Typography fontFamily='poppins'>Aqui você pode compartilhar seus trabalhos acadêmicos, colocando-os à mostra como uma “vitrine acadêmica” ou portfólio. Ou então, está com inspiração para ajudar os outros? Participe do nosso fórum!</Typography>
-            </article>
-            <article className="funcionalidadeLandingPage">
-                <div className="tituloFuncionalidadeLandingPage">
-                    <Search />
-                    <Typography fontFamily='poppins' variant="h3" fontWeight={'bold'}>Busca por referências</Typography>
-                </div>
-                <Typography fontFamily='poppins'>Aqui você encontra uma categorização de trabalhos de iniciação científica mais flexível, possibilitando uma pesquisa otimizada de trabalhos para ler, salvar ou até referenciar no seu trabalho.</Typography>
-            </article>
-            <article className="funcionalidadeLandingPage">
-                <div className="tituloFuncionalidadeLandingPage">
-                    <Hive />
-                    <Typography fontFamily='poppins' variant="h3" fontWeight={'bold'}>Ecossistema</Typography>
-                </div>
-                <Typography fontFamily='poppins'>Aqui você encontra um ecossistema de pessoas interessadas em Iniciação Científica, sendo elas pessoas orientadas, orientadoras, entusiastas, e muito mais!</Typography>
-            </article>
+            <div className="funcionalidades">
+                <article className="funcionalidadeLandingPage">
+                    <div className="tituloFuncionalidadeLandingPage">
+                        <Tv />
+                        <Typography fontFamily='poppins' variant="h3" fontWeight={'bold'}>Mostra e Interações</Typography>
+                    </div>
+                    <Typography fontFamily='poppins'>Aqui você pode compartilhar seus trabalhos acadêmicos, colocando-os à mostra como uma “vitrine acadêmica” ou portfólio. Ou então, está com inspiração para ajudar os outros? Participe do nosso fórum!</Typography>
+                </article>
+                <article className="funcionalidadeLandingPage">
+                    <div className="tituloFuncionalidadeLandingPage">
+                        <Search />
+                        <Typography fontFamily='poppins' variant="h3" fontWeight={'bold'}>Busca por referências</Typography>
+                    </div>
+                    <Typography fontFamily='poppins'>Aqui você encontra uma categorização de trabalhos de iniciação científica mais flexível, possibilitando uma pesquisa otimizada de trabalhos para ler, salvar ou até referenciar no seu trabalho.</Typography>
+                </article>
+                <article className="funcionalidadeLandingPage">
+                    <div className="tituloFuncionalidadeLandingPage">
+                        <Hive />
+                        <Typography fontFamily='poppins' variant="h3" fontWeight={'bold'}>Ecossistema</Typography>
+                    </div>
+                    <Typography fontFamily='poppins'>Aqui você encontra um ecossistema de pessoas interessadas em Iniciação Científica, sendo elas pessoas orientadas, orientadoras, entusiastas, e muito mais!</Typography>
+                </article>
+            </div>
         </section>
         <section className="grupoLandingPage">
             <Typography fontFamily='poppins' variant="h2">Nossa equipe &lt;3</Typography>
@@ -61,12 +63,12 @@ const LandingPage: React.FC = () => {
                 <Typography fontFamily='poppins'>Analista de Requisitos</Typography>
                 <Typography fontFamily='poppins'>Dev Back-End</Typography>
             </article>
-            <article className="integranteLandingPage">
+            {/* <article className="integranteLandingPage">
                 <img src="https://images.pexels.com/photos/3471028/pexels-photo-3471028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
                 <Typography fontFamily='poppins' variant="h3">Miguel Pataro</Typography>
                 <Typography fontFamily='poppins'>Dev Front-End</Typography>
                 <Typography fontFamily='poppins'>Suporte Back-End</Typography>
-            </article>
+            </article> */}
             <article className="integranteLandingPage">
                 <img src="https://images.pexels.com/photos/3471028/pexels-photo-3471028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
                 <Typography fontFamily='poppins' variant="h3">Fabio Leon</Typography>

@@ -9,14 +9,14 @@ let jsonPo = JSON.parse(JSON.stringify(jsonRec.postagens));
 
 const MenuRecomendacoes: React.FC = () => {
     return <>
-    <div className="containerRecomendacao">
+    <div className="containerMenuRecomendacoes">
         <div className="headerRecomendacao">
             <PersonAdd />
             <Typography fontFamily={'poppins'} variant={'h3'}>Perfis para você</Typography>
         </div>
         {jsonPe.map((jpe: any) => <Recomendacao key={jpe.id} tipo="perfil" req={jpe} />)}
     </div>
-    <div className="containerRecomendascao">
+    <div className="containerMenuRecomendacoes">
         <div className="headerRecomendacao">
             <WebStories />
             <Typography fontFamily={'poppins'} variant={'h3'}>Postagens para você</Typography>

@@ -11,6 +11,7 @@ import * as perfil from '../../assets/mock.json';
 let jsonPe = JSON.stringify(perfil);
 
 import * as postagem from '../../assets/tags.json';
+import MenuRecomendacoes from "../../components/MenuRecomendacoes";
 let jsonPo = JSON.stringify(postagem);
 
 const PaginaInicial: React.FC = () => {
@@ -24,6 +25,9 @@ const PaginaInicial: React.FC = () => {
             <section className="containerMenuCategorias">
                 <Typography fontFamily={'poppins'} variant={'h2'} fontWeight={500}>Categorias favoritas</Typography>
                 <MenuCategorias req={jsonPo}/>
+            </section>
+            <section className="containerMenuCategorias">
+                <MenuRecomendacoes />
             </section>
         </aside>
         <main className="grid-a">

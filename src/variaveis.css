@@ -54,6 +54,10 @@
     padding-left: 5em;
 }
 
+.enfase {
+color: var(--corEnfase);
+}
+
 /* Animação do Background */
 @-webkit-keyframes AnimationName {
     0%{background-position:0% 78%}

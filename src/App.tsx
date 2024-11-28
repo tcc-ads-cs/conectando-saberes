@@ -17,12 +17,12 @@ localStorage.setItem("logado", "false"); // Informação será estipulada atrav�
 const routerCS = createBrowserRouter([
   {
     path: "/",
-    element: <PaginaInicial />,
+    element: <LandingPage />,
     errorElement: <Erro404 />,
   },
   {
     path: "/home",
-    element: <LandingPage />
+    element: <PaginaInicial />
   },
   {
     path: "login",

@@ -1,0 +1,25 @@
+@media (min-width: 320px) {
+    .containerRecomendacao {
+        display: grid;
+        grid-template-areas: "a b" "a c";
+        padding: var(--t16px);
+        gap: var(--t8px);
+        text-decoration: none;
+        color: var(--corTextoPreto);
+        border-radius: var(--t16px);
+        background-color: #f4eeff;
+    }
+
+    .iconPostagem {
+        padding: var(--t8px);
+        border-radius: var(--t16px);
+        background-color: white;
+    }
+}
+
+.containerRecomendacao img {
+    object-fit: cover;
+    width: 64px;
+    height: 64px;
+    border-radius: var(--t64px);
+}

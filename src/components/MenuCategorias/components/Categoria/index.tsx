@@ -12,7 +12,7 @@ interface CategoriaProps {
 
 const Categoria: React.FC<CategoriaProps> = ({idCategoria, nmCategoria, qtTag}) => {
     return <>
-        <Link to={"/pesquisa/" + idCategoria} className='categoriaLinkContainer'>
+        <Link to={"/pesquisa?idTag=" + idCategoria} className='categoriaLinkContainer'>
             <div className="iconCategoriaContainer"><FavoriteIcon className='iconCategoria'/></div>
             <div className="infosCategoria">
             <Typography className="tituloCategoria" fontFamily={'poppins'}>#{nmCategoria}</Typography>

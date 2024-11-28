@@ -1,7 +1,7 @@
+import LinkPlaceholder from "../../components/LinkPlaceholder"
+
 const CriarPostagem: React.FC = () => {
-    return <>
-        
-    </>
+    return <LinkPlaceholder />
 }
 
 export default CriarPostagem;

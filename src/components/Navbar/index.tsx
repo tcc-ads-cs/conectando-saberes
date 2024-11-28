@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import './index.css';
 
 document.addEventListener('DOMContentLoaded', function() {
-    let btn: HTMLElement = document.querySelector('#btnCheckIn') as HTMLElement;
+    let btn: HTMLElement = document.getElementById('btnCheckIn') as HTMLElement;
     btn.addEventListener("click", () => {
         if (localStorage.getItem("logado") == "true") {
             localStorage.setItem("logado", "false");  

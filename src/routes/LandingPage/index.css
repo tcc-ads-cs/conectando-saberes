@@ -78,7 +78,7 @@
         font-style: italic;
         color: var(--corTextoBranco);
         text-align: center;
-        margin-bottom: var(--t24px) !important;
+        margin-bottom: var(--t16px) !important;
     }
 
     .funcionalidadeLandingPage {
@@ -110,6 +110,11 @@
     .grupoLandingPage {
         text-align: center;
         color: var(--corTextoBranco);
+    }
+
+    .integranteLandingPage {
+        display: inline-block;
+        padding: var(--t32px);
     }
 
     .integranteLandingPage h3{
@@ -148,9 +153,29 @@
         font-size: var(--t24px);
         margin-bottom: unset;
     }
+}
 
-    .integranteLandingPage {
-        display: inline-block;
-        padding: var(--t32px);
+@media (min-width: 800px) {
+    .heroSection {
+        padding: 0 var(--t64px) var(--t40px) var(--t64px);
+    }
+    
+    .heroSection img {
+        width: 100%;
+    }
+
+    .funcionalidades {
+        display: flex;
+        gap: var(--t16px);
+        padding: 0 var(--t64px);
+    }
+
+    .funcionalidadeLandingPage {
+        flex-direction: column;
+    }
+
+    .grupoLandingPage {
+        margin-top: var(--t40px);
+        /* padding: 0 var(--t64px); */
     }
 }
