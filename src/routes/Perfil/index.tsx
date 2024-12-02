@@ -30,6 +30,7 @@ const Perfil: React.FC = () => {
                 </section>
             </aside>
             <section className="grid-c padding-left">
+                {/* Enviar lista de postagens + tópicos */}
                 <MenuPostagem req={jsonPe}/>
             </section>
         </div>

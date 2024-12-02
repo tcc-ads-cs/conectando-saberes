@@ -11,6 +11,8 @@ interface MenuPostagemProps {
     req: string | any;
 }
 
+// Verifica qual o tipo de feed + qual o usuário e envia o usuário para o feed requisitar o feed
+
 const MenuPostagem: React.FC<MenuPostagemProps> = ({req}) => {
     const [showPostagens, setShowPostagens] = useState(true);
     const [showComunidade, setShowComunidade] = useState(false);
@@ -44,7 +46,6 @@ const MenuPostagem: React.FC<MenuPostagemProps> = ({req}) => {
 
     posts.forEach((p: { type: number; }) => { p.type == 3 ? postagensComunidade.push(p) : postagens.push(p); });
 
-    //TODO: 4 - Fazer a lógica para renderizar a lista de 8 em 8 postagens e depois, refazer a requisição.
     return <>
         <div className="containerMenuPostagem">
             <a id="btnPostagens" className="linkSelecionado" onClick={btnPostagens}>Postagens</a>

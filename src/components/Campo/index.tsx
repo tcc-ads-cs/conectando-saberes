@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import { ChangeEventHandler } from "react";
 
 export interface CampoProps {
     id: string,
@@ -7,10 +8,11 @@ export interface CampoProps {
     name: string,
     classe?: string
     placeholder?: string,
-
+    change: ChangeEventHandler,
+    value?: string
 }
 
-const Campo: React.FC<CampoProps> = ({classe, id, label, name, placeholder, tipo}) => {    
+const Campo: React.FC<CampoProps> = ({change, classe, id, label, name, placeholder, tipo, value}) => {    
     switch (tipo) {
         case "email":
         return <>
@@ -21,7 +23,8 @@ const Campo: React.FC<CampoProps> = ({classe, id, label, name, placeholder, tipo
             name={name}
             type={tipo}
             placeholder={placeholder}
-            className={classe? "input " + classe : "input"} />
+            className={classe? "input " + classe : "input"} 
+            onChange={change} />
         </>
         case "password":
         return <>
@@ -31,12 +34,10 @@ const Campo: React.FC<CampoProps> = ({classe, id, label, name, placeholder, tipo
             id={id}
             name={name}
             type={tipo}
-
-            // Alinhar com o Ronald ⬇️
-            maxLength={20}
-
+            maxLength={24}
             placeholder={placeholder}
-            className={classe? "input " + classe : "input"} />
+            className={classe? "input " + classe : "input"}
+            onChange={change} />
         </>
         case "date":
         return <>
@@ -47,7 +48,8 @@ const Campo: React.FC<CampoProps> = ({classe, id, label, name, placeholder, tipo
             name={name}
             type={tipo}
             placeholder={placeholder}
-            className={classe? "input " + classe : "input"} />
+            className={classe? "input " + classe : "input"}
+            onChange={change} />
         </>
         case "radio":
         return <>
@@ -55,7 +57,9 @@ const Campo: React.FC<CampoProps> = ({classe, id, label, name, placeholder, tipo
             id={id}
             name={name}
             type={tipo}
-            placeholder={placeholder} />
+            placeholder={placeholder} 
+            onChange={change}
+            value={value} />
             <label htmlFor={id}><Typography fontFamily={'poppins'}>{label}</Typography></label>
         </>
         case "checkbox":
@@ -64,7 +68,9 @@ const Campo: React.FC<CampoProps> = ({classe, id, label, name, placeholder, tipo
             id={id}
             name={name}
             type={tipo}
-            placeholder={placeholder} />
+            placeholder={placeholder}
+            onChange={change}
+            value={value} />
             <label htmlFor={id} className="checkboxMargin"><Typography fontFamily={'poppins'}>{label}</Typography></label><br></br>
         </>       
         default:
@@ -75,7 +81,8 @@ const Campo: React.FC<CampoProps> = ({classe, id, label, name, placeholder, tipo
             id={id}
             name={name}
             placeholder={placeholder}
-            className={classe? "input " + classe : "input"} />
+            className={classe? "input " + classe : "input"}
+            onChange={change} />
         </> 
     }
 }

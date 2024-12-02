@@ -1,0 +1,9 @@
+.containerModalErro {
+    display: flex;
+    gap: 1em;
+    background-color: var(--corBGGrids);
+    padding: 3em;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}

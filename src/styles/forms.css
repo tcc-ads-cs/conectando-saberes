@@ -119,10 +119,17 @@
 
     /* /cadastro (Estilizações) */
 
-    #obsNomeSocial {
-        font-size: var(--t12px);
-        margin-bottom: var(--t24px);
+    .obsForm {
+        font-size: var(--t12px) !important;
+        margin-bottom: var(--t24px) !important;
     }    
+
+    #avatarForm {
+        padding: 1em 0;
+        height: 256px;
+        width: 256px;
+        object-fit: cover;
+    }
 }
 
 @media (min-width: 420px) {

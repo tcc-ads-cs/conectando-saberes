@@ -16,7 +16,7 @@ const Cadastro: React.FC = () => {
                 <div className="formContainer">
                     <div className="formHeader">
                         <Typography className="titulo" variant="h2" fontFamily={'poppins'}>Comece sua jornada no CS!</Typography>
-                        <Typography fontFamily={'poppins'}>Cadastre-se em 3 etapas.</Typography>
+                        <Typography fontFamily={'poppins'}>Cadastre-se já!</Typography>
                     </div>
                     <FormCadastro />
                 </div>
