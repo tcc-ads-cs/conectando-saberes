@@ -81,14 +81,14 @@ const trataFormCadastro = async (data: FormData) => {
         }
         
     } catch (error: any) {
-      if (error.response) {
-        return `Erro ao enviar formulário. ${error.response.data?.message}`;
-    } else if (error.request) {
-        return 'Erro ao enviar formulário. Nenhuma resposta recebida do servidor.';
-    } else {
-        return `Erro ao enviar formulário: ${error.message}`;
+        if (error.response) {
+            return `Erro ao enviar formulário. ${error.response.data?.message}`;
+        } else if (error.request) {
+            return 'Erro ao enviar formulário. Nenhuma resposta recebida do servidor.';
+        } else {
+            return `Erro ao enviar formulário: ${error.message}`;
+        }
     }
-  }
 }
 
 export default trataFormCadastro;

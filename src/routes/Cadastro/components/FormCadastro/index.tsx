@@ -25,7 +25,7 @@ const FormCadastro: React.FC = () => {
       IEstado: "1",
       IPrefer: "1",
       categorias: [],
-      IAvatar: null as File | null,
+      IAvatar: null as File | null
     });
 
     let getCampi = async () => {
@@ -76,13 +76,20 @@ const FormCadastro: React.FC = () => {
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, files } = e.target;
       if (files) {
-        setFormData((prevState) => ({
-          ...prevState,
-          [name]: files[0],
-        }));
+        const file = files[0];
+        if (file.size > 2 * 1024 * 1024) {
+          alert('Arquivo muito grande. Por favor, selecione um arquivo menor que 2MB.');
+          e.target.value = '';
+          return;
+        } else {
+          setFormData((prevState) => ({
+            ...prevState,
+            [name]: files[0],
+          }));
+        }
       }
     };
-
+    
     const handleSubmit = async (e: FormEvent) => {
       e.preventDefault();
 
@@ -95,10 +102,9 @@ const FormCadastro: React.FC = () => {
       if (typeof resultadoCadastro === "string") {
         alert(resultadoCadastro);
       } else {
-        //TODO: Logar!!!!!!!!!!!!
+        //TODO: Login (JWT)
         console.log("Cadastro realizado com sucesso:", resultadoCadastro);
       }
-    
     };
 
     let avatarImg = document.getElementById('avatarForm') as HTMLImageElement | null;
@@ -106,7 +112,7 @@ const FormCadastro: React.FC = () => {
 
     if (avatarImg != null && inputImg != null) {
       inputImg.onchange = function() {
-        if (inputImg.files && inputImg.files[0]) {
+        if (inputImg.files && inputImg.files[0] && inputImg.files[0].size < 2 * 1024 * 1024) {
           avatarImg.src = URL.createObjectURL(inputImg.files[0]);
         }
       };
