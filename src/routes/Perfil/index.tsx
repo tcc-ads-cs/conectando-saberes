@@ -4,6 +4,7 @@ import InfoPerfil from "./components/InfoPerfil";
 import MenuPostagem from "../../components/MenuPostagens";
 import MenuCategorias from "../../components/MenuCategorias";
 import { Typography } from "@mui/material";
+import { useParams } from "react-router-dom";
 import './index.css';
 
 //! Esse json deve ser obtido via requisição!!!
@@ -13,7 +14,11 @@ let jsonPe = JSON.stringify(perfil);
 import * as postagem from '../../assets/tags.json';
 let jsonPo = JSON.stringify(postagem);
 
-const Perfil: React.FC = () => {    
+
+const Perfil: React.FC = () => {  
+    // const { idPerfil } = useParams();
+    
+    
     return <>
         <Navbar />
         <div className="grid-alt">

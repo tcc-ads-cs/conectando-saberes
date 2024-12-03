@@ -10,7 +10,7 @@ import LandingPage from './routes/LandingPage';
 import Perfil from './routes/Perfil';
 import Notificacoes from './routes/Notificacoes';
 import PaginaInicial from './routes/PaginaInicial';
-import LinkPlaceholder from './components/LinkPlaceholder';
+import PostagemPage from './routes/PostagemPage';
 
 localStorage.setItem("logado", "false"); // Informação será estipulada através do login/JWT.
 
@@ -58,8 +58,8 @@ const routerCS = createBrowserRouter([
     //TODO: 1 - Implementar rotas dinâmicas utilizando o ID do usuário como parâmetro (perfil/id-da-pessoa).
   },
   {
-    path: "postagem",
-    element: <LinkPlaceholder />
+    path: "postagem/:guidPostagem",
+    element: <PostagemPage />
     //TODO: 2 - Implementar rotas dinâmicas utilizando o GUID da postagem como parâmetro (postagem/guid-da-postagem).
   }
 ])

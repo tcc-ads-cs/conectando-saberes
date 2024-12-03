@@ -28,15 +28,15 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                         </div>
                     </Link>
                     <Link to={"/postagem/" + post.guid} className="conteudoPostagem">
-                        <Typography fontFamily={'source-serif-4'}>{formataTextoPostagem(post.textPost)}</Typography>
-                        <div className="categoriasPostagem">
+                        {formataTextoPostagem(post.textPost)}
+                    </Link>
+                    <div className="categoriasPostagem">
                         {
                             (post.dcCategorias).map((e: any) => {
                                 return getCategorias(e);
                             })
                         }
-                        </div>
-                    </Link>
+                    </div>
                     <div className="containerInteracaoPostagem">
                         <div className="interacaoPostagem">   
                             <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.qtLikes)}/>
@@ -57,15 +57,15 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                         </div>
                     </Link>
                     <Link to={"/postagem/" + post.guid} className="conteudoPostagem">
-                        <Typography fontFamily={'source-serif-4'}>{formataTextoPostagem(post.textPost)}</Typography>
-                        <div className="categoriasPostagem">
+                        {formataTextoPostagem(post.textPost)}
+                    </Link>
+                    <div className="categoriasPostagem">
                         {
                             (post.dcCategorias).map((e: any) => {
                                 return getCategorias(e);
                             })
                         }
-                        </div>
-                    </Link>
+                    </div>
                     <div className="containerInteracaoPostagem">
                         <div className="containerDownloadPostagem">
                             <Link to={post.flDownload} className="downloadPostagem">
@@ -93,15 +93,15 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     </Link>
                     <Link to={"/postagem/" + post.guid} className="conteudoPostagem">
                         <Typography fontFamily={'poppins'} variant={'h3'}>{post.dcTitulo}</Typography>
-                        <div className="categoriasPostagem">
+                        {formataTextoPostagem(post.textPost)}
+                    </Link>
+                    <div className="categoriasPostagem">
                         {
                             (post.dcCategorias).map((e: any) => {
                                 return getCategorias(e);
                             })
                         }
                         </div>
-                        <Typography fontFamily={'source-serif-4'}>{formataTextoPostagem(post.textPost)}</Typography>
-                    </Link>
                     <div className="containerInteracaoPostagem">
                         <div className="interacaoPostagem">   
                             <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.qtLikes)}/>
@@ -123,15 +123,15 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     </Link>
                     <Link to={"/postagem/" + post.guid} className="conteudoPostagem">
                         <Typography fontFamily={'poppins'} variant={'h3'}>{post.dcTitulo}</Typography>
-                        <div className="categoriasPostagem">
+                        {formataTextoPostagem(post.textPost)}
+                    </Link>
+                    <div className="categoriasPostagem">
                         {
                             (post.dcCategorias).map((e: any) => {
                                 return getCategorias(e);
                             })
                         }
                         </div>
-                        <Typography fontFamily={'source-serif-4'}>{formataTextoPostagem(post.textPost)}</Typography>
-                    </Link>
                     <div className="containerInteracaoPostagem">
                         <div className="containerDownloadPostagem">
                             <Link to={post.flDownload} className="downloadPostagem">

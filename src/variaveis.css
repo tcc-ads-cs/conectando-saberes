@@ -42,6 +42,11 @@
     display: none;
 }
 
+.link {
+    text-decoration: none;
+    color: var(--corTextoPreto);
+}
+
 .bold {
     font-weight: 500 !important;
 }

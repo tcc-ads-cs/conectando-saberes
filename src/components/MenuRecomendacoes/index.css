@@ -1,0 +1,17 @@
+.headerRecomendacao {
+    color: var(--corTextoPreto);
+    display: flex;
+    align-items: center;
+    gap: var(--t16px);
+    margin-bottom: var(--t24px);
+}
+
+.headerRecomendacao svg {
+    background-color: var(--corBotao);
+    padding: var(--t8px);
+    border-radius: var(--t32px);
+}
+
+.headerRecomendacao h3 {
+    font-size: var(--t32px);
+}

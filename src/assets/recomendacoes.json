@@ -1,16 +1,18 @@
 {
     "perfis": [
         {
+            "id": 10,
             "nmUsuario": "Ronald Evangelista",
             "ftPerfil": "https://yavuzceliker.github.io/sample-images/image-1.jpg",
             "lkPerfil": "8a5c3b7e6f4d2e9c1a7b8d6f3c5e9a1d",
             "dcCategorias": [2, 3]
         },
         {
+            "id": 3,
             "nmUsuario": "Maria Oliveira",
             "ftPerfil": "https://yavuzceliker.github.io/sample-images/image-2.jpg",
             "lkPerfil": "d2f9c5e17baf4a87a6e4ed48b4f5a9cd",
-            "dcCategorias": [1, 4]
+            "dcCategorias": [1, 4, 2]
         }],
     "postagens": [
         {

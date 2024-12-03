@@ -15,21 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 const FeedPostagem: React.FC<FeedPostagemProps> = ({req}) => {
-    
-    let urldasPostagensViaParametro = "mostrar-posts/" + req;
-    
+    //TODO: Fazer requisição para renderizar posts da página + incrementar a página.
     const renderPosts = async () => {
-        try {
-            let response = await api.get(urldasPostagensViaParametro);
-            if (response.status == 200) {
-                req = response.data;
-            }
-             else {
-                return <Typography>Não foi possível carregar o Feed. Recarregue a página.</Typography>
-            }
-        } catch (e) {
-            console.log(e);
-        }
+        alert('Requisição pra mais posts');
     }
 
     return <>
@@ -37,7 +25,7 @@ const FeedPostagem: React.FC<FeedPostagemProps> = ({req}) => {
             return <Postagem key={r.guid} post={r} />
         })}
         <MenuRecomendacoes />
-        <button type="button" id="btnMMP"><Typography fontFamily='poppins'>Mostrar mais postagens</Typography></button>
+        <button type="button" id="btnMMP" onClick={renderPosts}><Typography fontFamily='poppins'>Mostrar mais postagens</Typography></button>
     </>
 }
 

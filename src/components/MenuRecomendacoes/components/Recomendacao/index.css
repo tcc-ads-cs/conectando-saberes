@@ -1,20 +1,12 @@
-@media (min-width: 320px) {
-    .containerRecomendacao {
-        display: grid;
-        grid-template-areas: "a b" "a c";
-        padding: var(--t16px);
-        gap: var(--t8px);
-        text-decoration: none;
-        color: var(--corTextoPreto);
-        border-radius: var(--t16px);
-        background-color: #f4eeff;
-    }
-
-    .iconPostagem {
-        padding: var(--t8px);
-        border-radius: var(--t16px);
-        background-color: white;
-    }
+.containerRecomendacao {
+    display: flex;
+    padding: var(--t16px);
+    gap: var(--t16px);
+    text-decoration: none;
+    color: var(--corTextoPreto);
+    border-radius: var(--t16px);
+    background-color: #f4eeff;
+    margin-bottom: var(--t16px);
 }
 
 .containerRecomendacao img {
@@ -22,4 +14,14 @@
     width: 64px;
     height: 64px;
     border-radius: var(--t64px);
+}
+
+.iconPostagem {
+    padding: var(--t8px);
+    border-radius: var(--t16px);
+    background-color: white;
+}
+
+.nomeRecomendacao {
+    margin-bottom: var(--t16px);
 }
