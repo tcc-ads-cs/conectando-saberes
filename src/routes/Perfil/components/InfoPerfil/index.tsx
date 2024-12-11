@@ -3,12 +3,15 @@ import Broche from "../../../../components/Broche"
 import { formataNumero } from "../../../../components/functions/formataNumero";
 import { getGrauEscolaridade } from "../../../../components/functions/getGrauEscolaridade";
 import { getSiglaEstado } from "../../../../components/functions/getSiglaEstado";
-import seguirUsuario from "./functions/seguirUsuario";
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import './index.css';
 
 interface InfoPerfilProps {
     req: string
+}
+
+const seguirUsuario = async () => {
+    console.log('a');
 }
 
 const InfoPerfil: React.FC<InfoPerfilProps> = ({req}) => {

@@ -1,6 +1,112 @@
+@media (min-width: 320px) {
+    .containerPostagem {
+        display: flex;
+        flex-direction: column;
+        gap: var(--t8px);
+        border-radius: var(--t8px);
+        box-shadow: 0 5px 8px rgba(0, 0, 0, 0.25);
+        padding: var(--t16px);
+        margin-bottom: var(--t32px);
+    }
+    
+    .headerPostagem {
+        display: flex;
+        align-items: center;
+        color: var(--corTextoPreto);
+        text-decoration: none;
+    }
+
+    .headerPostagem img {
+        width: var(--t48px);
+        height: var(--t48px);
+        border-radius: var(--t32px);
+    }
+
+    .headerPostagem svg {
+        justify-self: flex-end;
+    }
+
+    .infoAutorPostagem {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding-left: var(--t16px);
+    }
+
+    .itemInfoAutorPostagem:last-child {
+        flex: 0 1 100%;
+    }
+
+    .infoAutorPostagem abbr {
+        font-size: var(--t8px);
+        margin-left: var(--t12px);
+    }
+
+    .conteudoPostagem {
+        text-decoration: none;
+        color: var(--corTextoPreto);
+    }
+
+    .conteudoPostagem h3 {
+        font-size: var(--t24px);
+    }
+    
+    .categoriasPostagem {
+        padding: var(--t8px) 0 var(--t4px) 0;
+    }
+    
+    .categoria {
+        color: var(--corTextoPreto);
+        background-color: var(--corBotao);
+        display: inline-block;
+        padding: var(--t4px) var(--t12px);
+        border-radius: var(--t24px);
+        text-decoration: none;
+        font-size: var(--t12px);
+        margin: var(--t4px) var(--t4px) var(--t4px) 0;
+    }
+    
+    .containerDownloadPostagem {
+        display: flex;
+    }
+
+    #altTextDownload {
+        display: none;
+    }
+
+    .downloadPostagem {
+        padding: var(--t16px);
+        background-color: var(--corBotao);
+        border-radius: var(--t8px);
+        color: var(--corTextoPreto);
+        height: fit-content;
+    }
+
+    .containerInteracaoPostagem {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+
+    .interacaoPostagem {
+        display: flex;
+        gap: var(--t16px);
+    }
+}
+
 @media (min-width: 1000px) {
     .grid {
         padding: var(--t32px) 10em 0 10em;
         gap: var(--t16px);
+    }
+    
+    .containerDownloadPostagem {
+        display: flex;
+        gap: var(--t8px);
+        align-items: center;
+    }
+
+    #altTextDownload {
+        display: inline;
     }
 }

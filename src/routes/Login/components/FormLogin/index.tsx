@@ -1,11 +1,12 @@
 import { Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Campo from "../../../../components/Campo"
 import { FormEvent, useState } from "react";
 import api from "../../../../api";
 
 const FormLogin: React.FC = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         ILogin: '',
         ISenha: ''
@@ -37,8 +38,9 @@ const FormLogin: React.FC = () => {
         try {
             const response = await api.post('/UserAuth/login', usuarioLogado);
             if (response.status === 200) {
-                //TODO: Login (JWT)
-                alert('Formulário enviado com sucesso!');
+                localStorage.setItem('tokenLogin', response.data.token);
+                localStorage.setItem('idUsuario', response.data.usuario.userId);             
+                navigate('/home');
             }
         } catch (error: any) {
             if (error.response) {

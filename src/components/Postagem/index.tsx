@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Typography } from "@mui/material";
 import FileOpenIcon from '@mui/icons-material/FileOpen';
 
@@ -15,11 +15,13 @@ interface PostagemProps {
 }
 
 const Postagem: React.FC<PostagemProps> = ({post}) => {  
+    let url = useParams();
+
     switch (post.type) {
         case 0:
             return <>
                 <div id={post.guid} className="containerPostagem">
-                    <Link to={"perfil/" + post.lkPerfil} className="headerPostagem">
+                    <Link to={"/perfil/" + post.lkPerfil} className="headerPostagem">
                         <img src={post.ftPerfil} alt="" />
                         <div className="infoAutorPostagem">
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.nmAutor}</Typography>
@@ -28,7 +30,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                         </div>
                     </Link>
                     <Link to={"/postagem/" + post.guid} className="conteudoPostagem">
-                        {formataTextoPostagem(post.textPost)}
+                        {Object.keys(url).length === 0 ? formataTextoPostagem(post.textPost) : <Typography fontFamily={'poppins'}>{post.textPost}</Typography>}
                     </Link>
                     <div className="categoriasPostagem">
                         {
@@ -48,7 +50,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
         case 1:
             return <>
                 <div id={post.guid} className="containerPostagem">
-                    <Link to={"perfil/" + post.lkPerfil} className="headerPostagem">
+                    <Link to={"/perfil/" + post.lkPerfil} className="headerPostagem">
                         <img src={post.ftPerfil} alt="" />
                         <div className="infoAutorPostagem">
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.nmAutor}</Typography>
@@ -57,7 +59,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                         </div>
                     </Link>
                     <Link to={"/postagem/" + post.guid} className="conteudoPostagem">
-                        {formataTextoPostagem(post.textPost)}
+                        {Object.keys(url).length === 0 ? formataTextoPostagem(post.textPost) : <Typography>{post.textPost}</Typography>}
                     </Link>
                     <div className="categoriasPostagem">
                         {
@@ -83,7 +85,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
         case 2:
             return <>
                 <div id={post.guid} className="containerPostagem">
-                    <Link to={"perfil/" + post.lkPerfil} className="headerPostagem">
+                    <Link to={"/perfil/" + post.lkPerfil} className="headerPostagem">
                         <img src={post.ftPerfil} alt="" />
                         <div className="infoAutorPostagem">
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.nmAutor}</Typography>
@@ -93,7 +95,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     </Link>
                     <Link to={"/postagem/" + post.guid} className="conteudoPostagem">
                         <Typography fontFamily={'poppins'} variant={'h3'}>{post.dcTitulo}</Typography>
-                        {formataTextoPostagem(post.textPost)}
+                        {Object.keys(url).length === 0 ? formataTextoPostagem(post.textPost) : <Typography>{post.textPost}</Typography>}
                     </Link>
                     <div className="categoriasPostagem">
                         {
@@ -113,7 +115,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
         case 3:
             return <>
                 <div id={post.guid} className="containerPostagem">
-                    <Link to={"perfil/" + post.lkPerfil} className="headerPostagem">
+                    <Link to={"/perfil/" + post.lkPerfil} className="headerPostagem">
                         <img src={post.ftPerfil} alt="" />
                         <div className="infoAutorPostagem">
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.nmAutor}</Typography>
@@ -123,7 +125,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     </Link>
                     <Link to={"/postagem/" + post.guid} className="conteudoPostagem">
                         <Typography fontFamily={'poppins'} variant={'h3'}>{post.dcTitulo}</Typography>
-                        {formataTextoPostagem(post.textPost)}
+                        {Object.keys(url).length === 0 ? formataTextoPostagem(post.textPost) : <Typography>{post.textPost}</Typography>}
                     </Link>
                     <div className="categoriasPostagem">
                         {

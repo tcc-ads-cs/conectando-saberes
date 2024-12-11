@@ -1,7 +1,7 @@
-import MenuRecomendacoes from "../../components/MenuRecomendacoes";
+import LinkPlaceholder from "../../components/LinkPlaceholder";
 
 const Pesquisa: React.FC = () => {
-    return <MenuRecomendacoes/>
+    return <LinkPlaceholder />
 }
 
 export default Pesquisa;

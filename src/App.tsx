@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Cadastro from './routes/Cadastro';
-import Feed from './routes/Feed';
 import Login from './routes/Login';
 import Pesquisa from './routes/Pesquisa';
 import CriarPostagem from './routes/CriarPostagem';
@@ -12,17 +11,15 @@ import Notificacoes from './routes/Notificacoes';
 import PaginaInicial from './routes/PaginaInicial';
 import PostagemPage from './routes/PostagemPage';
 
-localStorage.setItem("logado", "false"); // Informação será estipulada através do login/JWT.
-
 const routerCS = createBrowserRouter([
   {
-    path: "/",
+    path: "/home",
     element: <LandingPage />,
     errorElement: <Erro404 />,
   },
   {
-    path: "/home",
-    element: <PaginaInicial />
+    path: "/",
+    element: <PaginaInicial />,
   },
   {
     path: "login",
@@ -35,10 +32,6 @@ const routerCS = createBrowserRouter([
   {
     path: "notificacoes",
     element: <Notificacoes />
-  },
-  {
-    path: "meu-feed",
-    element: <Feed />
   },
   {
     path: "pesquisa",
@@ -60,7 +53,6 @@ const routerCS = createBrowserRouter([
   {
     path: "postagem/:guidPostagem",
     element: <PostagemPage />
-    //TODO: 2 - Implementar rotas dinâmicas utilizando o GUID da postagem como parâmetro (postagem/guid-da-postagem).
   }
 ])
 
