@@ -4,6 +4,7 @@ import MenuCategorias from '../MenuCategorias';
 import { togglePostagem, toggleComunidade, toggleCategoria } from '../functions/toggleBtnClassse';
 import './index.css';
 
+//TODO: Atualizar para requisição do banco de dados.
 import * as categorias from '../../assets/tags.json';
 let jsonCat = JSON.stringify(categorias);
 
@@ -12,7 +13,6 @@ interface MenuPostagemProps {
 }
 
 // Verifica qual o tipo de feed + qual o usuário e envia o usuário para o feed requisitar o feed
-
 const MenuPostagem: React.FC<MenuPostagemProps> = ({req}) => {
     const [showPostagens, setShowPostagens] = useState(true);
     const [showComunidade, setShowComunidade] = useState(false);

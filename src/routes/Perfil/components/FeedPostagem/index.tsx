@@ -1,6 +1,5 @@
 import { Typography } from "@mui/material";
 import Postagem from "../../../../components/Postagem";
-import api from "../../../../api";
 import MenuRecomendacoes from "../../../../components/MenuRecomendacoes";
 
 interface FeedPostagemProps {

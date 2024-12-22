@@ -1,9 +1,10 @@
 import { useState, useEffect, FormEvent } from 'react';
 import { Typography } from '@mui/material';
 import Campo from '../../../../components/Campo';
-import api from '../../../../api';
+import { getRequest } from '../../../../hooks/useRequests';
 import trataFormCadastro from './functions/trataFormCadastro';
 
+//TODO: Atualizar para requisição do banco de dados
 import * as categorias from '../../../../assets/tags.json';
 const obj = JSON.parse(JSON.stringify(categorias)).categorias;
 
@@ -29,25 +30,13 @@ const FormCadastro: React.FC = () => {
     });
 
     let getCampi = async () => {
-      try {
-        const response = await api.get("/Location/listar-campi");
-        if (response.status === 200) {
-          setCampi(response.data);
-        }
-      } catch (e) {
-        console.log(e);
-      }
+      let campi = await getRequest('/Location/listar-campi');
+      setCampi(campi);
     };
 
     let getCidades = async () => {
-      try {
-        const response = await api.get("/Location/listar-cidades");
-        if (response.status === 200) {
-          setCidades(response.data);
-        }
-      } catch (e) {
-        console.log(e);
-      }
+      let cidades = await getRequest('/Location/listar-cidades');
+      setCidades(cidades);
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -128,15 +117,15 @@ const FormCadastro: React.FC = () => {
         onSubmit={handleSubmit}
         id="formCadastro">
             <div id="etapa1" className="inputContainer">
-                <Campo id="inputEmail" tipo="email" label="E-mail institucional:" name="IEmail" classe="inputMargin" placeholder="seuemail@ifsp.edu.br" change={handleChange} />
-                <Campo id="inputConfEmail" tipo="email" label="Digite seu e-mail institucional novamente:" name="IConfEmail" classe="inputMargin" placeholder="seuemail@ifsp.edu.br" change={handleChange} />
-                <Campo id="inputSenha" tipo="password" label="Senha:" name="ISenha" classe="inputMargin" placeholder="********" change={handleChange} />
+                <Campo id="inputEmail" tipo="email" label="E-mail institucional:" name="IEmail" classe="inputMargin" placeholder="seuemail@ifsp.edu.br" onChange={handleChange} />
+                <Campo id="inputConfEmail" tipo="email" label="Digite seu e-mail institucional novamente:" name="IConfEmail" classe="inputMargin" placeholder="seuemail@ifsp.edu.br" onChange={handleChange} />
+                <Campo id="inputSenha" tipo="password" label="Senha:" name="ISenha" classe="inputMargin" placeholder="********" onChange={handleChange} />
                 <Typography className="obsForm" fontFamily={'poppins'}>Sua senha DEVE ter, no mínimo, 8 caracteres, contendo, uma letra minúscula, uma letra maiúscula, um caracter especial e um número.</Typography>
-                <Campo id="inputConfSenha" tipo="password" label="Digite sua senha novamente:" name="IConfSenha" classe="inputMargin" placeholder="********" change={handleChange} />
+                <Campo id="inputConfSenha" tipo="password" label="Digite sua senha novamente:" name="IConfSenha" classe="inputMargin" placeholder="********" onChange={handleChange} />
             </div>
 
             <div id="etapa2" className="inputContainer">
-                <Campo id="inputNomeComp" tipo="text" label="Nome Completo:" name="INomeComp" classe="inputMargin" change={handleChange} />
+                <Campo id="inputNomeComp" tipo="text" label="Nome Completo:" name="INomeComp" classe="inputMargin" onChange={handleChange} />
                 <label htmlFor="inputNomeSocial" className='inputLabel'><Typography fontFamily={'poppins'}>Nome Social:</Typography></label>
                 <input type="text" id="inputNomeSocial" name="INomeSocial" className='input inputMargin' onChange={handleChange}/>
                 <Typography className="obsForm" fontFamily={'poppins'}>O "nome social" é o nome que a pessoa travesti ou transexual prefere ser chamada e possui a mesma proteção concedida ao nome de registro, assegurada pelo Decreto nº 8.727/2016.</Typography>
@@ -145,7 +134,7 @@ const FormCadastro: React.FC = () => {
                 <label htmlFor="inputAvatar" className='inputLabel'><Typography fontFamily={'poppins'}>Selecione sua foto de perfil:</Typography></label>
                 <input type="file" id="inputAvatar" name="IAvatar" className='input inputMargin' accept="image/*" onChange={handleFileChange} required />
 
-                <Campo id="inputDtNasc" tipo="date" label="Data de Nascimento:" name="IDtNasc" classe="inputMargin" change={handleChange} />                
+                <Campo id="inputDtNasc" tipo="date" label="Data de Nascimento:" name="IDtNasc" classe="inputMargin" onChange={handleChange} />                
                 <label className='inputLabel' htmlFor="grauEsc"><Typography fontFamily={'poppins'}>Grau de Escolaridade:</Typography></label>
                 <select id="grauEsc" className="input inputMargin" name="IGrauEsc" onChange={handleChange}>
                     <option value="1">Ensino Médio/Técnico</option>
@@ -158,8 +147,8 @@ const FormCadastro: React.FC = () => {
                 </select>
 
                 <div className="inputMargin radio">
-                    <Campo id="inputSitCurs" tipo="radio" label="Cursando" name="ISituacao" value="0" change={handleChange} />
-                    <Campo id="inputSitComp" tipo="radio" label="Completo" name="ISituacao" value="2" change={handleChange} />
+                    <Campo id="inputSitCurs" tipo="radio" label="Cursando" name="ISituacao" value="0" onChange={handleChange} />
+                    <Campo id="inputSitComp" tipo="radio" label="Completo" name="ISituacao" value="2" onChange={handleChange} />
                 </div>
                 
                 <label className='inputLabel' htmlFor='inputInst'><Typography fontFamily={'poppins'}>Última instituição que frequentou:</Typography></label>
@@ -199,7 +188,7 @@ const FormCadastro: React.FC = () => {
                     <div id="categoriasContainer" className="inputMargin inputLabel">
                         {
                             obj.map((e: any) => {
-                                return <Campo key={e.dcCategoria} id={"categoria-" + e.id} tipo="checkbox" label={e.nmCategoria} name={"ICategorias"} value={e.id} change={handleChange} />
+                                return <Campo key={e.dcCategoria} id={"categoria-" + e.id} tipo="checkbox" label={e.nmCategoria} name={"ICategorias"} value={e.id} onChange={handleChange} />
                             })
                         }
                     </div>

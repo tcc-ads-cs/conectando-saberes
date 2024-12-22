@@ -1,9 +1,7 @@
 import './index.css';
 
-// Icons
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-////import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import PersonIcon from '@mui/icons-material/Person';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import CreateIcon from '@mui/icons-material/Create';
@@ -16,7 +14,6 @@ const menuItems = [
   { id: "Postagem", title: 'Publicar postagem', to: '/nova-postagem', Icon: CreateIcon },
   { id: "Perfil", title: 'Meu Perfil', to: '/perfil', Icon: PersonIcon },
   { id: "Editais", title: 'Dicas e Informações sobre Editais', to: '/editais', Icon: LightbulbIcon },
-
 ];
 
 const MenuPrincipal: React.FC = () => {

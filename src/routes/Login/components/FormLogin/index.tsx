@@ -57,8 +57,8 @@ const FormLogin: React.FC = () => {
         onSubmit={handleSubmit}
         className="inputContainer"
         >
-            <Campo classe="inputMargin" tipo="email" label="E-mail:" placeholder="seuemail@ifsp.edu.br" id={"inputLogin"} name={"ILogin"} change={handleChange}/>
-            <Campo tipo="password" label="Senha:" placeholder="********" id={"inputSenha"} name={"ISenha"} change={handleChange}/>
+            <Campo classe="inputMargin" tipo="email" label="E-mail:" placeholder="seuemail@ifsp.edu.br" id={"inputLogin"} name={"ILogin"} onChange={handleChange}/>
+            <Campo tipo="password" label="Senha:" placeholder="********" id={"inputSenha"} name={"ISenha"} onChange={handleChange}/>
             <Link
                 to="/redefinir-senha"
                 className="linkForm"

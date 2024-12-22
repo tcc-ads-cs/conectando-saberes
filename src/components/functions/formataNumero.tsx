@@ -1,3 +1,4 @@
+//* Função estipulada para qualquer tipo de número alto que seja exibido na aplicação
 export const formataNumero = (numb: number) => {
     if (numb >= 1e9) {
         return ((numb / 1e9).toFixed(1) + 'B').toString();

@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import Navbar from "../../components/Navbar";
+import Navbar from '../../components/Navbar';
 import RodapeDA from "../../components/RodapeDA";
 import FormCadastro from "./components/FormCadastro";
 import '../../styles/forms.css';

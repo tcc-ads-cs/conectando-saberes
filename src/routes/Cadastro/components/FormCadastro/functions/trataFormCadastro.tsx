@@ -1,4 +1,4 @@
-import api from "../../../../../api";
+import { postRequest } from "../../../../../hooks/useRequests";
 
 function calcularIdade(dataNascimento: FormDataEntryValue | any): number {
     const hoje = new Date();
@@ -72,8 +72,8 @@ const trataFormCadastro = async (data: FormData) => {
     };
 
     try {
-        const response = await api.post('/UserAuth/cadastrar', JSON.stringify(usuarioCadastrado));
-        
+        const response = await postRequest('/UserAuth/cadastrar', JSON.stringify(usuarioCadastrado));
+
         if (response.status === 200) {
             return 'Formulário enviado com sucesso!';
         } else {

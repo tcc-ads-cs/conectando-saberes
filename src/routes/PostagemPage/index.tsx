@@ -1,6 +1,6 @@
-import api from "../../api";
 import { useParams } from "react-router-dom";
 import { Typography } from "@mui/material";
+import { getRequest } from "../../hooks/useRequests";
 import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import MenuPrincipal from "../../components/MenuPrincipal";
@@ -9,19 +9,19 @@ import MenuCategorias from "../../components/MenuCategorias";
 import MenuRecomendacoes from "../../components/MenuRecomendacoes";
 import './index.css';
 
-//TODO: Substituir para a requisição.
-import * as jsonPostagem from '../../assets/mock.json';
-let jp = jsonPostagem.posts[0];
+//TODO: Atualizar para requisição do banco de dados.
+import * as categorias from '../../assets/tags.json';
+let jsonCat = JSON.stringify(categorias);
 
 const PostagemPage: React.FC = () => {
     const { guidPostagem } = useParams();
     const [postagem, setPostagem] = useState<any>(null);
-    const req: string = '/Post/mostrar-post?guid=' + 'f897d72a1165463d8c54c118fbd6370e'; // Voltar para guidPostagem
-
+    const req: string = '/Post/mostrar-post?guid=' + guidPostagem;
+    
     useEffect(() => {
         const renderPostagem = async () => {
             try {
-                const response = await api.get(req);
+                const response = await getRequest(req);
                 
                 if (response.status === 200) {
                     setPostagem(<Postagem post={response.data}/>);
@@ -43,7 +43,7 @@ const PostagemPage: React.FC = () => {
                 </section>
                 <section className="containerMenuCategorias">
                     <Typography fontFamily={'poppins'} variant={'h2'} fontWeight={500}>Categorias favoritas</Typography>
-                    {/* <MenuCategorias req={''}/> */}
+                    <MenuCategorias req={jsonCat}/>
                 </section>
                 <section className="containerMenuCategorias">
                     <MenuRecomendacoes />
@@ -51,7 +51,6 @@ const PostagemPage: React.FC = () => {
             </aside>
             <main className="grid-a post">
                 {postagem}
-                <Postagem post={jp} />
             </main>
         </div>
     </>
