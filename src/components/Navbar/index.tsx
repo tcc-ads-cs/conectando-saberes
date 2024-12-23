@@ -1,25 +1,28 @@
 import { Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import './index.css';
 
-let textoBtnLogin = "Entrar";
-
-function loginUser() {
-    if (localStorage.getItem("logado") == "true") {
-        //* Usuário tentando deslogar
-        
-        localStorage.setItem("logado", "false");  
-        textoBtnLogin = "Entrar";
-    } else if (localStorage.getItem("logado") == "false") {
-        //* Usuário tentando logar
-
-        localStorage.setItem("logado", "true");
-        textoBtnLogin = "Sair"
-    }
-}
-
 const Navbar: React.FC = () => { 
+    const navigate = useNavigate();
+    let textoBtnLogin = (): string => {
+        if (localStorage.getItem("token")) {
+            return "Sair";
+        } else {
+            return "Entrar";
+        }
+    }
+
+    function loginUser() {
+        if (localStorage.getItem("token")) {
+            localStorage.removeItem("token");
+            navigate("/");
+            document.location.reload();
+        } else {
+            navigate("/login");
+        }
+    }
+    
     return (
         <header>
             <Link to="/" className="linkLogo">
@@ -31,7 +34,7 @@ const Navbar: React.FC = () => {
                     <Typography variant={'h1'} fontFamily={'poppins'} fontWeight={'bold'}>Conectando Saberes</Typography>
                 </div>
             </Link>
-            <button onClick={loginUser} id="btnCheckIn"><Typography fontFamily={'poppins'}>{textoBtnLogin}</Typography></button>
+            <button onClick={loginUser} id="btnCheckIn"><Typography fontFamily={'poppins'}>{textoBtnLogin()}</Typography></button>
         </header>
     );
 };

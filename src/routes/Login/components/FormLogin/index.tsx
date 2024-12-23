@@ -1,9 +1,8 @@
 import { Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-
+import api from "../../../../api";
 import Campo from "../../../../components/Campo"
 import { FormEvent, useState } from "react";
-import api from "../../../../api";
 
 const FormLogin: React.FC = () => {
     const navigate = useNavigate();
@@ -37,17 +36,14 @@ const FormLogin: React.FC = () => {
         
         try {
             const response = await api.post('/UserAuth/login', usuarioLogado);
+
             if (response.status === 200) {
-                localStorage.setItem('tokenLogin', response.data.token);
-                localStorage.setItem('idUsuario', response.data.usuario.userId);             
-                navigate('/home');
+                localStorage.setItem("token", response.data.token);
+                navigate("/");
+                document.location.reload();
             }
         } catch (error: any) {
-            if (error.response) {
-                alert(`Usuário ou senha incorretos.`);
-            } else if (error.request) {
-                alert('Erro ao enviar formulário. Nenhuma resposta recebida do servidor.');
-            }
+            error.response.data?.message ? alert(error.response.data.message) : alert('Erro ao fazer login.');
         }
       };
 

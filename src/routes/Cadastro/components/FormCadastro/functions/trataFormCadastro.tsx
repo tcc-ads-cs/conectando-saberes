@@ -76,10 +76,7 @@ const trataFormCadastro = async (data: FormData) => {
 
         if (response.status === 200) {
             return 'Formulário enviado com sucesso!';
-        } else {
-            return 'Falha ao enviar formulário.';
         }
-        
     } catch (error: any) {
         if (error.response) {
             return `Erro ao enviar formulário. ${error.response.data?.message}`;

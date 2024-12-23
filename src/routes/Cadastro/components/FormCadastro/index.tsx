@@ -1,5 +1,6 @@
 import { useState, useEffect, FormEvent } from 'react';
 import { Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import Campo from '../../../../components/Campo';
 import { getRequest } from '../../../../hooks/useRequests';
 import trataFormCadastro from './functions/trataFormCadastro';
@@ -9,6 +10,7 @@ import * as categorias from '../../../../assets/tags.json';
 const obj = JSON.parse(JSON.stringify(categorias)).categorias;
 
 const FormCadastro: React.FC = () => {      
+    const navigate = useNavigate();  
     const [campi, setCampi] = useState([]);
     const [cidades, setCidades] = useState([]);
     const [formData, setFormData] = useState({
@@ -91,8 +93,7 @@ const FormCadastro: React.FC = () => {
       if (typeof resultadoCadastro === "string") {
         alert(resultadoCadastro);
       } else {
-        //TODO: Login (JWT)
-        console.log("Cadastro realizado com sucesso:", resultadoCadastro);
+        navigate("/login");
       }
     };
 
