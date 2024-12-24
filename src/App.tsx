@@ -15,7 +15,7 @@ import Logout from './auth/Logout';
 import RootRoute from './auth/RootRoute';
 
 function App() {
-  const isAuthenticated = !!localStorage.getItem("token");
+  const isAuthenticated = !localStorage.getItem("token");
   console.log("Usuário autenticado:", isAuthenticated);
 
   const routerCS = createBrowserRouter([

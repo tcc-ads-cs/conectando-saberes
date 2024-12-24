@@ -1,10 +1,10 @@
-import { Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-
+import { Typography } from "@mui/material";
 import './index.css';
 
 const Navbar: React.FC = () => { 
     const navigate = useNavigate();
+    
     let textoBtnLogin = (): string => {
         if (localStorage.getItem("token")) {
             return "Sair";

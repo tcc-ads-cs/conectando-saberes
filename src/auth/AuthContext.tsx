@@ -11,8 +11,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isAuthenticated, setAuthenticated] = useState<boolean>(false);
 
   useEffect(() => {
-    const token = localStorage.getItem("token"); // Verifica o token
-    setAuthenticated(!!token); // Define se está autenticado
+    const token = localStorage.getItem("token");
+    setAuthenticated(!!token);
   }, []);
 
   return (
