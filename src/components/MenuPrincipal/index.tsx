@@ -5,14 +5,15 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import PersonIcon from '@mui/icons-material/Person';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import CreateIcon from '@mui/icons-material/Create';
-
 import MenuItem from './components/MenuItem';
+
+const urlPerfil: string = '/perfil/' + localStorage.getItem('idUsuario');
 
 const menuItems = [
   { id: "Pesquisa", title: 'Pesquisa', to: '/pesquisa', Icon: SearchIcon },
   { id: "Notificacoes", title: 'Notificações', to: '/notificacoes', Icon: NotificationsIcon },
   { id: "Postagem", title: 'Publicar postagem', to: '/nova-postagem', Icon: CreateIcon },
-  { id: "Perfil", title: 'Meu Perfil', to: '/perfil', Icon: PersonIcon },
+  { id: "Perfil", title: 'Meu Perfil', to: urlPerfil, Icon: PersonIcon },
   { id: "Editais", title: 'Dicas e Informações sobre Editais', to: '/editais', Icon: LightbulbIcon },
 ];
 

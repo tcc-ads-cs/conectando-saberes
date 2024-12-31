@@ -12,17 +12,47 @@ import * as perfil from '../../assets/mock.json';
 let jsonPe = JSON.stringify(perfil);
 
 import * as postagem from '../../assets/tags.json';
+import { getRequest } from "../../hooks/useRequests";
+import { useEffect, useState } from "react";
 let jsonPo = JSON.stringify(postagem);
 
-
 const Perfil: React.FC = () => {  
-    // const { idPerfil } = useParams();
+    const [ perfil, setPerfil ] = useState<any>(null);
+    const [ posts, setPosts ] = useState<any>(null);
+    const [ infoPerfil, setInfoPerfil ] = useState<any>(null);
+    const { idPerfil } = useParams();
     
+    const buscaPerfil = async () => {
+            try {
+                const response = await getRequest('/User/perfil/' + idPerfil);
+    
+                if (response?.status === 200 || !(typeof response === 'object' && 'status' in response)) {
+                    setPerfil(response);
+                } else {
+                    console.log('Resposta não OK:', response);
+                }
+            } catch (e: any) {
+                console.log('Erro na requisição:', e.response.data?.message);
+            }
+        };
+    
+    useEffect(() => { 
+        buscaPerfil();
+    }, [idPerfil]);
+
+    useEffect(() => {
+        if (perfil != null) {
+            const { posts: postagensUser, ...infoUser } = perfil;
+            setPosts(postagensUser);
+            setInfoPerfil(infoUser);
+        }
+    }, [perfil]);
+
     return <>
         <Navbar />
         <div className="grid-alt">
             <main className="grid-a containerInfoUsuario">
-                <InfoPerfil req={jsonPe}/>
+                <InfoPerfil obj={infoPerfil}/>
             </main>
             <aside className="grid-b padding-right">
                 <section>
@@ -35,7 +65,7 @@ const Perfil: React.FC = () => {
             </aside>
             <section className="grid-c padding-left">
                 {/* Enviar lista de postagens + tópicos */}
-                <MenuPostagem req={jsonPe}/>
+                <MenuPostagem req={posts}/>
             </section>
         </div>
     </>

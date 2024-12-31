@@ -60,7 +60,7 @@ function App() {
       element: <ProtectedRoute isAuthenticated={isAuthenticated}><CriarPostagem /></ProtectedRoute>
     },
     {
-      path: "perfil",
+      path: "perfil/:idPerfil",
       element: <ProtectedRoute isAuthenticated={isAuthenticated}><Perfil /></ProtectedRoute>
     },
     {

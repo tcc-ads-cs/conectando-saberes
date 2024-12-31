@@ -1,5 +1,5 @@
-export function getSiglaEstado(e: number): string {
+export function getSiglaEstado(e: string): string {
     let estado = "";
-    if (e == 1) { estado = "SP"; }
+    if (e == 'Santos') { estado = "Santos/SP"; }
     return estado;
 }

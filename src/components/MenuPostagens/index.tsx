@@ -39,12 +39,13 @@ const MenuPostagem: React.FC<MenuPostagemProps> = ({req}) => {
         setShowCategorias(true);
     };
 
-    let json = JSON.parse(req);
-    let posts = json.posts;
     let postagensComunidade: any = [];
     let postagens: any = [];
 
-    posts.forEach((p: { type: number; }) => { p.type == 3 ? postagensComunidade.push(p) : postagens.push(p); });
+    //TODO: Alterar quando o Ronald atualizar o endpoint com as categorias
+    if (req != null) {
+        req.forEach((p: { type: number; guid: string }) => { p.type == 3 ? postagensComunidade.push(p.guid) : postagens.push(p.guid); });
+    }
 
     return <>
         <div className="containerMenuPostagem">

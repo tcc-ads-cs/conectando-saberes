@@ -17,12 +17,12 @@ interface PostagemProps {
 const Postagem: React.FC<PostagemProps> = ({post}) => {  
     let url = useParams();
 
-    switch (post.type) {
+    switch (post.post.type) {
         case 0:
             return <>
-                <div id={post.guid} className="containerPostagem">
-                    <Link to={"/perfil/" + post.lkPerfil} className="headerPostagem">
-                        <img src={post.ftPerfil} alt="" />
+                <div id={post.post.guid} className="containerPostagem">
+                    <Link to={"/perfil/" + post.post.userId} className="headerPostagem">
+                        <img src='https://cdn-icons-png.flaticon.com/512/6596/6596121.png' alt="" />
                         <div className="infoAutorPostagem">
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.nmAutor}</Typography>
                             <Broche classN="itemInfoAutorPostagem" tipo={post.tpInteresse} />
@@ -30,11 +30,11 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                         </div>
                     </Link>
                     <Link to={"/postagem/" + post.guid} className="conteudoPostagem">
-                        {Object.keys(url).length === 0 ? formataTextoPostagem(post.textPost) : <Typography fontFamily={'poppins'}>{post.textPost}</Typography>}
+                        {!Object.keys(url).includes('guidPostagem') ? formataTextoPostagem(post.textPost) : <Typography fontFamily={'poppins'}>{post.textPost}</Typography>}
                     </Link>
                     <div className="categoriasPostagem">
                         {
-                            (post.dcCategorias).map((e: any) => {
+                            (post.dcCategorias.result).map((e: any) => {
                                 return getCategorias(e);
                             })
                         }

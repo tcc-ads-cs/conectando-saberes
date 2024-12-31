@@ -9,7 +9,6 @@ const FormCadastro: React.FC = () => {
     const navigate = useNavigate();  
     const [campi, setCampi] = useState([]);
     const [cidades, setCidades] = useState([]);
-    const [categorias, setCategorias] = useState([]);
     const [formData, setFormData] = useState({
       IEmail: "",
       IConfEmail: "",
@@ -36,17 +35,6 @@ const FormCadastro: React.FC = () => {
     let getCidades = async () => {
       let cidades = await getRequest('/Location/listar-cidades');
       setCidades(cidades);
-    };
-
-    let getCategorias = async () => {
-      let categorias = await getRequest('/Category/listar-categorias');
-      const prioritizedIds = [348, 562, 781, 904];
-      categorias = categorias.sort((a: any, b: any) => {
-      if (prioritizedIds.includes(a.id) && !prioritizedIds.includes(b.id)) { return -1; }
-      if (!prioritizedIds.includes(a.id) && prioritizedIds.includes(b.id)) { return 1; }
-      return 0;
-      });
-      setCategorias(categorias.slice(0, 10));
     };
     
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -119,7 +107,6 @@ const FormCadastro: React.FC = () => {
     useEffect(() => {
       getCampi();
       getCidades();
-      getCategorias();
     }, []);
 
     return (
@@ -193,15 +180,6 @@ const FormCadastro: React.FC = () => {
                     <option value="3">Encontrar referências bibliográficas.</option>
                     <option value="4">Conhecer mais sobre IC e a plataforma.</option>
                 </select>
-
-                <Typography className='inputLabel' fontFamily={'poppins'}>Marque 3 categorias que te interessem:</Typography>
-                    <div id="categoriasContainer" className="inputMargin inputLabel">
-                        {
-                            categorias.map((e: any) => {
-                                return <Campo key={e.description} id={"categoria-" + e.id} tipo="checkbox" label={e.name} name={"ICategorias"} value={e.id} onChange={handleChange} />
-                            })
-                        }
-                    </div>
             </div>
             <button type='submit' className="btnForm submit"><Typography fontFamily={'poppins'} fontWeight={'bold'}>Finalizar</Typography></button>
         </form>
