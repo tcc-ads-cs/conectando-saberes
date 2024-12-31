@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { Typography } from "@mui/material";
 import Navbar from "../../components/Navbar";
 import MenuPrincipal from "../../components/MenuPrincipal";
-import { Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import FormPostagemSimples from "./components/FormPostagemSimples";
+import FormTopico from "./components/FormTopico";
+import FormArtigo from "./components/FormArtigo";
+import FormPostagemCompleta from "./components/FormPostagemCompleta";
 
 const CriarPostagem: React.FC = () => {
     const [formSelecionado, setFormSelecionado] = useState<string>("postagem");
@@ -10,15 +13,13 @@ const CriarPostagem: React.FC = () => {
     const renderizarFormulario = () => {
         switch (formSelecionado) {
             case "simples":
-                return "<FormPostagemSimples />;"
+                return <FormPostagemSimples />;
             case "completa":
-                return "<FormPostagemCompleta />;"
+                return <FormPostagemCompleta />;
             case "topico":
-                return "<FormTopico />;"
+                return <FormTopico />;
             case "artigo":
-                return "<FormArtigo />;"
-            case "link":
-                return "<FormLink />;"
+                return <FormArtigo />;
             default:
                 return "<FormPostagem />;"
         }
@@ -33,7 +34,7 @@ const CriarPostagem: React.FC = () => {
                 </aside>
                 <main className="grid-a forms">
                     <Typography fontFamily={'poppins'} variant='h2'>Publique sua postagem!</Typography>
-                    <Typography fontFamily={'poppins'} variant='h3'>Vamos lá, primeiro escolha o tipo de postagem que deseja publicar. <Link to='/postagem/guia-postagens'>Caso esteja em dúvida, clique neste link para acessar nosso guia de postagens.</Link></Typography>
+                    <Typography fontFamily={'poppins'} variant='h3'>Vamos lá, primeiro escolha o tipo de postagem que deseja publicar.</Typography>
                     
                     <div className="botoes">
                         <button className='btnFormPost' onClick={() => setFormSelecionado("simples")}>
@@ -47,9 +48,6 @@ const CriarPostagem: React.FC = () => {
                         </button>
                         <button className='btnFormPost' onClick={() => setFormSelecionado("artigo")}>
                             Artigo
-                        </button>
-                        <button className='btnFormPost' onClick={() => setFormSelecionado("link")}>
-                            Link
                         </button>
                     </div>
                     {renderizarFormulario()}

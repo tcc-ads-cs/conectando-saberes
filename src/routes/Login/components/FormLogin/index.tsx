@@ -40,6 +40,7 @@ const FormLogin: React.FC = () => {
             const response = await api.post('/UserAuth/login', usuarioLogado);
             if (response.status === 200) {
                 localStorage.setItem("token", response.data.token);
+                localStorage.setItem("idUsuario", response.data.usuario.userId);
                 navigate("/");
                 document.location.reload();
             }

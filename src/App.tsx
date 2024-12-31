@@ -16,7 +16,6 @@ import RootRoute from './auth/RootRoute';
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("token");
-  console.log("Usuário autenticado:", isAuthenticated);
 
   const routerCS = createBrowserRouter([
     {
@@ -63,7 +62,6 @@ function App() {
     {
       path: "perfil",
       element: <ProtectedRoute isAuthenticated={isAuthenticated}><Perfil /></ProtectedRoute>
-      //TODO: 1 - Implementar rotas dinâmicas utilizando o ID do usuário como parâmetro (perfil/id-da-pessoa).
     },
     {
       path: "postagem/:guidPostagem",

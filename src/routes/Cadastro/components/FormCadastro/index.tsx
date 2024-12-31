@@ -5,14 +5,11 @@ import Campo from '../../../../components/Campo';
 import { getRequest } from '../../../../hooks/useRequests';
 import trataFormCadastro from './functions/trataFormCadastro';
 
-//TODO: Atualizar para requisição do banco de dados
-import * as categorias from '../../../../assets/tags.json';
-const obj = JSON.parse(JSON.stringify(categorias)).categorias;
-
 const FormCadastro: React.FC = () => {      
     const navigate = useNavigate();  
     const [campi, setCampi] = useState([]);
     const [cidades, setCidades] = useState([]);
+    const [categorias, setCategorias] = useState([]);
     const [formData, setFormData] = useState({
       IEmail: "",
       IConfEmail: "",
@@ -41,6 +38,17 @@ const FormCadastro: React.FC = () => {
       setCidades(cidades);
     };
 
+    let getCategorias = async () => {
+      let categorias = await getRequest('/Category/listar-categorias');
+      const prioritizedIds = [348, 562, 781, 904];
+      categorias = categorias.sort((a: any, b: any) => {
+      if (prioritizedIds.includes(a.id) && !prioritizedIds.includes(b.id)) { return -1; }
+      if (!prioritizedIds.includes(a.id) && prioritizedIds.includes(b.id)) { return 1; }
+      return 0;
+      });
+      setCategorias(categorias.slice(0, 10));
+    };
+    
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
       const { name, value, type } = e.target;
       const fieldName = name as keyof typeof formData;
@@ -111,6 +119,7 @@ const FormCadastro: React.FC = () => {
     useEffect(() => {
       getCampi();
       getCidades();
+      getCategorias();
     }, []);
 
     return (
@@ -188,8 +197,8 @@ const FormCadastro: React.FC = () => {
                 <Typography className='inputLabel' fontFamily={'poppins'}>Marque 3 categorias que te interessem:</Typography>
                     <div id="categoriasContainer" className="inputMargin inputLabel">
                         {
-                            obj.map((e: any) => {
-                                return <Campo key={e.dcCategoria} id={"categoria-" + e.id} tipo="checkbox" label={e.nmCategoria} name={"ICategorias"} value={e.id} onChange={handleChange} />
+                            categorias.map((e: any) => {
+                                return <Campo key={e.description} id={"categoria-" + e.id} tipo="checkbox" label={e.name} name={"ICategorias"} value={e.id} onChange={handleChange} />
                             })
                         }
                     </div>
