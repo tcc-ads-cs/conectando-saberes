@@ -18,7 +18,6 @@ let jsonPo = JSON.stringify(postagem);
 const Perfil: React.FC = () => {  
     // const { idPerfil } = useParams();
     
-    
     return <>
         <Navbar />
         <div className="grid-alt">

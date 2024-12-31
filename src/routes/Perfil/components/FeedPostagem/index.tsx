@@ -7,7 +7,7 @@ interface FeedPostagemProps {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("btnMMP")?.addEventListener("click", () => {
+    document.getElementById("btnMaisPosts")?.addEventListener("click", () => {
         // Chamar a requisição da página atual + 1
         alert();
     });
@@ -24,7 +24,7 @@ const FeedPostagem: React.FC<FeedPostagemProps> = ({req}) => {
             return <Postagem key={r.guid} post={r} />
         })}
         <MenuRecomendacoes />
-        <button type="button" id="btnMMP" onClick={renderPosts}><Typography fontFamily='poppins'>Mostrar mais postagens</Typography></button>
+        <button type="button" id="btnMaisPosts" onClick={renderPosts}><Typography fontFamily='poppins'>Mostrar mais postagens</Typography></button>
     </>
 }
 

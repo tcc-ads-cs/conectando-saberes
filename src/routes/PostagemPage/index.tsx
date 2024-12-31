@@ -25,7 +25,6 @@ const PostagemPage: React.FC = () => {
                 
                 if (response.status === 200) {
                     setPostagem(<Postagem post={response.data}/>);
-                    console.log(response.data);
                 }
             } catch (e: any) {
                 setPostagem(e.response.data?.message);
