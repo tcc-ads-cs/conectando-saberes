@@ -5,7 +5,7 @@ import './index.css';
 const RodapeDA: React.FC = () => {
     return (
         <footer>
-            <Typography fontFamily={'poppins'} variant="h6">&#169; Todos os direitos autorais reservados a Gabriel Martins, Fabio Leon, Miguel Pataro, Melinda Horus e Ronald Pereira, 2024.</Typography>
+            <Typography fontFamily={'poppins'} variant="h6">&#169; Todos os direitos autorais reservados a Gabriel Martins, Fabio Leon, Melinda Horus e Ronald Pereira, 2024.</Typography>
         </footer>
     );
 };

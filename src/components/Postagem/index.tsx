@@ -16,7 +16,6 @@ interface PostagemProps {
 
 const Postagem: React.FC<PostagemProps> = ({post}) => {  
     let url = useParams();
-
     switch (post.post.type) {
         case 0:
             return <>
@@ -63,7 +62,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     </Link>
                     <div className="categoriasPostagem">
                         {
-                            (post.dcCategorias).map((e: any) => {
+                            (post.dcCategorias.result).map((e: any) => {
                                 return getCategorias(e);
                             })
                         }
@@ -99,7 +98,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     </Link>
                     <div className="categoriasPostagem">
                         {
-                            (post.dcCategorias).map((e: any) => {
+                            (post.dcCategorias.result).map((e: any) => {
                                 return getCategorias(e);
                             })
                         }
@@ -129,7 +128,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     </Link>
                     <div className="categoriasPostagem">
                         {
-                            (post.dcCategorias).map((e: any) => {
+                            (post.dcCategorias.result).map((e: any) => {
                                 return getCategorias(e);
                             })
                         }

@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
             <Link to="/" className="linkLogo">
                 <div className="containerLogo">
                     <img
-                        src="src/components/Navbar/assets/iconografiaLogo.svg"
+                        src="/src/components/Navbar/assets/iconografiaLogo.svg"
                         alt="Logo da plataforma com as letras C e S com pontos em seu formato, simbolizando pontos de parada."
                     />
                     <Typography variant={'h1'} fontFamily={'poppins'} fontWeight={'bold'}>Conectando Saberes</Typography>
