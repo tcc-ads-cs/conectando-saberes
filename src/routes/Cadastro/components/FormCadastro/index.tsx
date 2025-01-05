@@ -9,6 +9,7 @@ const FormCadastro: React.FC = () => {
     const navigate = useNavigate();  
     const [campi, setCampi] = useState([]);
     const [cidades, setCidades] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
       IEmail: "",
       IConfEmail: "",
@@ -20,10 +21,10 @@ const FormCadastro: React.FC = () => {
       IGrauEsc: "1",
       ISituacao: "2",
       ICampus: "1",
+      ICurso: "",
       ICidade: "1",
       IEstado: "1",
       IPrefer: "1",
-      categorias: [],
       IAvatar: null as File | null
     });
 
@@ -38,26 +39,13 @@ const FormCadastro: React.FC = () => {
     };
     
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-      const { name, value, type } = e.target;
+      const { name, value } = e.target;
       const fieldName = name as keyof typeof formData;
 
-      if (type === "checkbox") {
-        const target = e.target as HTMLInputElement;
-
-        setFormData((prevState) => ({
-          ...prevState,
-          [fieldName]: target.checked
-            ? [...((prevState[fieldName] as string[]) ?? []), value]
-            : ((prevState[fieldName] as string[]) ?? []).filter(
-                (item) => item !== value
-              ),
-        }));
-      } else {
-        setFormData((prevState) => ({
-          ...prevState,
-          [fieldName]: value,
-        }));
-      }
+      setFormData((prevState) => ({
+        ...prevState,
+        [fieldName]: value,
+      }));
     };
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,6 +67,7 @@ const FormCadastro: React.FC = () => {
     
     const handleSubmit = async (e: FormEvent) => {
       e.preventDefault();
+      setIsLoading(true);
 
       const data = new FormData();
       for (const key in formData) {
@@ -87,8 +76,10 @@ const FormCadastro: React.FC = () => {
 
       const resultadoCadastro = await trataFormCadastro(data);
       if (typeof resultadoCadastro === "string") {
+        setIsLoading(false);
         alert(resultadoCadastro);
       } else {
+        setIsLoading(false);
         navigate("/login");
       }
     };
@@ -108,7 +99,7 @@ const FormCadastro: React.FC = () => {
       getCampi();
       getCidades();
     }, []);
-
+    
     return (
         <form
         onSubmit={handleSubmit}
@@ -156,7 +147,8 @@ const FormCadastro: React.FC = () => {
                         })
                     }
                 </select>
-                                
+
+                <Campo id="inputArea" tipo="text" label="Sua área de formação/atuação:" name="ICurso" classe="inputMargin" onChange={handleChange} />             
                 <label className='inputLabel' htmlFor='inputCidade'><Typography fontFamily={'poppins'}>Cidade onde reside:</Typography></label>
                 <select id="inputCidade" name="ICidade" className="input inputMargin" onChange={handleChange}>
                     {
@@ -181,7 +173,19 @@ const FormCadastro: React.FC = () => {
                     <option value="4">Conhecer mais sobre IC e a plataforma.</option>
                 </select>
             </div>
-            <button type='submit' className="btnForm submit"><Typography fontFamily={'poppins'} fontWeight={'bold'}>Finalizar</Typography></button>
+            
+            <button type='submit' className="btnForm submit">
+            {isLoading ? (
+                        <img
+                            src="https://raw.githubusercontent.com/n3r4zzurr0/svg-spinners/abfa05c49acf005b8b1e0ef8eb25a67a7057eb20/svg-css/90-ring.svg"
+                            alt="Carregando..."
+                            style={{ width: '24px', height: '24px', filter: 'invert(1)' }}
+                        />
+                    ) : (
+                      <Typography fontFamily={'poppins'} fontWeight={'bold'}>Finalizar</Typography>
+                    )}
+            </button>
+              
         </form>
     );
 }

@@ -22,7 +22,7 @@ const MenuPostagem: React.FC<MenuPostagemProps> = ({req}) => {
         togglePostagem();
         setShowPostagens(true);
         setShowComunidade(false);
-        setShowCategorias(false);        
+        setShowCategorias(false);
     };
 
     const btnComunidade = () => {

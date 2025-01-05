@@ -1,4 +1,24 @@
-import { postRequest } from "../../../../../hooks/useRequests";
+import { getRequest, postRequest } from "../../../../../hooks/useRequests";
+
+const consultaCurso = async (nomeCurso: string | undefined) => {
+    let cdCurso: number = 0;
+    
+    if (typeof nomeCurso != undefined) {
+        try {
+            const response = await getRequest('/Category/Cursos');
+            if (response) {
+                response.forEach((curso: any) => {
+                    if (nomeCurso == curso.nmCourse) {
+                        cdCurso = curso.idCourse;
+                    }
+                });
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    return cdCurso;
+} 
 
 function calcularIdade(dataNascimento: FormDataEntryValue | any): number {
     const hoje = new Date();
@@ -25,6 +45,7 @@ function validarSenha(senha: string): boolean {
 function validarCadastro(data: FormData) {
   var email: string | any = data.get('IEmail')?.toString();
   var senha: string | any = data.get('ISenha')?.toString();
+  var curso: string | any = data.get('ICurso')?.toString();
 
   if (email !== data.get('IConfEmail')) {
       return 'E-mails não se correspondem.';
@@ -34,10 +55,10 @@ function validarCadastro(data: FormData) {
       return 'Sua senha DEVE ter, no mínimo, 8 caracteres, contendo, uma letra minúscula, uma letra maiúscula, um caracter especial e um número.';
   } else if (data.get('ISenha') !== data.get('IConfSenha')) {
       return 'Senhas não se correspondem.';
-  } else if (data.get('ICategorias') === '') {
-      return 'Selecione pelo menos três categorias.';
   } else if (calcularIdade(data.get('IDtNasc')) < 16) {
       return 'Você precisa ter, no mínimo, 16 anos para se registrar na plataforma.';
+  } else if (typeof curso == undefined) {
+      return 'Área de atuação não preenchida.'
   }
 
   return true;
@@ -56,6 +77,7 @@ const trataFormCadastro = async (data: FormData) => {
     const cdCidade: string | any = data.get('ICidade')?.toString();
     const tpPreferencia: string | any = data.get('IPrefer')?.toString();
     const descTitulo: string | any = data.get('IGrauEsc')?.toString();
+    const curso: string | any = await consultaCurso(data.get('ICurso')?.toString());
 
     usuarioCadastrado = {
         "name": data.get('INomeComp'),
@@ -67,8 +89,10 @@ const trataFormCadastro = async (data: FormData) => {
         "tpPreferencia": parseInt(tpPreferencia),
         "descTitulo": parseInt(descTitulo),
         "tpColor": 1,
+        'curso': curso,
         "dtNasc": data.get('IDtNasc') + "T00:00:00",
         "isEmailVerified": false
+        //TODO: Adicionar a foto de perfil.
     };
 
     try {
