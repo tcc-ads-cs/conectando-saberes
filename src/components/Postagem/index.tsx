@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { Typography } from "@mui/material";
 import FileOpenIcon from '@mui/icons-material/FileOpen';
-
 import Broche from "../Broche";
 import BtnInteracao from "./components/BtnInteracao";
 import { getCategorias } from "../functions/getCategorias";
@@ -11,16 +10,16 @@ import { formataNumero } from "../functions/formataNumero";
 import './index.css';
 
 interface PostagemProps {
-    post: string | any;
+    post: string | any,
 }
 
 const Postagem: React.FC<PostagemProps> = ({post}) => {  
-    let url = useParams();
-    switch (post.post.type) {
+    let url = useParams();    
+    switch (post.type) {
         case 0:
             return <>
-                <div id={post.post.guid} className="containerPostagem">
-                    <Link to={"/perfil/" + post.post.userId} className="headerPostagem">
+                <div id={post.guid} className="containerPostagem">
+                    <Link to={"/perfil/" + post.userId} className="headerPostagem">
                         <img src='https://cdn-icons-png.flaticon.com/512/6596/6596121.png' alt="" />
                         <div className="infoAutorPostagem">
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.nmAutor}</Typography>
@@ -33,14 +32,14 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     </Link>
                     <div className="categoriasPostagem">
                         {
-                            (post.dcCategorias.result).map((e: any) => {
-                                return getCategorias(e);
-                            })
+                            // (post.dcCategorias).map((e: any) => {
+                            //     return getCategorias(e);
+                            // })
                         }
                     </div>
                     <div className="containerInteracaoPostagem">
                         <div className="interacaoPostagem">   
-                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.qtLikes)}/>
+                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.quantityLikes)}/>
                             <BtnInteracao guid={post.guid} tipo="comentario" qtInteracao={formataNumero(post.qtComentarios)}/>
                         </div>
                     </div>
@@ -62,20 +61,14 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     </Link>
                     <div className="categoriasPostagem">
                         {
-                            (post.dcCategorias.result).map((e: any) => {
-                                return getCategorias(e);
-                            })
+                            // (post.dcCategorias).map((e: any) => {
+                            //     return getCategorias(e);
+                            // })
                         }
                     </div>
                     <div className="containerInteracaoPostagem">
-                        <div className="containerDownloadPostagem">
-                            <Link to={post.flDownload} className="downloadPostagem">
-                                <FileOpenIcon />
-                            </Link>
-                            <Typography id="altTextDownload" fontFamily={'poppins'}>Anexo disponível para download</Typography>
-                        </div>
-                        <div className="interacaoPostagem">   
-                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.qtLikes)}/>
+                        <div className="interacaoPostagem">
+                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.quantityLikes)}/>
                             <BtnInteracao guid={post.guid} tipo="comentario" qtInteracao={formataNumero(post.qtComentarios)}/>
                         </div>
                     </div>
@@ -84,7 +77,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
         case 2:
             return <>
                 <div id={post.guid} className="containerPostagem">
-                    <Link to={"/perfil/" + post.lkPerfil} className="headerPostagem">
+                    <Link to={"/perfil/" + post.userId} className="headerPostagem">
                         <img src={post.ftPerfil} alt="" />
                         <div className="infoAutorPostagem">
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.nmAutor}</Typography>
@@ -98,14 +91,14 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     </Link>
                     <div className="categoriasPostagem">
                         {
-                            (post.dcCategorias.result).map((e: any) => {
-                                return getCategorias(e);
-                            })
+                            // (post.dcCategorias).map((e: any) => {
+                            //     return getCategorias(e);
+                            // })
                         }
                         </div>
                     <div className="containerInteracaoPostagem">
                         <div className="interacaoPostagem">   
-                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.qtLikes)}/>
+                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.quantityLikes)}/>
                             <BtnInteracao guid={post.guid} tipo="comentario" qtInteracao={formataNumero(post.qtComentarios)}/>
                         </div>
                     </div>
@@ -128,9 +121,9 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     </Link>
                     <div className="categoriasPostagem">
                         {
-                            (post.dcCategorias.result).map((e: any) => {
-                                return getCategorias(e);
-                            })
+                            // (post.dcCategorias).map((e: any) => {
+                            //     return getCategorias(e);
+                            // })
                         }
                         </div>
                     <div className="containerInteracaoPostagem">
@@ -141,7 +134,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                             <Typography id="altTextDownload" fontFamily={'poppins'}>Anexo disponível para download</Typography>
                         </div>
                         <div className="interacaoPostagem">   
-                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.qtLikes)}/>
+                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.quantityLikes)}/>
                             <BtnInteracao guid={post.guid} tipo="comentario" qtInteracao={formataNumero(post.qtComentarios)}/>
                         </div>
                     </div>

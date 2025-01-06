@@ -31,7 +31,27 @@
         font-size: var(--t16px);
         background-color: var(--corEnfase);
         cursor: pointer;
+        transition: background-color 0.3s ease;
     }
+      
+      .btnUsuario:hover {
+        background-color: var(--corBotao);
+        color: var(--corTextoPreto);
+      }
+      
+      .btnUsuario.copied {
+        background-color: #28a745;
+        animation: bounce 0.5s ease;
+      }
+      
+      @keyframes bounce {
+        0%, 100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
 
     .contatoUsuario img {
         border-radius: var(--t64px);

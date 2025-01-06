@@ -4,13 +4,22 @@ import { formataNumero } from "../../../../components/functions/formataNumero";
 import { getGrauEscolaridade } from "../../../../components/functions/getGrauEscolaridade";
 import { getSiglaEstado } from "../../../../components/functions/getSiglaEstado";
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import { useState } from "react";
 import './index.css';
 
+//TODO: Perguntar pro Ronald sobre endpoint/função de seguir usuários.
 const seguirUsuario = async () => {
-    console.log('a');
+    alert('Clicou para seguir');
 }
 
 const InfoPerfil = ({ obj }: { obj: any }) => {
+    const [copied, setCopied] = useState(false);
+    const handleCopy = () => {
+        navigator.clipboard.writeText(obj.email);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+    
     return (
         <>
             {obj && <>
@@ -27,8 +36,8 @@ const InfoPerfil = ({ obj }: { obj: any }) => {
                 <img src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png" alt="Ícone de perfil" />
                 <div className="ctaUsuario">
                     <button id="btnSeguir" className="iconInteracao" onClick={seguirUsuario}><PersonAddIcon /></button>
-                    <button className="btnUsuario" type="button" onClick={() => { navigator.clipboard.writeText(obj.email) }}>
-                        <Typography fontFamily={'poppins'}>Contato</Typography>
+                    <button className={`btnUsuario ${copied ? 'copied' : ''}`} type="button" onClick={handleCopy}>
+                        <Typography fontFamily={'poppins'}> {copied ? 'Copiado!' : 'Contato'}</Typography>
                     </button>
                 </div>
             </div>
