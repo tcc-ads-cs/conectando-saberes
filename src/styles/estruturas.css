@@ -1,17 +1,19 @@
-.grid {
-    display: grid;
-    grid-template-areas:
-    "b a a a"
-}
-
-.grid-alt {
-    display: grid;
-    align-items: unset;
-    grid-template-areas:
-    "a a a a"
-    "c c c b"
-    "c c c b"
-    "c c c b";
+@media (min-width: 1000px) {
+    .grid {
+        display: grid;
+        grid-template-areas:
+        "b a a a"
+    }
+    
+    .grid-alt {
+        display: grid;
+        align-items: unset;
+        grid-template-areas:
+        "a a a a"
+        "c c c b"
+        "c c c b"
+        "c c c b";
+    }
 }
 
 .grid-a {

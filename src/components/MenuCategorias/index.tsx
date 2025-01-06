@@ -8,9 +8,7 @@ interface MenuCategoriasProps {
 const MenuCategorias: React.FC<MenuCategoriasProps> = ({req}) => {
     let obj = JSON.parse(req).categorias;
     
-    
-
-
+    //TODO: Transformar as categorias vindas da requsição (Ronald está fazendo ainda)
     return <>
         {
             obj.map((e: any) => {

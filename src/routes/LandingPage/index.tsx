@@ -48,11 +48,12 @@ const LandingPage: React.FC = () => {
                 </article>
             </div>
         </section>
+        {/* TODO: Colocar as fotos do pessoal do grupo */}
         <section className="grupoLandingPage">
             <Typography fontFamily='poppins' variant="h2">Nossa equipe &lt;3</Typography>
             <Typography fontFamily='poppins' className="subtituloLandingPage">Aqui você conhece o grupo de TCC do curso de ADS do IFSP-CBT responsável pela plataforma!</Typography>
             <article className="integranteLandingPage">
-                <img src="https://images.pexels.com/photos/3471028/pexels-photo-3471028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+                <img src="/src/assets/imgs/grupo/Ariel.jpeg" alt="" />
                 <Typography fontFamily='poppins' variant="h3">Ariel Martins</Typography>
                 <Typography fontFamily='poppins'>UX/UI Designer</Typography>
                 <Typography fontFamily='poppins'>Dev Front-End</Typography>

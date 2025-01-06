@@ -90,6 +90,10 @@
         background-color: var(--corEnfase);
         cursor: pointer;
     }
+    
+    .login {
+        height: 100vh;
+    }
 
     /* Estilização por tipos de input */
 
@@ -155,9 +159,4 @@
     .formContainer {
         max-width: 600px;
     }
-
-    .login {
-        height: 100vh;
-    }
-    
 }

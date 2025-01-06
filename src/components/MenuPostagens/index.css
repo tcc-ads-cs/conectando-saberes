@@ -19,6 +19,18 @@
 
     .conteudoMenuPostagem {
         padding: var(--t16px);
+        margin-bottom: 5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #btnMaisPosts {
+        border-style: none;
+        background-color: var(--corEnfase);
+        color: var(--corTextoBranco);
+        padding: 1em 1.5em;
+        border-radius: 2em;
     }
 }
 

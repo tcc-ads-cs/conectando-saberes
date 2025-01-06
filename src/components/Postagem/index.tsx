@@ -14,128 +14,134 @@ interface PostagemProps {
 }
 
 const Postagem: React.FC<PostagemProps> = ({post}) => {  
-    let url = useParams();    
-    switch (post.type) {
+    let url = useParams();
+    
+    const simplificaNome = (nome: string) => {
+        return nome.split(' ').slice(0, 2).join(' ');
+    }
+
+    //TODO: Atribuir as fotos de perfil
+    switch (post.post.type) {
         case 0:
             return <>
-                <div id={post.guid} className="containerPostagem">
-                    <Link to={"/perfil/" + post.userId} className="headerPostagem">
+                <div id={post.post.guid} className="containerPostagem">
+                    <Link to={"/perfil/" + post.user.idUsario} className="headerPostagem">
                         <img src='https://cdn-icons-png.flaticon.com/512/6596/6596121.png' alt="" />
                         <div className="infoAutorPostagem">
-                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.nmAutor}</Typography>
-                            <Broche classN="itemInfoAutorPostagem" tipo={post.tpInteresse} />
-                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.grauEscolaridade)} • {post.nmInstituicao}</Typography>
+                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{simplificaNome(post.user.nmUsuario)}</Typography>
+                            <Broche classN="itemInfoAutorPostagem" tipo={post.user.tpPreferencia} />
+                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {post.user.nmInstituicao}</Typography>
                         </div>
                     </Link>
-                    <Link to={"/postagem/" + post.guid} className="conteudoPostagem">
-                        {!Object.keys(url).includes('guidPostagem') ? formataTextoPostagem(post.textPost) : <Typography fontFamily={'poppins'}>{post.textPost}</Typography>}
+                    <Link to={"/postagem/" + post.post.guid} className="conteudoPostagem">
+                        {!Object.keys(url).includes('guidPostagem') ? formataTextoPostagem(post.post.textPost) : <Typography fontFamily={'source-serif-4'} fontSize={20}>{post.post.textPost}</Typography>}
                     </Link>
                     <div className="categoriasPostagem">
                         {
-                            // (post.dcCategorias).map((e: any) => {
-                            //     return getCategorias(e);
-                            // })
+                            (post.categories).map((e: any) => {
+                                return getCategorias(e);
+                            })
                         }
                     </div>
                     <div className="containerInteracaoPostagem">
                         <div className="interacaoPostagem">   
-                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.quantityLikes)}/>
-                            <BtnInteracao guid={post.guid} tipo="comentario" qtInteracao={formataNumero(post.qtComentarios)}/>
+                            <BtnInteracao guid={post.post.guid} tipo="curtida" qtInteracao={formataNumero(post.post.quantityLikes)}/>
+                            <BtnInteracao guid={post.post.guid} tipo="comentario" qtInteracao={formataNumero(post.post.qtComentarios)}/>
                         </div>
                     </div>
                 </div>
             </>
         case 1:
             return <>
-                <div id={post.guid} className="containerPostagem">
-                    <Link to={"/perfil/" + post.lkPerfil} className="headerPostagem">
-                        <img src={post.ftPerfil} alt="" />
+                <div id={post.post.guid} className="containerPostagem">
+                    <Link to={"/perfil/" + post.post.userId} className="headerPostagem">
+                        <img src='https://cdn-icons-png.flaticon.com/512/6596/6596121.png' alt="" />
                         <div className="infoAutorPostagem">
-                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.nmAutor}</Typography>
-                            <Broche classN="itemInfoAutorPostagem" tipo={post.tpInteresse} />
-                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.grauEscolaridade)} • {post.nmInstituicao}</Typography>
+                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{simplificaNome(post.user.nmUsuario)}</Typography>
+                            <Broche classN="itemInfoAutorPostagem" tipo={post.user.tpPreferencia} />
+                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {post.user.nmInstituicao}</Typography>
                         </div>
                     </Link>
-                    <Link to={"/postagem/" + post.guid} className="conteudoPostagem">
-                        {Object.keys(url).length === 0 ? formataTextoPostagem(post.textPost) : <Typography>{post.textPost}</Typography>}
+                    <Link to={"/postagem/" + post.post.guid} className="conteudoPostagem">
+                        {Object.keys(url).length === 0 ? formataTextoPostagem(post.post.textPost) : <Typography fontFamily={'source-serif-4'} fontSize={20}>{post.post.textPost}</Typography>}
                     </Link>
                     <div className="categoriasPostagem">
                         {
-                            // (post.dcCategorias).map((e: any) => {
-                            //     return getCategorias(e);
-                            // })
+                            (post.categories).map((e: any) => {
+                                return getCategorias(e);
+                            })
                         }
                     </div>
                     <div className="containerInteracaoPostagem">
                         <div className="interacaoPostagem">
-                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.quantityLikes)}/>
-                            <BtnInteracao guid={post.guid} tipo="comentario" qtInteracao={formataNumero(post.qtComentarios)}/>
+                            <BtnInteracao guid={post.post.guid} tipo="curtida" qtInteracao={formataNumero(post.post.quantityLikes)}/>
+                            <BtnInteracao guid={post.post.guid} tipo="comentario" qtInteracao={formataNumero(post.post.qtComentarios)}/>
                         </div>
                     </div>
                 </div>
             </>
         case 2:
             return <>
-                <div id={post.guid} className="containerPostagem">
-                    <Link to={"/perfil/" + post.userId} className="headerPostagem">
-                        <img src={post.ftPerfil} alt="" />
+                <div id={post.post.guid} className="containerPostagem">
+                    <Link to={"/perfil/" + post.post.userId} className="headerPostagem">
+                        <img src='https://cdn-icons-png.flaticon.com/512/6596/6596121.png' alt="" />
                         <div className="infoAutorPostagem">
-                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.nmAutor}</Typography>
-                            <Broche classN="itemInfoAutorPostagem" tipo={post.tpInteresse} />
-                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.grauEscolaridade)} • {post.nmInstituicao}</Typography>
+                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{simplificaNome(post.user.nmUsuario)}</Typography>
+                            <Broche classN="itemInfoAutorPostagem" tipo={post.post.tpInteresse} />
+                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {post.user.nmInstituicao}</Typography>
                         </div>
                     </Link>
-                    <Link to={"/postagem/" + post.guid} className="conteudoPostagem">
-                        <Typography fontFamily={'poppins'} variant={'h3'}>{post.dcTitulo}</Typography>
-                        {Object.keys(url).length === 0 ? formataTextoPostagem(post.textPost) : <Typography>{post.textPost}</Typography>}
+                    <Link to={"/postagem/" + post.post.guid} className="conteudoPostagem">
+                        <Typography fontFamily={'poppins'} variant={'h3'}>{post.post.dcTitulo}</Typography>
+                        {Object.keys(url).length === 0 ? formataTextoPostagem(post.post.textPost) : <Typography fontFamily={'source-serif-4'} fontSize={20}>{post.post.textPost}</Typography>}
                     </Link>
                     <div className="categoriasPostagem">
                         {
-                            // (post.dcCategorias).map((e: any) => {
-                            //     return getCategorias(e);
-                            // })
+                            (post.categories).map((e: any) => {
+                                return getCategorias(e);
+                            })
                         }
                         </div>
                     <div className="containerInteracaoPostagem">
                         <div className="interacaoPostagem">   
-                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.quantityLikes)}/>
-                            <BtnInteracao guid={post.guid} tipo="comentario" qtInteracao={formataNumero(post.qtComentarios)}/>
+                            <BtnInteracao guid={post.post.guid} tipo="curtida" qtInteracao={formataNumero(post.post.quantityLikes)}/>
+                            <BtnInteracao guid={post.post.guid} tipo="comentario" qtInteracao={formataNumero(post.post.qtComentarios)}/>
                         </div>
                     </div>
                 </div>
             </>
         case 3:
             return <>
-                <div id={post.guid} className="containerPostagem">
-                    <Link to={"/perfil/" + post.lkPerfil} className="headerPostagem">
-                        <img src={post.ftPerfil} alt="" />
+                <div id={post.post.guid} className="containerPostagem">
+                    <Link to={"/perfil/" + post.post.userId} className="headerPostagem">
+                        <img src='https://cdn-icons-png.flaticon.com/512/6596/6596121.png' alt="" />
                         <div className="infoAutorPostagem">
-                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.nmAutor}</Typography>
-                            <Broche classN="itemInfoAutorPostagem" tipo={post.tpInteresse} />
-                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.grauEscolaridade)} • {post.nmInstituicao}</Typography>
+                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{simplificaNome(post.user.nmUsuario)}</Typography>
+                            <Broche classN="itemInfoAutorPostagem" tipo={post.post.tpInteresse} />
+                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {post.user.nmInstituicao}</Typography>
                         </div>
                     </Link>
-                    <Link to={"/postagem/" + post.guid} className="conteudoPostagem">
-                        <Typography fontFamily={'poppins'} variant={'h3'}>{post.dcTitulo}</Typography>
-                        {Object.keys(url).length === 0 ? formataTextoPostagem(post.textPost) : <Typography>{post.textPost}</Typography>}
+                    <Link to={"/postagem/" + post.post.guid} className="conteudoPostagem">
+                        <Typography fontFamily={'poppins'} variant={'h3'}>{post.post.dcTitulo}</Typography>
+                        {Object.keys(url).length === 0 ? formataTextoPostagem(post.post.textPost) : <Typography fontFamily={'source-serif-4'} fontSize={20}>{post.post.textPost}</Typography>}
                     </Link>
                     <div className="categoriasPostagem">
                         {
-                            // (post.dcCategorias).map((e: any) => {
-                            //     return getCategorias(e);
-                            // })
+                            (post.categories).map((e: any) => {
+                                return getCategorias(e);
+                            })
                         }
                         </div>
                     <div className="containerInteracaoPostagem">
                         <div className="containerDownloadPostagem">
-                            <Link to={post.flDownload} className="downloadPostagem">
+                            <Link to={post.post.flDownload} className="downloadPostagem">
                                 <FileOpenIcon />
                             </Link>
                             <Typography id="altTextDownload" fontFamily={'poppins'}>Anexo disponível para download</Typography>
                         </div>
                         <div className="interacaoPostagem">   
-                            <BtnInteracao guid={post.guid} tipo="curtida" qtInteracao={formataNumero(post.quantityLikes)}/>
-                            <BtnInteracao guid={post.guid} tipo="comentario" qtInteracao={formataNumero(post.qtComentarios)}/>
+                            <BtnInteracao guid={post.post.guid} tipo="curtida" qtInteracao={formataNumero(post.post.quantityLikes)}/>
+                            <BtnInteracao guid={post.post.guid} tipo="comentario" qtInteracao={formataNumero(post.post.qtComentarios)}/>
                         </div>
                     </div>
                 </div>

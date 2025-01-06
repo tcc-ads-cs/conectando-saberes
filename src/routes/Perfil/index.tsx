@@ -12,13 +12,12 @@ import { getRequest } from "../../hooks/useRequests";
 import './index.css';
 
 import * as postagem from '../../assets/tags.json';
-let jsonPo = JSON.stringify(postagem);
+let mockCategorias = JSON.stringify(postagem);
 
 export let perfilUsuario: any;
 
 const Perfil: React.FC = () => {  
     const [ perfil, setPerfil ] = useState<any>(null);
-    const [ posts, setPosts ] = useState<any>(null);
     const [ infoPerfil, setInfoPerfil ] = useState<any>(null);
     const [ isLoading, setLoading ] = useState<boolean>(true);
     const { idPerfil } = useParams();
@@ -33,6 +32,7 @@ const Perfil: React.FC = () => {
                     setPerfil(response);
                     perfilUsuario = response;
                 } else {
+                    setLoading(false);
                     console.log('Resposta não OK:', response);
                 }
             } catch (e: any) {
@@ -47,12 +47,25 @@ const Perfil: React.FC = () => {
     useEffect(() => {
         if (perfil != null) {
             const { posts: postagensUser, ...infoUser } = perfil;
-            setPosts(postagensUser);
             setInfoPerfil(infoUser);
         }
+        tipoFeed();
     }, [perfil]);
 
+    const tipoFeed = (): string => {
+        let feed = "default";
+        if (localStorage.getItem('idUsuario') == idPerfil)  {
+            feed = "meuPerfil";
+        } else if (localStorage.getItem('idUsuario') != idPerfil)
+        {
+            feed = "perfil";
+        }
+        return feed;
+    }
+
     return <>
+        
+        
         <Navbar />
         {
             perfil ? 
@@ -70,15 +83,16 @@ const Perfil: React.FC = () => {
                     <Typography fontFamily={'poppins'} variant={'h2'} fontWeight={500}>Categorias utilizadas</Typography>
                     
                     {/* TODO: Requisição das últimas categorias utilizadas em posts. */}
-                    <MenuCategorias req={jsonPo}/>
+                    <MenuCategorias req={mockCategorias}/>
                 </section>
             </aside>
-            <section className="grid-c padding-left">
-                {/* Enviar lista de postagens + tópicos */}
-                <MenuPostagem type='meuPerfil' />
-            </section>
+            {infoPerfil && (
+                <section className="grid-c padding-left">
+                    <MenuPostagem type={tipoFeed()} user={infoPerfil} />
+                </section>
+            )}
         </div>
-        : <NotFound text="Perfil não encontrado." link='/' />
+        : isLoading ? <Loading text="Carregando perfil"/> : <NotFound text="Perfil não encontrado." link='/' /> 
         }
     </>
 }

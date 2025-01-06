@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 interface NotFoundProps {
     text: string,
-    link: string;
+    link?: string;
 }
 
 const NotFound: React.FC<NotFoundProps> = ({text, link}) => {
@@ -23,8 +23,10 @@ const NotFound: React.FC<NotFoundProps> = ({text, link}) => {
         <Typography fontFamily="poppins" style={{ margin: '1rem 0', fontSize: '1.5rem', color: '#2C0735' }}>
           {text}
         </Typography>
-        <Link
-          to={link}
+        {
+          link ? 
+          <Link
+          to={'..'}
           style={{
             textDecoration: 'none',
             color: '#2196f3',
@@ -36,8 +38,9 @@ const NotFound: React.FC<NotFoundProps> = ({text, link}) => {
           onMouseEnter={(e) => (e.currentTarget.style.color = '#1976d2')}
           onMouseLeave={(e) => (e.currentTarget.style.color = '#2196f3')}
         >
-          Voltar para página inicial
+          Voltar
         </Link>
+        : <></>}
       </div>
     </>
 }

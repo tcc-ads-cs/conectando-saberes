@@ -7,6 +7,7 @@ import MenuPrincipal from "../../components/MenuPrincipal";
 import Postagem from "../../components/Postagem";
 import MenuCategorias from "../../components/MenuCategorias";
 import MenuRecomendacoes from "../../components/MenuRecomendacoes";
+import NotFound from "../../components/NotFound";
 import './index.css';
 
 //TODO: Atualizar para requisição do banco de dados.
@@ -16,20 +17,22 @@ let jsonCat = JSON.stringify(categorias);
 const PostagemPage: React.FC = () => {
     const { guidPostagem } = useParams();
     const [postagem, setPostagem] = useState<any>(null);
-    const req: string = '/Post/mostrar-post?guid=' + guidPostagem;
     
-    useEffect(() => {
-        const renderPostagem = async () => {
-            try {
-                const response = await getRequest(req);
-                
-                if (response.status === 200) {
-                    setPostagem(<Postagem post={response.data}/>);
-                }
-            } catch (e: any) {
-                setPostagem(e.response.data?.message);
+    const renderPostagem = async () => {
+        try {
+            let reqPostagem = await getRequest(`/Post/${guidPostagem}`);
+            
+            if (!Array.isArray(reqPostagem)) {
+                setPostagem(<NotFound text="Post não encontrado." link="/" />)
+            } else {
+                setPostagem(<Postagem post={reqPostagem}/>);
             }
-        };
+        } catch (e: any) {
+            setPostagem(e.reqPostagem.data?.message);
+        }
+    };
+
+    useEffect(() => {
         renderPostagem();
     }, []);
 
@@ -48,7 +51,7 @@ const PostagemPage: React.FC = () => {
                     <MenuRecomendacoes />
                 </section>
             </aside>
-            <main className="grid-a post">
+            <main className="grid-a">
                 {postagem}
             </main>
         </div>

@@ -1,28 +1,11 @@
-export let togglePostagem: Function;
-export let toggleComunidade: Function;
-export let toggleCategoria: Function;
+export const togglePostagem = () => toggleButton('btnPostagens');
+export const toggleComunidade = () => toggleButton('btnComunidade');
+export const toggleCategoria = () => toggleButton('btnCategorias');
 
-document.addEventListener('DOMContentLoaded', function() {
-    let btnA = document.getElementById('btnPostagens');
-    let btnCo = document.getElementById('btnComunidade');
-    let btnCa = document.getElementById('btnCategorias');
-    
-    togglePostagem = () => {
-        btnA?.classList.toggle("linkSelecionado", true);
-        btnCo?.classList.toggle("linkSelecionado", false);
-        btnCa?.classList.toggle("linkSelecionado", false);
-    }
-    
-    toggleComunidade = () =>  {
-        btnCo?.classList.toggle("linkSelecionado", true);
-        btnA?.classList.toggle("linkSelecionado", false);
-        btnCa?.classList.toggle("linkSelecionado", false);
-    }
-    
-    toggleCategoria = () => {
-        btnA?.classList.toggle("linkSelecionado", false);
-        btnCo?.classList.toggle("linkSelecionado", false);
-        btnCa?.classList.toggle("linkSelecionado", true);
-    }
-
-});
+const toggleButton = (activeButtonId: string) => {
+    const buttons = ['btnPostagens', 'btnComunidade', 'btnCategorias'];
+    buttons.forEach(buttonId => {
+        const button = document.getElementById(buttonId);
+        button?.classList.toggle('linkSelecionado', buttonId === activeButtonId);
+    });
+};
