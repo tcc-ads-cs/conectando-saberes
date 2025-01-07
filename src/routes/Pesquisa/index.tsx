@@ -1,8 +1,8 @@
-import { useState } from "react";
 import MenuPrincipal from "../../components/MenuPrincipal";
 import Navbar from "../../components/Navbar";
 import MenuRecomendacoes from "../../components/MenuRecomendacoes";
 import MenuCategorias from "../../components/MenuCategorias";
+import FormPesquisa from "./components/FormPesquisa";
 import { Typography } from "@mui/material";
 
 import * as categorias from '../../assets/tags.json';
@@ -10,8 +10,6 @@ let jsonCat = JSON.stringify(categorias);
 
 
 const Pesquisa: React.FC = () => {
-    const [ isLoading , setLoading ] = useState(false);
-
     return <>
     <Navbar />
         <div className="grid">
@@ -20,7 +18,7 @@ const Pesquisa: React.FC = () => {
                     <MenuPrincipal />
                 </section>
                 <section className="containerMenuCategorias">
-                    <Typography fontFamily={'poppins'} variant={'h2'} fontWeight={500}>Categorias favoritas</Typography>
+                    <Typography fontFamily={'poppins'} variant={'h2'} fontWeight={500}>Categorias utilizadas</Typography>
                     <MenuCategorias req={jsonCat}/>
                 </section>
                 <section className="containerMenuCategorias">
@@ -28,7 +26,7 @@ const Pesquisa: React.FC = () => {
                 </section>
             </aside>
             <main className="grid-a">
-                
+                <FormPesquisa />
             </main>
         </div>
     </>

@@ -8,7 +8,7 @@ interface LoadingProps {
 const Loading: React.FC<LoadingProps> = ({text}) => {
     return <>
     <CircularProgress />
-    <Typography fontFamily='poppins'>{text}</Typography>
+    <Typography fontFamily='poppins' fontSize={20}>{text}</Typography>
     </>
 }
 

@@ -2,33 +2,48 @@ import { useState } from "react";
 import { Typography } from "@mui/material";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import DeleteIcon from '@mui/icons-material/Delete';
 import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
 import { postRequest } from "../../../../hooks/useRequests";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './index.css';
 
 interface BtnInteracaoProps {
     guid: string,
     tipo: string,
-    qtInteracao: number | string;
+    qtInteracao?: number | string;
 }
 
 const BtnInteracao: React.FC<BtnInteracaoProps> = ({guid, tipo, qtInteracao}) => {
     const [liked, setLiked] = useState(false);
+    const navigate = useNavigate();
 
     const curtirPostagem = async (event: React.MouseEvent<HTMLButtonElement>) => {
         const button = event.currentTarget;
         button.classList.toggle('iconClicado');
         setLiked(!liked);
 
-        try {
-            await postRequest(`/Post/like/${guid}`, '', {
-                'token': localStorage.getItem('token') || ''
-            });
-        } catch (error) {
-            console.error('Erro ao curtir a postagem:', error);
+        liked ? alert('Curtida retirada.') : alert('Curtida adicionada.');
+
+        if (!liked) {
+            try {
+                await postRequest(`/Post/like/${guid}`, '', {
+                    'token': localStorage.getItem('token') || ''
+                });
+            } catch (error) {
+                console.error('Erro ao curtir a postagem:', error);
+            }
         }
     }
+
+    const excluirPostagem = async () => {
+        try {
+            //TODO: Adicionar requisição para excluir postagem.
+            navigate('/');
+        } catch (error) {
+            console.error('Erro ao deletar a postagem:', error);
+        }
+    };
     
     switch (tipo) {
         case "curtida":
@@ -45,6 +60,13 @@ const BtnInteracao: React.FC<BtnInteracaoProps> = ({guid, tipo, qtInteracao}) =>
                     <Typography fontFamily={'poppins'}>Comentar</Typography>
                     <Link to={"/postagem/" + guid} datatype={tipo} type="button" id={"btnCom-" + guid} className="iconInteracao"><CommentOutlinedIcon /></Link>
                     <Typography fontFamily={'poppins'}>{qtInteracao}</Typography>
+                </div>
+            </>
+        case "deletar":
+            return <>
+                <div className="btnInteracao">
+                    <button datatype={tipo} type="button" onClick={excluirPostagem} id={"btnDel-" + guid} className="iconInteracao"><DeleteIcon /></button>
+                    <Typography fontFamily={'poppins'}>Excluir<br></br>Postagem</Typography>
                 </div>
             </>
     }

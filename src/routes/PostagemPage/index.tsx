@@ -8,6 +8,7 @@ import Postagem from "../../components/Postagem";
 import MenuCategorias from "../../components/MenuCategorias";
 import MenuRecomendacoes from "../../components/MenuRecomendacoes";
 import NotFound from "../../components/NotFound";
+import Loading from "../../components/Loading";
 import './index.css';
 
 //TODO: Atualizar para requisição do banco de dados.
@@ -17,14 +18,19 @@ let jsonCat = JSON.stringify(categorias);
 const PostagemPage: React.FC = () => {
     const { guidPostagem } = useParams();
     const [postagem, setPostagem] = useState<any>(null);
+    const [comentarios, setComentarios] = useState<any>(null);
+    const [isLoading, setIsLoading ] = useState(false);
     
     const renderPostagem = async () => {
         try {
+            setIsLoading(true);
             let reqPostagem = await getRequest(`/Post/${guidPostagem}`);
             
-            if (!Array.isArray(reqPostagem)) {
-                setPostagem(<NotFound text="Post não encontrado." link="/" />)
+            if (typeof reqPostagem !== 'object' || reqPostagem === null) {
+                setIsLoading(false);
+                setPostagem(<NotFound text="Post não encontrado." link=".." />)
             } else {
+                setIsLoading(false);
                 setPostagem(<Postagem post={reqPostagem}/>);
             }
         } catch (e: any) {
@@ -32,8 +38,18 @@ const PostagemPage: React.FC = () => {
         }
     };
 
+    const renderComentarios = async () => {
+        try {
+            //TODO: Fazer a requisição de trazer os comentários da postagem por guid.
+            setComentarios('Requisição');
+        } catch (e: any) {
+            console.error(e);
+        }
+    }
+
     useEffect(() => {
         renderPostagem();
+        renderComentarios();
     }, []);
 
     return <>
@@ -44,7 +60,7 @@ const PostagemPage: React.FC = () => {
                     <MenuPrincipal />
                 </section>
                 <section className="containerMenuCategorias">
-                    <Typography fontFamily={'poppins'} variant={'h2'} fontWeight={500}>Categorias favoritas</Typography>
+                    <Typography fontFamily={'poppins'} variant={'h2'} fontWeight={500}>Categorias utilizadas</Typography>
                     <MenuCategorias req={jsonCat}/>
                 </section>
                 <section className="containerMenuCategorias">
@@ -52,7 +68,7 @@ const PostagemPage: React.FC = () => {
                 </section>
             </aside>
             <main className="grid-a">
-                {postagem}
+                {isLoading ? <Loading text='Carregando postagem'/> : postagem}
             </main>
         </div>
     </>

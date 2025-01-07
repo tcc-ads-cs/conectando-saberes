@@ -12,7 +12,7 @@ const seguirUsuario = async () => {
     // Requisição de seguir usuário (x segue y, aumenta nº de seguindo de x e seguidores de y).
 }
 
-//TODO: Alterar para o link da foto de pergfil do usuário.
+//TODO: Alterar para o link da foto de perfil do usuário.
 const InfoPerfil = ({ obj }: { obj: any }) => {
     const [copied, setCopied] = useState(false);
     const handleCopy = () => {

@@ -73,7 +73,6 @@ const trataFormPostagem = async (data: FormData) => {
     }
 
     try {
-        console.log(await bodyPost(data));
         const postPublicado = JSON.stringify(await bodyPost(data));
         const response = await postRequest('/Post/criar-post', postPublicado, {
             'Content-Type': 'application/json',

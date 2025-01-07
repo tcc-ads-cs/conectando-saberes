@@ -7,7 +7,7 @@ export const formataNumero = (numb: number): string => {
     } else if (numb >= 1e3) {
       return (numb / 1e3).toFixed(1) + 'K';
     } else {
-      return numb.toString();
+      return (numb).toString();
     }
   }
   return '';

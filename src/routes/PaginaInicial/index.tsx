@@ -23,7 +23,7 @@ const PaginaInicial: React.FC = () => {
                 <MenuPrincipal />
             </section>
             <section className="containerMenuCategorias">
-                <Typography fontFamily={'poppins'} variant={'h2'} fontWeight={500}>Categorias favoritas</Typography>
+                <Typography fontFamily={'poppins'} variant={'h2'} fontWeight={500}>Categorias utilizadas</Typography>
                 <MenuCategorias req={jsonPo}/>
             </section>
             <section className="containerMenuCategorias">

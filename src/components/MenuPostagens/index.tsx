@@ -3,13 +3,13 @@ import FeedPostagem from "../../routes/Perfil/components/FeedPostagem";
 import MenuCategorias from '../MenuCategorias';
 import { togglePostagem, toggleComunidade, toggleCategoria } from '../functions/toggleBtnClassse';
 import { getRequest } from '../../hooks/useRequests';
+import { useParams } from 'react-router-dom';
+import { Typography } from '@mui/material';
+import NotFound from '../NotFound';
 import './index.css';
 
 //TODO: Atualizar para requisição do banco de dados.
 import * as categorias from '../../assets/tags.json';
-import { useParams } from 'react-router-dom';
-import { Typography } from '@mui/material';
-import NotFound from '../NotFound';
 let jsonCat = JSON.stringify(categorias);
 
 interface MenuPostagemProps {

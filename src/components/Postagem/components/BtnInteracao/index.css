@@ -2,6 +2,7 @@
     .btnInteracao {
         display: flex;
         flex-direction: column;
+        text-align: center;
         align-items: center;
         gap: var(--t8px);
         color: var(--corTextoPreto);
