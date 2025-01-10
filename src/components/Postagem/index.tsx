@@ -34,6 +34,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {post.user.nmInstituicao}</Typography>
                         </div>
                         {Object.keys(url).includes('guidPostagem') ? <Typography fontFamily={'poppins'}>{formatarData(post.post.postDate)}</Typography> : <></> }
+                        {Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }
                     </Link>
                     <Link to={"/postagem/" + post.post.guid} className="conteudoPostagem">
                         {!Object.keys(url).includes('guidPostagem') ? formataTextoPostagem(post.post.textPost) : <Typography fontFamily={'source-serif-4'} fontSize={20}>{post.post.textPost}</Typography>}
@@ -47,10 +48,9 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     </div>
                     <div className="containerInteracaoPostagem">
                         <div className="interacaoPostagem">   
-                            <BtnInteracao guid={post.post.guid} tipo="curtida" qtInteracao={formataNumero(post.post.quantityLikes++)}/>
+                            <BtnInteracao guid={post.post.guid} tipo="curtida" qtInteracao={formataNumero(post.post.quantityLikes)}/>
                             {Object.keys(url).includes('guidPostagem') ? <></> : <BtnInteracao guid={post.post.guid} tipo="comentario" qtInteracao={formataNumero(post.post.qtComentarios)}/>}
                         </div>
-                        {Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }
                     </div>
                 </div>
             </>
@@ -65,6 +65,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {post.user.nmInstituicao}</Typography>
                         </div>
                         {Object.keys(url).includes('guidPostagem') ? <Typography fontFamily={'poppins'}>{formatarData(post.post.postDate)}</Typography> : <></> }
+                        {Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }
                     </Link>
                     <Link to={"/postagem/" + post.post.guid} className="conteudoPostagem">
                         {Object.keys(url).length === 0 ? formataTextoPostagem(post.post.textPost) : <Typography fontFamily={'source-serif-4'} fontSize={20}>{post.post.textPost}</Typography>}
@@ -81,7 +82,6 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                             <BtnInteracao guid={post.post.guid} tipo="curtida" qtInteracao={formataNumero(post.post.quantityLikes)}/>
                             {Object.keys(url).includes('guidPostagem') ? <></> : <BtnInteracao guid={post.post.guid} tipo="comentario" qtInteracao={formataNumero(post.post.qtComentarios)}/>}
                         </div>
-                        {Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }
                     </div>
                 </div>
             </>
@@ -96,6 +96,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {post.user.nmInstituicao}</Typography>
                         </div>
                         {Object.keys(url).includes('guidPostagem') ? <Typography fontFamily={'poppins'}>{formatarData(post.post.postDate)}</Typography> : <></> }
+                        {Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }
                     </Link>
                     <Link to={"/postagem/" + post.post.guid} className="conteudoPostagem">
                         <Typography fontFamily={'poppins'} variant={'h3'}>{post.post.dcTitulo}</Typography>
@@ -110,10 +111,9 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                         </div>
                     <div className="containerInteracaoPostagem">
                         <div className="interacaoPostagem">   
-                            <BtnInteracao guid={post.post.guid} tipo="curtida" qtInteracao={formataNumero(post.post.quantityLikes++)}/>
+                            <BtnInteracao guid={post.post.guid} tipo="curtida" qtInteracao={formataNumero(post.post.quantityLikes)}/>
                             {Object.keys(url).includes('guidPostagem') ? <></> : <BtnInteracao guid={post.post.guid} tipo="comentario" qtInteracao={formataNumero(post.post.qtComentarios)}/>}
                         </div>
-                        {Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }
                     </div>
                 </div>
             </>
@@ -128,6 +128,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {post.user.nmInstituicao}</Typography>
                         </div>
                         {Object.keys(url).includes('guidPostagem') ? <Typography fontFamily={'poppins'}>{formatarData(post.post.postDate)}</Typography> : <></> }
+                        {Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }
                     </Link>
                     <Link to={"/postagem/" + post.post.guid} className="conteudoPostagem">
                         <Typography fontFamily={'poppins'} variant={'h3'}>{post.post.dcTitulo}</Typography>
@@ -148,10 +149,9 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                             <Typography id="altTextDownload" fontFamily={'poppins'}>Anexo disponível para download</Typography>
                         </div>
                         <div className="interacaoPostagem">   
-                            <BtnInteracao guid={post.post.guid} tipo="curtida" qtInteracao={formataNumero(post.post.quantityLikes++)}/>
+                            <BtnInteracao guid={post.post.guid} tipo="curtida" qtInteracao={formataNumero(post.post.quantityLikes)}/>
                             {Object.keys(url).includes('guidPostagem') ? <></> : <BtnInteracao guid={post.post.guid} tipo="comentario" qtInteracao={formataNumero(post.post.qtComentarios)}/>}
                         </div>
-                        {Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }
                     </div>
                 </div>
             </>

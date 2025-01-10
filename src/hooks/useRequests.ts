@@ -7,3 +7,7 @@ export const getRequest = async (url: string) => {
 export const postRequest = async (url: string, body: any, headers: any = {}) => {
     return await api.post(url, body, { headers }).then(result => result.data).catch((e => e));
 };
+
+export const deleteRequest = async (url: string, body: any) => {
+    return await api.delete(url, body).then(result => result.data).catch((e => e));
+};

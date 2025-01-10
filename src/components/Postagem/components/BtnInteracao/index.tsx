@@ -4,7 +4,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
-import { postRequest } from "../../../../hooks/useRequests";
+import { postRequest, deleteRequest } from "../../../../hooks/useRequests";
 import { Link, useNavigate } from "react-router-dom";
 import './index.css';
 
@@ -38,8 +38,11 @@ const BtnInteracao: React.FC<BtnInteracaoProps> = ({guid, tipo, qtInteracao}) =>
 
     const excluirPostagem = async () => {
         try {
-            //TODO: Adicionar requisição para excluir postagem.
-            navigate('/');
+            let response = await deleteRequest(`/Post/delete/${guid}`, { 
+                "token": localStorage.getItem('token') || ''
+            });
+
+            console.log(response);
         } catch (error) {
             console.error('Erro ao deletar a postagem:', error);
         }
@@ -65,8 +68,7 @@ const BtnInteracao: React.FC<BtnInteracaoProps> = ({guid, tipo, qtInteracao}) =>
         case "deletar":
             return <>
                 <div className="btnInteracao">
-                    <button datatype={tipo} type="button" onClick={excluirPostagem} id={"btnDel-" + guid} className="iconInteracao"><DeleteIcon /></button>
-                    <Typography fontFamily={'poppins'}>Excluir<br></br>Postagem</Typography>
+                    <button datatype={tipo} type="button" onClick={excluirPostagem} id={"btnDel-" + guid} className="iconInteracao" style={{marginLeft: '1.5em'}}><DeleteIcon /></button>
                 </div>
             </>
     }
