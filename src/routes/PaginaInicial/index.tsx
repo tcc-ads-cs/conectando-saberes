@@ -31,7 +31,8 @@ const PaginaInicial: React.FC = () => {
             </section>
         </aside>
         <main className="grid-a">
-            <MenuPostagem req={jsonPe}/>
+            {/* TODO: Colocar pro feed */}
+            <MenuPostagem type=""/>
         </main>
     </div>
 </>
