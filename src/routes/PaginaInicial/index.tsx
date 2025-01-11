@@ -7,9 +7,6 @@ import MenuPostagem from "../../components/MenuPostagens";
 
 import './index.css';
 
-import * as perfil from '../../assets/mock.json';
-let jsonPe = JSON.stringify(perfil);
-
 import * as postagem from '../../assets/tags.json';
 import MenuRecomendacoes from "../../components/MenuRecomendacoes";
 let jsonPo = JSON.stringify(postagem);
