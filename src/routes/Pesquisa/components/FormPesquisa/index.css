@@ -1,0 +1,31 @@
+@media (min-width: 320px) {
+    .formPesquisa {
+        color: var(--corTextoPreto);
+        padding: var(--t16px);
+        display: flex;
+        flex-direction: column;
+        gap: var(--t16px);
+    }
+
+    .formPesquisa h3 {
+        font-size: var(--t32px);
+    }
+
+    .inputPesquisa {
+        border: var(--corTextoPreto) solid 1px;
+    }
+
+    .filtroPesquisa {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--corBotao);
+        padding: var(--t16px);
+        border-radius: var(--t16px);
+    }
+
+    .btnForm {
+        align-self: end;
+    }
+}

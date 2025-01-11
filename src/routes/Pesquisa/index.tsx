@@ -5,9 +5,9 @@ import MenuCategorias from "../../components/MenuCategorias";
 import FormPesquisa from "./components/FormPesquisa";
 import { Typography } from "@mui/material";
 
+//TODO: Transformar numa requisição pro back-end
 import * as categorias from '../../assets/tags.json';
 let jsonCat = JSON.stringify(categorias);
-
 
 const Pesquisa: React.FC = () => {
     return <>

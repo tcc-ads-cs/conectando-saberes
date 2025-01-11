@@ -6,12 +6,12 @@
     }
     
     .formsPostagens h2 {
-        font-size: var(--t32px);
+        font-size: var(--t40px);
         margin-bottom: var(--t8px);
     }
 
     .formsPostagens h3 {
-        font-size: var(--t24px);
+        font-size: var(--t32px);
     }
 
     .formsPostagens h4 {

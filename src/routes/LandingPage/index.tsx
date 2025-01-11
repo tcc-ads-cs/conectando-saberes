@@ -65,7 +65,7 @@ const LandingPage: React.FC = () => {
                 <Typography fontFamily='poppins'>Dev Back-End</Typography>
             </article>
             <article className="integranteLandingPage">
-                <img src="https://images.pexels.com/photos/3471028/pexels-photo-3471028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+                <img src="/src/assets/imgs/grupo/Leon.jpg" alt="" />
                 <Typography fontFamily='poppins' variant="h3">Fabio Leon</Typography>
                 <Typography fontFamily='poppins'>Suporte/Apoio</Typography>
                 <Typography fontFamily='poppins'>Suporte Back-End</Typography>

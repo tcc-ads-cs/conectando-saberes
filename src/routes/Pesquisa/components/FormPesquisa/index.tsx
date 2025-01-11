@@ -1,7 +1,9 @@
 import { Typography } from "@mui/material";
+import { Search } from "@mui/icons-material";
 import { FormEvent, useState } from "react";
 import Campo from "../../../../components/Campo";
 import NotFound from "../../../../components/NotFound";
+import './index.css';
 
 interface FormDataType {
     IType: string;
@@ -85,45 +87,50 @@ const FormPesquisa: React.FC = () => {
 
     return (
         <>
+            <form className='formPesquisa' onSubmit={handleSubmit}>
             <Typography fontFamily="poppins" variant="h3">Pesquisar</Typography>
-            <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     id="inputPesqQuery"
                     name="IQuery"
                     onChange={handleChange}
-                    className="input"
+                    className="input inputPesquisa"
                     value={formData.IQuery}
                     required
                 />
-                <Campo
-                    tipo="radio"
-                    label="Perfil"
-                    id="inputPesqPerfil"
-                    name="IType"
-                    value="0"
-                    checked={formData.IType === "0"}
-                    onChange={handleChange}
-                />
-                <Campo
-                    tipo="radio"
-                    label="Categoria"
-                    id="inputPesqCategoria"
-                    name="IType"
-                    value="1"
-                    checked={formData.IType === "1"}
-                    onChange={handleChange}
-                />
-                <Campo
-                    tipo="radio"
-                    label="Usuário"
-                    id="inputPesqUsuario"
-                    name="IType"
-                    value="2"
-                    checked={formData.IType === "2"}
-                    onChange={handleChange}
-                />
-                <button type="submit" className="btnForm submit">
+                <div className="filtroPesquisa">
+                    <Campo
+                        tipo="radio"
+                        label="Perfil"
+                        id="inputPesqPerfil"
+                        name="IType"
+                        className="optionPesquisa"
+                        value="0"
+                        checked={formData.IType === "0"}
+                        onChange={handleChange}
+                    />
+                    <Campo
+                        tipo="radio"
+                        label="Categoria"
+                        id="inputPesqCategoria"
+                        name="IType"
+                        className="optionPesquisa"
+                        value="1"
+                        checked={formData.IType === "1"}
+                        onChange={handleChange}
+                    />
+                    <Campo
+                        tipo="radio"
+                        label="Usuário"
+                        id="inputPesqUsuario"
+                        name="IType"
+                        className="optionPesquisa"
+                        value="2"
+                        checked={formData.IType === "2"}
+                        onChange={handleChange}
+                    />
+                </div>
+                <button type="submit" className="btnForm">
                     {isLoading ? (
                         <img
                             src="https://raw.githubusercontent.com/n3r4zzurr0/svg-spinners/abfa05c49acf005b8b1e0ef8eb25a67a7057eb20/svg-css/90-ring.svg"
@@ -131,7 +138,7 @@ const FormPesquisa: React.FC = () => {
                             style={{ width: '24px', height: '24px', filter: 'invert(1)' }}
                         />
                     ) : (
-                        <Typography fontFamily="poppins">Pesquisar</Typography>
+                        <Typography fontFamily="poppins"><Search /></Typography>
                     )}
                 </button>
             </form>
