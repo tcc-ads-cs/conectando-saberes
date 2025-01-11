@@ -7,8 +7,10 @@ interface FeedPostagemProps {
 }
 
 const FeedPostagem: React.FC<FeedPostagemProps> = ({ postagens }) => {
+    const sortedPostagens = postagens.sort((a, b) => new Date(b.post.postDate).getTime() - new Date(a.post.postDate).getTime());
+
     return <>
-        {postagens.map((p: any) => {
+        {sortedPostagens.map((p: any) => {
             return <Postagem key={p.post.guid} post={p} />
         })}
         <MenuRecomendacoes />

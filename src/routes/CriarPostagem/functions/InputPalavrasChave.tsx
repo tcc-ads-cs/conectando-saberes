@@ -1,4 +1,6 @@
 import { useState } from "react";
+import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 interface InputPalavrasChaveProps {
     keywords: string[];
@@ -20,30 +22,34 @@ const InputPalavrasChave: React.FC<InputPalavrasChaveProps> = ({ keywords, setKe
     };
   
     return  <>
-        <div>
-            <label htmlFor="inputPalavrasChave" className="inputLabel">Insira palavras-chave para alcançar mais pessoas.</label>
-            <input
-                type="text"
-                id="inputPalavrasChave"
-                placeholder="Adicionar Palavra-chave"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        handleAddKeyword();
-                    }
-                }}
-            />
-                <button type='button' onClick={handleAddKeyword}>Adicionar</button>
+        <div className="mBottom-16">
+            <label htmlFor="inputPalavrasChave">Alcance mais pessoas inserindo palavras-chave:</label>
+            <div className="inputsKW">
+                <input
+                    type="text"
+                    id="inputPalavrasChave"
+                    className="input inputKeywords"
+                    placeholder="Adicionar Palavra-chave"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            handleAddKeyword();
+                        }
+                    }}
+                    required
+                />
+                <button type='button' onClick={handleAddKeyword} className="btnKeyword"><AddIcon /></button>
             </div>
-            <div>
-                {keywords.map((keyword) => (
-                    <div key={keyword}>
-                        {keyword}
-                        <button type='button' onClick={() => handleDeleteKeyword(keyword)}>Remover</button>
-                    </div>
-                ))}
+        </div>
+        <div>
+            {keywords.map((keyword) => (
+                <div key={keyword} className="kwSelecionada mBottom-16">
+                    {keyword}
+                    <button type='button' className="btnKeyword" onClick={() => handleDeleteKeyword(keyword)}><DeleteIcon /></button>
+                </div>
+            ))}
         </div>
     </>
 };

@@ -1,0 +1,126 @@
+@media (min-width: 320px) {
+    .formsPostagens {
+        color: var(--corTextoPreto);
+        padding: var(--t16px);
+        margin-bottom: 5em;
+    }
+    
+    .formsPostagens h2 {
+        font-size: var(--t32px);
+        margin-bottom: var(--t8px);
+    }
+
+    .formsPostagens h3 {
+        font-size: var(--t24px);
+    }
+
+    .formsPostagens h4 {
+        font-size: var(--t24px);
+    }
+
+    .formsPostagens h5 {
+        font-size: var(--t16px);
+    }
+
+    .formsPostagens form {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .formsPostagens form .btnForm {
+        align-self: start;
+    }
+
+    .formsPostagens textarea {
+        margin: var(--t16px) 0;
+        font-family: 'Source Serif 4';
+    }
+
+    .formsPostagens input {
+        border: var(--corTextoPreto) 1px solid;
+    }
+
+    .formsPostagens .inputLabel {
+        padding: 0;
+    }
+
+    .btnPostagens {
+        padding: var(--t16px) 0;
+        display: flex;
+        gap: var(--t16px);
+        flex-wrap: wrap;
+    }
+
+    .btnFormPost {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--t8px);
+        border-style: none;
+        padding: var(--t16px);
+        border-radius: var(--t8px);
+    }
+
+    .btnFormPost svg {
+        background-color: var(--corBotao);
+        padding: var(--t8px);
+        border-radius: var(--t24px);
+        font-size: var(--t48px);
+    }
+
+    .headerForm {
+        margin-bottom: var(--t32px);
+    }
+
+    .inputLongo {
+        width: 75%;
+    }
+
+    .inputTextArea {
+        padding: 1em;
+    }
+
+    /* Palavras-chave */
+
+    .inputsKW {
+        display: flex;
+        gap: var(--t16px);
+        padding: var(--t16px) 0;
+    }
+
+    .inputsKW .input {
+        min-width: auto;
+    }
+
+    .inputKeywords {
+        font-family: 'Poppins';
+        padding: var(--t8px);
+        width: 100%;
+    }
+
+    .btnKeyword {
+        border: none;
+        background-color: var(--corBotao);
+        border-radius: var(--t32px);
+        padding: var(--t8px) var(--t16px);
+    }
+
+    .kwSelecionada {
+        display: flex;
+        gap: var(--t16px);
+        align-items: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .formsPostagens {
+        color: var(--corTextoPreto);
+        padding: var(--t32px);
+        margin-bottom: 7.5em;
+    }
+    
+    .tituloPostagem {
+        width: 100%;
+    }
+}

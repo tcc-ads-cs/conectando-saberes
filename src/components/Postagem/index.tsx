@@ -68,6 +68,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                         {Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }
                     </Link>
                     <Link to={"/postagem/" + post.post.guid} className="conteudoPostagem">
+                        <Typography fontFamily={'poppins'} variant={'h3'}>{post.post.dcTitulo}</Typography>
                         {Object.keys(url).length === 0 ? formataTextoPostagem(post.post.textPost) : <Typography fontFamily={'source-serif-4'} fontSize={20}>{post.post.textPost}</Typography>}
                     </Link>
                     <div className="categoriasPostagem">

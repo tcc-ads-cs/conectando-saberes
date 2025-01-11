@@ -44,14 +44,17 @@ const FormPostagemCompleta: React.FC = () => {
     };
     
     return <>
-        <Typography fontFamily='poppins' variant='h4'>Com esse tipo de postagem, você tem a experiência padrão da plataforma!</Typography>
-        <Typography fontFamily='poppins' variant='h5'>Faça uma postagem completa.</Typography>
+        <div className="headerForm">
+            <Typography fontFamily='poppins' variant='h4' fontWeight={500}>Com esse tipo de postagem, você tem a experiência padrão da plataforma!</Typography>
+            <Typography fontFamily='poppins' variant='h5'>Faça uma postagem completa.</Typography>
+        </div>
         <form
         onSubmit={handleSubmit}
         id='formPostagemCompleta'>
-            <Campo id='inputTituloTopico' tipo='text' label='Insira o título da sua postagem abaixo.' name='dcTitulo' onChange={handleChange} value={formData.dcTitulo} />
-            <label htmlFor="inputDetalhesTopico" className="inputLabel">Insira o texto da sua postagem.</label>
-            <textarea id="inputDetalhesTopico" value={formData.textPost} name="textPost" rows={5} cols={35} className="inputTextArea" onChange={handleChange}></textarea>
+            <Campo id='inputTituloCompleta' classe="mBottom-16 tituloPostagem" tipo='text' label='Título da sua postagem:' name='dcTitulo' onChange={handleChange} value={formData.dcTitulo} required />
+            <label htmlFor="inputDetalhesCompleta" className="inputLabel">Insira o texto da sua postagem:</label>
+            <textarea id="inputDetalhesCompleta" value={formData.textPost} name="textPost" rows={10} cols={35} maxLength={500} className="inputTextArea mBottom-16" onChange={handleChange} required></textarea>
+            <Typography fontFamily={'poppins'} className="obsForm">Máximo de 500 (quinhentos) caracteres.</Typography>
             <InputPalavrasChave
             keywords={formData.dcCategorias}
             setKeywords={(keywords) => setFormData({ ...formData, dcCategorias: keywords })} />            

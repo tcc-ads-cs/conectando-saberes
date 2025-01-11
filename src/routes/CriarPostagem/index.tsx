@@ -6,6 +6,11 @@ import FormPostagemSimples from "./components/FormPostagemSimples";
 import FormTopico from "./components/FormTopico";
 import FormArtigo from "./components/FormArtigo";
 import FormPostagemCompleta from "./components/FormPostagemCompleta";
+import PostAddIcon from '@mui/icons-material/PostAdd';
+import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+import TaskIcon from '@mui/icons-material/Task';
+import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
+import './index.css';
 
 const CriarPostagem: React.FC = () => {
     const [formSelecionado, setFormSelecionado] = useState<string>("postagem");
@@ -21,7 +26,7 @@ const CriarPostagem: React.FC = () => {
             case "artigo":
                 return <FormArtigo />;
             default:
-                return "<FormPostagem />;"
+                return <></>
         }
     };
 
@@ -32,22 +37,26 @@ const CriarPostagem: React.FC = () => {
                 <aside className="grid-b">
                     <MenuPrincipal />
                 </aside>
-                <main className="grid-a forms">
-                    <Typography fontFamily={'poppins'} variant='h2'>Publique sua postagem!</Typography>
-                    <Typography fontFamily={'poppins'} variant='h3'>Vamos lá, primeiro escolha o tipo de postagem que deseja publicar.</Typography>
+                <main className="grid-a formsPostagens">
+                    <Typography fontFamily={'poppins'} variant='h2' fontWeight={'500'}>Publique sua postagem!</Typography>
+                    <Typography fontFamily={'poppins'} variant='h3' className="mBottom-16">Vamos lá, primeiro escolha o tipo de postagem que deseja publicar.</Typography>
                     
-                    <div className="botoes">
+                    <div className="btnPostagens">
                         <button className='btnFormPost' onClick={() => setFormSelecionado("simples")}>
-                            Postagem Simples
+                            <PostAddIcon />
+                            <Typography fontFamily={'poppins'} fontWeight={'500'}>Postagem<br></br>Simples</Typography>
                         </button>
                         <button className='btnFormPost' onClick={() => setFormSelecionado("completa")}>
-                            Postagem Completa
+                            <AssignmentTurnedInIcon />
+                            <Typography fontFamily={'poppins'} fontWeight={'500'}>Postagem<br></br>Completa</Typography>
                         </button>
                         <button className='btnFormPost' onClick={() => setFormSelecionado("topico")}>
-                            Tópico
+                            <QuestionAnswerIcon />
+                            <Typography fontFamily={'poppins'} fontWeight={'500'}>Tópico</Typography>
                         </button>
                         <button className='btnFormPost' onClick={() => setFormSelecionado("artigo")}>
-                            Artigo
+                            <TaskIcon />
+                            <Typography fontFamily={'poppins'} fontWeight={'500'}>Artigo</Typography>
                         </button>
                     </div>
                     {renderizarFormulario()}

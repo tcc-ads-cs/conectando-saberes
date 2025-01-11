@@ -47,6 +47,10 @@
     color: var(--corTextoPreto);
 }
 
+.mBottom-16 {
+    margin-bottom: var(--t16px);
+}
+
 .bold {
     font-weight: 500 !important;
 }

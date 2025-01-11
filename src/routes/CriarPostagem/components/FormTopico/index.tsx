@@ -44,14 +44,17 @@ const FormTopico: React.FC = () => {
     };
     
     return <>
-        <Typography fontFamily='poppins' variant='h4'>Não existe pergunta besta, pergunta que a comunidade responde!</Typography>
-        <Typography fontFamily='poppins' variant='h5'>Inicie uma discussão na plataforma.</Typography>
+        <div className="headerForm">
+            <Typography fontFamily='poppins' variant='h4' fontWeight={500}>Não existe pergunta besta, pergunta que a comunidade responde!</Typography>
+            <Typography fontFamily='poppins' variant='h5'>Inicie uma discussão na plataforma.</Typography>
+        </div>
         <form
         onSubmit={handleSubmit}
         id='formTopico'>
-            <Campo id='inputTituloTopico' tipo='text' label='Insira sua pergunta no campo abaixo.' name='dcTitulo' onChange={handleChange} value={formData.dcTitulo} />
+            <Campo id='inputTituloTopico' classe="mBottom-16 tituloPostagem" tipo='text' label='Insira sua pergunta no campo abaixo.' name='dcTitulo' onChange={handleChange} value={formData.dcTitulo} required />
             <label htmlFor="lblDetalhesTopico" className="inputLabel">Utilize esse espaço para detalhar sua pergunta.</label>
-            <textarea id="inputDetalhesTopico" value={formData.textPost} name="textPost" rows={5} cols={35} className="inputTextArea" onChange={handleChange}></textarea>
+            <textarea id="inputDetalhesTopico" value={formData.textPost} name="textPost" rows={5} cols={35} maxLength={200} className="inputTextArea" onChange={handleChange} required></textarea>
+            <Typography fontFamily={'poppins'} className="obsForm">Máximo de 200 (duzentos) caracteres.</Typography>
             <InputPalavrasChave
             keywords={formData.dcCategorias}
             setKeywords={(keywords) => setFormData({ ...formData, dcCategorias: keywords })} />

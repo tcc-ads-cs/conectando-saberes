@@ -16,6 +16,16 @@ const FormArtigo: React.FC = () => {
         dcCategorias: [] as string[]
     });
 
+    let colsTextArea = (): number => {
+        if (window.innerWidth >= 768) {
+            return 70;
+        } else if (window.innerWidth >= 500) {
+            return 45;
+        } else {
+            return 32;
+        }
+    };
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData((prevState) => ({
@@ -50,17 +60,20 @@ const FormArtigo: React.FC = () => {
 
     return (
         <>
-            <Typography fontFamily="poppins" variant="h4">
-                Neste tipo de postagem, você apresenta seu projeto para a comunidade
-            </Typography>
-            <Typography fontFamily="poppins" variant="h5">
-                Instigue seus seguidores para conhecer seu trabalho.
-            </Typography>
+            <div className="headerForm">
+                <Typography fontFamily="poppins" variant="h4" fontWeight={500}>
+                    Neste tipo de postagem, você apresenta seu projeto para a comunidade.
+                </Typography>
+                <Typography fontFamily="poppins" variant="h5">
+                    Instigue seus seguidores para conhecer seu trabalho.
+                </Typography>
+            </div>
             <form onSubmit={handleSubmit} id="formArtigo">
-                <Campo id="inputTituloTopico" tipo="text" label="Insira o título do seu trabalho" name="dcTitulo" onChange={handleChange} value={formData.dcTitulo} />
-                <label htmlFor="inputDetalhesTopico" className="inputLabel">Insira aqui o resumo do seu trabalho.</label>
-                <textarea id="inputDetalhesTopico" value={formData.textPost} name="textPost" rows={5} cols={35} className="inputTextArea" onChange={handleChange}></textarea>
-                <Campo id="inputLinkExterno" tipo="text" label="Insira aqui o link externo do seu trabalho." name="flPost" onChange={handleChange} value={formData.flPost} />
+                <Campo id="inputTituloArtigo" classe="mBottom-16 tituloPostagem" tipo="text" label="Insira o título do seu trabalho" name="dcTitulo" onChange={handleChange} value={formData.dcTitulo} required/>
+                <label htmlFor="inputDetalhesArtigo" className="inputLabel">Insira aqui o resumo do seu trabalho.</label>
+                <textarea id="inputDetalhesArtigo" value={formData.textPost} name="textPost" rows={20} cols={colsTextArea()} maxLength={2000} className="inputTextArea" onChange={handleChange} required></textarea>
+                <Typography fontFamily={'poppins'} className="obsForm">Máximo de 2.000 (dois mil) caracteres.</Typography>
+                <Campo id="inputLinkExterno" classe="mBottom-16 inputLongo" tipo="text" label="Insira aqui o link externo do seu trabalho." name="flPost" onChange={handleChange} value={formData.flPost} />
                 <InputPalavrasChave
                     keywords={formData.dcCategorias}
                     setKeywords={(keywords) => setFormData({ ...formData, dcCategorias: keywords })} />
