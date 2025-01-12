@@ -32,5 +32,6 @@ const Broche: React.FC<BrocheProps> = ({tipo, classN}) => {
                 return <abbr title="Este usuário busca conhecer sobre IC e a plataforma"><img src="/assets/ic.svg" alt="Este usuário busca conhecer sobre IC e a plataforma" /></abbr>
     }
 }
+}
 
 export default Broche;
