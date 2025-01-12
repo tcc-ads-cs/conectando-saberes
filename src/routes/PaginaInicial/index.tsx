@@ -2,13 +2,12 @@ import { Typography } from "@mui/material";
 import MenuCategorias from "../../components/MenuCategorias";
 import MenuPrincipal from "../../components/MenuPrincipal";
 import Navbar from "../../components/Navbar";
-import '../../styles/estruturas.css';
 import MenuPostagem from "../../components/MenuPostagens";
-
+import MenuRecomendacoes from "../../components/MenuRecomendacoes";
+import '../../styles/estruturas.css';
 import './index.css';
 
 import * as postagem from '../../assets/tags.json';
-import MenuRecomendacoes from "../../components/MenuRecomendacoes";
 let jsonPo = JSON.stringify(postagem);
 
 const PaginaInicial: React.FC = () => {
