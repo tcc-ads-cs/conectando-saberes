@@ -89,15 +89,14 @@ const trataFormCadastro = async (data: FormData) => {
         "tpPreferencia": parseInt(tpPreferencia),
         "descTitulo": parseInt(descTitulo),
         "tpColor": 1,
+        'profilePictureUrl': 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png',
         'curso': curso,
         "dtNasc": data.get('IDtNasc') + "T00:00:00",
         "isEmailVerified": false
-        //TODO: Adicionar a foto de perfil.
     };
 
     try {
         const response = await postRequest('/UserAuth/cadastrar', JSON.stringify(usuarioCadastrado));
-
         if (response.status === 200) {
             return 'Formulário enviado com sucesso!';
         }

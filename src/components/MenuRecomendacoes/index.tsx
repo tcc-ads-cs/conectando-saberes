@@ -1,8 +1,8 @@
 import { PersonAdd, WebStories } from "@mui/icons-material";
+import Recomendacao from "../../components/MenuRecomendacoes/components/Recomendacao";
 import { Typography } from "@mui/material";
 import './index.css';
 
-import Recomendacao from "../../components/MenuRecomendacoes/components/Recomendacao";
 import * as jsonRec from "../../assets/recomendacoes.json";
 
 let jsonPe = JSON.parse(JSON.stringify(jsonRec.perfis));

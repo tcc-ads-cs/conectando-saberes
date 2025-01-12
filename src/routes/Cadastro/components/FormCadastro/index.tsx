@@ -25,7 +25,6 @@ const FormCadastro: React.FC = () => {
       ICidade: "1",
       IEstado: "1",
       IPrefer: "1",
-      IAvatar: null as File | null
     });
 
     let getCampi = async () => {
@@ -47,23 +46,6 @@ const FormCadastro: React.FC = () => {
         [fieldName]: value,
       }));
     };
-
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const { name, files } = e.target;
-      if (files) {
-        const file = files[0];
-        if (file.size > 2 * 1024 * 1024) {
-          alert('Arquivo muito grande. Por favor, selecione um arquivo menor que 2MB.');
-          e.target.value = '';
-          return;
-        } else {
-          setFormData((prevState) => ({
-            ...prevState,
-            [name]: files[0],
-          }));
-        }
-      }
-    };
     
     const handleSubmit = async (e: FormEvent) => {
       e.preventDefault();
@@ -74,26 +56,16 @@ const FormCadastro: React.FC = () => {
         data.append(key, (formData as any)[key]);
       }
 
-      const resultadoCadastro = await trataFormCadastro(data);
-      if (typeof resultadoCadastro === "string") {
+      try {
+        const resultadoCadastro = await trataFormCadastro(data);
+        typeof resultadoCadastro === "string" && resultadoCadastro != "Formulário enviado com sucesso!" ? console.log(resultadoCadastro) : navigate("/login");
+      } catch (e) {
+        console.log(e);
+      } finally {
         setIsLoading(false);
-        alert(resultadoCadastro);
-      } else {
-        setIsLoading(false);
-        navigate("/login");
       }
+      
     };
-
-    let avatarImg = document.getElementById('avatarForm') as HTMLImageElement | null;
-    let inputImg = document.getElementById('inputAvatar') as HTMLInputElement | null;
-
-    if (avatarImg != null && inputImg != null) {
-      inputImg.onchange = function() {
-        if (inputImg.files && inputImg.files[0] && inputImg.files[0].size < 2 * 1024 * 1024) {
-          avatarImg.src = URL.createObjectURL(inputImg.files[0]);
-        }
-      };
-    }
 
     useEffect(() => {
       getCampi();
@@ -117,10 +89,6 @@ const FormCadastro: React.FC = () => {
                 <label htmlFor="inputNomeSocial" className='inputLabel'><Typography fontFamily={'poppins'}>Nome Social:</Typography></label>
                 <input type="text" id="inputNomeSocial" name="INomeSocial" className='input inputMargin' onChange={handleChange}/>
                 <Typography className="obsForm" fontFamily={'poppins'}>O "nome social" é o nome que a pessoa travesti ou transexual prefere ser chamada e possui a mesma proteção concedida ao nome de registro, assegurada pelo Decreto nº 8.727/2016.</Typography>
-                
-                <img id="avatarForm" src="https://cdn-icons-png.freepik.com/512/11120/11120447.png?ga=GA1.1.1137919026.1724783522" alt="" />
-                <label htmlFor="inputAvatar" className='inputLabel'><Typography fontFamily={'poppins'}>Selecione sua foto de perfil:</Typography></label>
-                <input type="file" id="inputAvatar" name="IAvatar" className='input inputMargin' accept="image/*" onChange={handleFileChange} required />
 
                 <Campo id="inputDtNasc" tipo="date" label="Data de Nascimento:" name="IDtNasc" classe="inputMargin" onChange={handleChange} />                
                 <label className='inputLabel' htmlFor="grauEsc"><Typography fontFamily={'poppins'}>Grau de Escolaridade:</Typography></label>
@@ -142,9 +110,9 @@ const FormCadastro: React.FC = () => {
                 <label className='inputLabel' htmlFor='inputInst'><Typography fontFamily={'poppins'}>Última instituição que frequentou:</Typography></label>
                 <select id="inputCampi" name="ICampus" className="input inputMargin" onChange={handleChange}>
                     {
-                        campi.map((c: any) => {
-                            return <option key={c.id} value={c.id}>{c.sgCampus}</option>
-                        })
+                      campi.sort((a: any, b: any) => a.campusName.localeCompare(b.campusName)).map((c: any) => {
+                        return <option key={c.id} value={c.id}>{c.sgCampus + " - " + c.campusName}</option>
+                      })
                     }
                 </select>
 
@@ -185,7 +153,6 @@ const FormCadastro: React.FC = () => {
                       <Typography fontFamily={'poppins'} fontWeight={'bold'}>Finalizar</Typography>
                     )}
             </button>
-              
         </form>
     );
 }

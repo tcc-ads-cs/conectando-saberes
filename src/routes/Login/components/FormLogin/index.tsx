@@ -30,7 +30,7 @@ const FormLogin: React.FC = () => {
         for (const key in formData) {
             data.append(key, (formData as any)[key]);
         }
-
+            
         let usuarioLogado = JSON.stringify({
             email: data.get('ILogin'),
             password: data.get('ISenha')

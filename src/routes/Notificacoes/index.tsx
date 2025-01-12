@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import MenuCategorias from "../../components/MenuCategorias";
 import MenuPrincipal from "../../components/MenuPrincipal";
 import MenuRecomendacoes from "../../components/MenuRecomendacoes";
+import EmConstrucao from "../../components/EmConstrucao";
 import Navbar from "../../components/Navbar";
 
 import * as postagem from '../../assets/tags.json';
@@ -24,7 +25,7 @@ const Notificacoes: React.FC = () => {
                 </section>
             </aside>
             <main className="grid-a">
-                {/* Em construção */}
+                <EmConstrucao />
         </main>
     </div>
     </>

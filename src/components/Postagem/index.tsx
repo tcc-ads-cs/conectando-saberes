@@ -26,7 +26,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
         case 0:
             return <>
                 <div id={post.post.guid} className="containerPostagem">
-                    <Link to={"/perfil/" + post.user.idUsario} className="headerPostagem">
+                    <Link to={"/perfil/" + post.post.userId} className="headerPostagem">
                         <img src='https://cdn-icons-png.flaticon.com/512/6596/6596121.png' alt="" />
                         <div className="infoAutorPostagem">
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.user.nmUsuario ? simplificaNome(post.user.nmUsuario) : simplificaNome(post.user.nmAutor)}</Typography>

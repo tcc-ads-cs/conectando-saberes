@@ -19,9 +19,13 @@ function App() {
 
   const routerCS = createBrowserRouter([
     {
+      path: "/",
+      element: <ProtectedRoute isAuthenticated={isAuthenticated}><RootRoute isAuthenticated={isAuthenticated} /></ProtectedRoute>,
+      errorElement: <Erro404 />
+    },
+    {
       path: "home",
       element: <LandingPage />,
-      errorElement: <Erro404 />,
     },
     {
       path: "logout",
@@ -30,10 +34,6 @@ function App() {
     {
       path: "login",
       element: <Login />
-    },
-    {
-      path: "/",
-      element: <ProtectedRoute isAuthenticated={isAuthenticated}><RootRoute isAuthenticated={isAuthenticated} /></ProtectedRoute>
     },
     {
       path: "meu-feed",
