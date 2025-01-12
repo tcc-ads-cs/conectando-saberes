@@ -53,7 +53,7 @@ const LandingPage: React.FC = () => {
             <Typography fontFamily='poppins' variant="h2">Nossa equipe &lt;3</Typography>
             <Typography fontFamily='poppins' className="subtituloLandingPage">Aqui você conhece o grupo de TCC do curso de ADS do IFSP-CBT responsável pela plataforma!</Typography>
             <article className="integranteLandingPage">
-                <img src="/src/assets/imgs/grupo/Ariel.jpeg" alt="" />
+                <img src="https://i.postimg.cc/rw69Y8W1/Ariel.jpg" alt="" />
                 <Typography fontFamily='poppins' variant="h3">Ariel Martins</Typography>
                 <Typography fontFamily='poppins'>UX/UI Designer</Typography>
                 <Typography fontFamily='poppins'>Dev Front-End</Typography>
@@ -65,7 +65,7 @@ const LandingPage: React.FC = () => {
                 <Typography fontFamily='poppins'>Dev Back-End</Typography>
             </article>
             <article className="integranteLandingPage">
-                <img src="/src/assets/imgs/grupo/Leon.jpg" alt="" />
+                <img src="https://i.postimg.cc/Hs822JJW/Leon.jpg" alt="" />
                 <Typography fontFamily='poppins' variant="h3">Fabio Leon</Typography>
                 <Typography fontFamily='poppins'>Suporte/Apoio</Typography>
                 <Typography fontFamily='poppins'>Suporte Back-End</Typography>
