@@ -27,6 +27,7 @@ const PaginaInicial: React.FC = () => {
             </section>
         </aside>
         <main className="grid-a">
+            {/* TODO: Colocar pro feed */}
             <MenuPostagem type=""/>
         </main>
     </div>

@@ -30,7 +30,6 @@ const Broche: React.FC<BrocheProps> = ({tipo, classN}) => {
                 return <abbr className={classN} title="Este usuário busca conhecer sobre IC e a plataforma"><img src="/assets/ic.svg" alt="Este usuário busca conhecer sobre IC e a plataforma" /></abbr>
             } else {
                 return <abbr title="Este usuário busca conhecer sobre IC e a plataforma"><img src="/assets/ic.svg" alt="Este usuário busca conhecer sobre IC e a plataforma" /></abbr>
-            }
     }
 }
 
