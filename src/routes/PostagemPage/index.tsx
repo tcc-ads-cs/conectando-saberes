@@ -69,6 +69,7 @@ const PostagemPage: React.FC = () => {
             </aside>
             <main className="grid-a">
                 {isLoading ? <Loading text='Carregando postagem'/> : postagem}
+                {comentarios}
             </main>
         </div>
     </>

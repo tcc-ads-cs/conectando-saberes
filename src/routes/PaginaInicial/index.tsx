@@ -2,16 +2,12 @@ import { Typography } from "@mui/material";
 import MenuCategorias from "../../components/MenuCategorias";
 import MenuPrincipal from "../../components/MenuPrincipal";
 import Navbar from "../../components/Navbar";
-import '../../styles/estruturas.css';
 import MenuPostagem from "../../components/MenuPostagens";
-
+import MenuRecomendacoes from "../../components/MenuRecomendacoes";
+import '../../styles/estruturas.css';
 import './index.css';
 
-import * as perfil from '../../assets/mock.json';
-let jsonPe = JSON.stringify(perfil);
-
 import * as postagem from '../../assets/tags.json';
-import MenuRecomendacoes from "../../components/MenuRecomendacoes";
 let jsonPo = JSON.stringify(postagem);
 
 const PaginaInicial: React.FC = () => {
@@ -31,7 +27,7 @@ const PaginaInicial: React.FC = () => {
             </section>
         </aside>
         <main className="grid-a">
-            <MenuPostagem req={jsonPe}/>
+            <MenuPostagem type=""/>
         </main>
     </div>
 </>
