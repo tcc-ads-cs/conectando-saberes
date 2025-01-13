@@ -22,7 +22,7 @@ const FormCadastro: React.FC = () => {
       IGrauEsc: "1",
       ISituacao: "2",
       ICampus: "1",
-      ICurso: "",
+      ICurso: "1",
       ICidade: "1",
       IEstado: "1",
       IPrefer: "1",

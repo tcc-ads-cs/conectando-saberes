@@ -67,7 +67,7 @@ const trataFormCadastro = async (data: FormData) => {
         "cdCampus": parseInt(cdCampus),
         "cdCidade": parseInt(cdCidade),
         "tpPreferencia": parseInt(tpPreferencia),
-        "descTitulo": parseInt(descTitulo),
+        "descTitulo": descTitulo,
         "tpColor": 1,
         'profilePictureUrl': 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png',
         'cursoId': curso,

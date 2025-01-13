@@ -39,6 +39,7 @@ const Perfil: React.FC = () => {
     
     useEffect(() => { 
         buscaPerfil();
+        console.log(perfil);
     }, [idPerfil]);
 
     useEffect(() => {

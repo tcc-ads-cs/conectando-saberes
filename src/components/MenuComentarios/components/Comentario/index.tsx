@@ -13,7 +13,7 @@ const Comentario: React.FC<ComentarioProps> = ({comment, guid}) => {
         <div id={comment.comment.id} className="commentContainer">
             <img src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png" alt="" />
             <div className="commentInfo">
-                <Link to={`/perfil/${comment.user.userId}`}><Typography fontFamily={'poppins'}>{comment.user.name}</Typography></Link>
+                <Link to={`/perfil/${comment.user.userId}`}><Typography fontFamily={'poppins'}>{comment.user.nmSocial}</Typography></Link>
                 <Typography fontFamily={'poppins'}>{comment.comment.text}</Typography>
                 <Typography fontFamily={'poppins'} className='obsForm'>{formatarData(comment.comment.lastUpdatedAt)}</Typography>
             </div>
