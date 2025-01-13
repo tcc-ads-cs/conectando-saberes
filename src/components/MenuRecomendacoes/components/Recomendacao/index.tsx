@@ -23,9 +23,9 @@ const Recomendacao: React.FC<RecomendacaoProps> = ({tipo, req}) => {
         case "categoria": 
             return (
                 <div className="containerRecomendacao">
-                    {req.map((c: any) => {
+                    {Array.isArray(req) ? req.map((c: any) => {
                             return getCategorias(c);
-                        })}
+                        }) : null}
                 </div>
             );
         default:

@@ -4,6 +4,7 @@ import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getRequest } from "../../hooks/useRequests";
 import './index.css';
+import NotFound from "../NotFound";
 
 const MenuRecomendacoes: React.FC = () => {
     const [ perfis, setPerfis ] = useState<any[]>([]);
@@ -37,20 +38,20 @@ const MenuRecomendacoes: React.FC = () => {
     }, [])
 
     return <>
-    <div className="containerMenuRecomendacoes">
+        <div className="containerMenuRecomendacoes">
         <div className="headerRecomendacao">
             <PersonAdd />
             <Typography fontFamily={'poppins'} variant={'h3'}>Perfis para você</Typography>
         </div>
-        {perfis && perfis.map((r: any) => <Recomendacao key={r.id} tipo="perfil" req={r} />)}
-    </div>
-    <div className="containerMenuRecomendacoes">
-        <div className="headerRecomendacao">
-            <WebStories />
-            <Typography fontFamily={'poppins'} variant={'h3'}>Categorias para você</Typography>
+        {perfis.length != 0 ? perfis.map((r: any) => <Recomendacao key={r.id} tipo="perfil" req={r} />) : <NotFound text='Sem recomendações para você' />}
         </div>
-        <Recomendacao tipo="categoria" req={categorias} />
-    </div>
+        <div className="containerMenuRecomendacoes">
+            <div className="headerRecomendacao">
+                <WebStories />
+                <Typography fontFamily={'poppins'} variant={'h3'}>Categorias para você</Typography>
+            </div>
+            {categorias.length != 0 ? <Recomendacao tipo="categoria" req={categorias} /> : <NotFound text='Sem recomendações para você' />}
+        </div>
     </>
 }
 
