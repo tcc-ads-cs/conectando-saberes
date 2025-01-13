@@ -14,7 +14,7 @@ const Recomendacao: React.FC<RecomendacaoProps> = ({tipo, req}) => {
         case "perfil": 
             return (
                 <div className="containerRecomendacao">
-                    <img src={req.profilePicture} alt="" />
+                    <img src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png" alt="" />
                     <div className='conteudoRecomendacao'>
                         <Link to={'/perfil/' + req.id} className="link"><Typography fontFamily={'poppins'}  fontSize={24} fontWeight={300}>{req.name}</Typography></Link>
                     </div>
