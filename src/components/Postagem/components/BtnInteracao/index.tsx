@@ -11,10 +11,11 @@ import './index.css';
 interface BtnInteracaoProps {
     guid: string,
     tipo: string,
-    qtInteracao?: number | string;
+    qtInteracao?: number | string,
+    idComentario?: string
 }
 
-const BtnInteracao: React.FC<BtnInteracaoProps> = ({guid, tipo, qtInteracao}) => {
+const BtnInteracao: React.FC<BtnInteracaoProps> = ({guid, idComentario, tipo, qtInteracao}) => {
     const [liked, setLiked] = useState(false);
     const navigate = useNavigate();
 
@@ -51,6 +52,20 @@ const BtnInteracao: React.FC<BtnInteracaoProps> = ({guid, tipo, qtInteracao}) =>
             
         }
     };
+
+    const excluirComentario = async () => {
+        try {
+            let response = await deleteRequest(`/Comment?commentaryId=${idComentario}`, { 
+                "token": localStorage.getItem('token') || ''
+            });
+
+            response.status == 200 ? document.location.reload : console.log(response);
+
+            console.log(response);
+        } catch (error) {
+            console.error('Erro ao deletar a comentario:', error);
+        }
+    };
     
     switch (tipo) {
         case "curtida":
@@ -69,10 +84,16 @@ const BtnInteracao: React.FC<BtnInteracaoProps> = ({guid, tipo, qtInteracao}) =>
                     <Typography fontFamily={'poppins'}>{qtInteracao}</Typography>
                 </div>
             </>
-        case "deletar":
+        case "deletarPostagem":
             return <>
                 <div className="btnInteracao">
                     <button datatype={tipo} type="button" onClick={excluirPostagem} id={"btnDel-" + guid} className="iconInteracao" style={{marginLeft: '1.5em'}}><DeleteIcon /></button>
+                </div>
+            </>
+        case "deletarComentario":
+            return <>
+                <div className="btnInteracao">
+                    <button datatype={tipo} type="button" onClick={excluirComentario} id={"btnDel-" + guid} className="iconInteracao" style={{marginLeft: '1.5em'}}><DeleteIcon /></button>
                 </div>
             </>
     }

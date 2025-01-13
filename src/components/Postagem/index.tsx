@@ -50,7 +50,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {nomeFacul}</Typography>
                         </div>
                         {Object.keys(url).includes('guidPostagem') ? <Typography fontFamily={'poppins'}>{formatarData(post.post.postDate)}</Typography> : <></> }
-                        {post.post.userId == localStorage.getItem('idUsuario') && Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }
+                        {post.post.userId == localStorage.getItem('idUsuario') && Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletarPostagem" /> : <></> }
                     </Link>
                     <Link to={"/postagem/" + post.post.guid} className="conteudoPostagem">
                         {!Object.keys(url).includes('guidPostagem') ? formataTextoPostagem(post.post.textPost) : <Typography fontFamily={'source-serif-4'} fontSize={20}>{post.post.textPost}</Typography>}
@@ -83,7 +83,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {nomeFacul}</Typography>
                         </div>
                         {Object.keys(url).includes('guidPostagem') ? <Typography fontFamily={'poppins'}>{formatarData(post.post.postDate)}</Typography> : <></> }
-                        {post.post.userId == localStorage.getItem('idUsuario') && Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }
+                        {post.post.userId == localStorage.getItem('idUsuario') && Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletarPostagem" /> : <></> }
                     </Link>
                     <Link to={"/postagem/" + post.post.guid} className="conteudoPostagem">
                         <Typography fontFamily={'poppins'} variant={'h3'}>{post.post.dcTitulo}</Typography>
@@ -117,7 +117,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {nomeFacul}</Typography>
                         </div>
                         {Object.keys(url).includes('guidPostagem') ? <Typography fontFamily={'poppins'}>{formatarData(post.post.postDate)}</Typography> : <></> }
-                        {post.post.userId == localStorage.getItem('idUsuario') && Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }
+                        {post.post.userId == localStorage.getItem('idUsuario') && Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletarPostagem" /> : <></> }
                     </Link>
                     <Link to={"/postagem/" + post.post.guid} className="conteudoPostagem">
                         <Typography fontFamily={'poppins'} variant={'h3'}>{post.post.dcTitulo}</Typography>
@@ -151,7 +151,7 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                             <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {nomeFacul}</Typography>
                         </div>
                         {Object.keys(url).includes('guidPostagem') ? <Typography fontFamily={'poppins'}>{formatarData(post.post.postDate)}</Typography> : <></> }
-                        {post.post.userId == localStorage.getItem('idUsuario') && Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }
+                        {post.post.userId == localStorage.getItem('idUsuario') && Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletarPostagem" /> : <></> }
                     </Link>
                     <Link to={"/postagem/" + post.post.guid} className="conteudoPostagem">
                         <Typography fontFamily={'poppins'} variant={'h3'}>{post.post.dcTitulo}</Typography>

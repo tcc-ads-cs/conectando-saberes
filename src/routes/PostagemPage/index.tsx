@@ -10,11 +10,11 @@ import MenuRecomendacoes from "../../components/MenuRecomendacoes";
 import NotFound from "../../components/NotFound";
 import Loading from "../../components/Loading";
 import './index.css';
+import MenuComentarios from "../../components/MenuComentarios";
 
 const PostagemPage: React.FC = () => {
     const { guidPostagem } = useParams();
     const [postagem, setPostagem] = useState<any>(null);
-    const [comentarios, setComentarios] = useState<any>(null);
     const [isLoading, setIsLoading ] = useState(false);
     
     const renderPostagem = async () => {
@@ -34,18 +34,8 @@ const PostagemPage: React.FC = () => {
         }
     };
 
-    const renderComentarios = async () => {
-        try {
-            //TODO: Fazer a requisição de trazer os comentários da postagem por guid.
-            setComentarios('Requisição');
-        } catch (e: any) {
-            console.error(e);
-        }
-    }
-
     useEffect(() => {
         renderPostagem();
-        renderComentarios();
     }, []);
 
     return <>
@@ -65,7 +55,7 @@ const PostagemPage: React.FC = () => {
             </aside>
             <main className="grid-a">
                 {isLoading ? <Loading text='Carregando postagem'/> : postagem}
-                {comentarios}
+                {guidPostagem ? <MenuComentarios guid={guidPostagem} /> : <NotFound text='Erro ao renderizar comentários.'/> }
             </main>
         </div>
     </>

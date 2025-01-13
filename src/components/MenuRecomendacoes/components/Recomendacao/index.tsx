@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { Typography } from "@mui/material";
-import { FileOpen } from "@mui/icons-material";
 import { getCategorias } from "../../../functions/getCategorias";
 import './index.css';
+import NotFound from "../../../NotFound";
 
 interface RecomendacaoProps {
     tipo: string,
@@ -12,28 +12,24 @@ interface RecomendacaoProps {
 const Recomendacao: React.FC<RecomendacaoProps> = ({tipo, req}) => {
     switch (tipo) {
         case "perfil": 
-            return <>
+            return (
                 <div className="containerRecomendacao">
-                    <img src={req.ftPerfil} alt="" />
+                    <img src={req.profilePicture} alt="" />
                     <div className='conteudoRecomendacao'>
-                        <Link to={'/perfil/' + req.lkPerfil} className="link"><Typography fontFamily={'poppins'}  fontSize={24} fontWeight={300}>{req.nmUsuario}</Typography></Link>
-                        <Typography fontFamily={'poppins'} fontWeight={'bold'} className="enfase">{req.dcCategorias.length} categoria(s) favoritada(s) em comum</Typography>
+                        <Link to={'/perfil/' + req.id} className="link"><Typography fontFamily={'poppins'}  fontSize={24} fontWeight={300}>{req.name}</Typography></Link>
                     </div>
                 </div>
-            </>
-        case "postagem": 
-            return <>
+            );
+        case "categoria": 
+            return (
                 <div className="containerRecomendacao">
-                    <FileOpen className="iconPostagem"/>
-                    <div className="conteudoRecomendacao">
-                        <Link to={'/postagem/' + req.guid} className="link"><Typography fontFamily={'poppins'} className="nomeRecomendacao" fontSize={24}>{req.dcTitulo}</Typography></Link>
-                        {(req.dcCategorias).map((c: any) => {
+                    {req.map((c: any) => {
                             return getCategorias(c);
                         })}
-                        <Typography fontFamily={'poppins'} className="bold">por {req.nmAutor}</Typography>
-                    </div>
                 </div>
-            </>
+            );
+        default:
+            return <NotFound text='Não foram encontradas recomendações para você.' />;
     }
 }
 

@@ -1,0 +1,57 @@
+@media (min-width: 320px) {
+    .secaoComment {
+        padding: var(--t16px);
+        color: var(--corTextoPreto);
+        margin-bottom: 10em;
+        box-shadow: 0 5px 8px var(--corBotao);
+    }
+
+    .secaoComment h3 {
+        font-size: var(--t32px);
+    }
+
+    #inputComentario {
+        margin: var(--t16px) 0;
+    }
+
+    .commentContainer {
+        border: 1px solid var(--corTextoPreto);
+        background-color: var(--corNavbar);
+        border-radius: var(--t16px);
+        margin: var(--t16px) 0;
+        padding: var(--t16px);
+        display: flex;
+        gap: var(--t8px);
+        box-shadow: 0 5px 8px var(--corBotao);
+    }
+
+    .commentContainer img {
+        object-fit: cover;
+        width: 48px;
+        height: 48px;
+        border-radius: var(--t64px);
+    }
+
+    .commentContainer button {
+        border: none;
+        background-color: initial;
+        padding: 0;
+    }
+    
+    .containerInputComentario form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 420px) {
+    .commentContainer {
+        justify-content: space-evenly;
+    }
+}
+
+@media (min-width: 1400px) {
+    .commentContainer {
+        justify-content: space-between;
+    }
+}
