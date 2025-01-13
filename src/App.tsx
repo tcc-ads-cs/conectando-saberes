@@ -13,6 +13,7 @@ import PostagemPage from './routes/PostagemPage';
 import ProtectedRoute from './auth/ProtectedRoute';
 import Logout from './auth/Logout';
 import RootRoute from './auth/RootRoute';
+import VerificarEmail from './routes/VerificarEmail';
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("token");
@@ -34,6 +35,10 @@ function App() {
     {
       path: "login",
       element: <Login />
+    },
+    {
+      path: "verificar-email",
+      element: <VerificarEmail />
     },
     {
       path: "meu-feed",

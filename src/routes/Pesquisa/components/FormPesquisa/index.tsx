@@ -3,7 +3,6 @@ import { Search } from "@mui/icons-material";
 import { FormEvent, useState } from "react";
 import Campo from "../../../../components/Campo";
 import NotFound from "../../../../components/NotFound";
-import './index.css';
 import { getRequest } from "../../../../hooks/useRequests";
 import ItemBusca from "../../../../components/ItemBusca";
 
@@ -172,6 +171,7 @@ const FormPesquisa: React.FC = () => {
             ) : 
             <div className="resultadosBusca">
                 {result}
+                <NotFound text="Fim dos resultados." />
             </div>
             
             }

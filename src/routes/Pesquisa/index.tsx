@@ -4,6 +4,7 @@ import MenuRecomendacoes from "../../components/MenuRecomendacoes";
 import MenuCategorias from "../../components/MenuCategorias";
 import FormPesquisa from "./components/FormPesquisa";
 import { Typography } from "@mui/material";
+import './index.css';
 
 const Pesquisa: React.FC = () => {
     return <>
