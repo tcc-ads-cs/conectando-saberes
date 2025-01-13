@@ -5,10 +5,6 @@ import MenuCategorias from "../../components/MenuCategorias";
 import FormPesquisa from "./components/FormPesquisa";
 import { Typography } from "@mui/material";
 
-//TODO: Transformar numa requisição pro back-end
-import * as categorias from '../../assets/tags.json';
-let jsonCat = JSON.stringify(categorias);
-
 const Pesquisa: React.FC = () => {
     return <>
     <Navbar />
@@ -19,7 +15,7 @@ const Pesquisa: React.FC = () => {
                 </section>
                 <section className="containerMenuCategorias">
                     <Typography fontFamily={'poppins'} variant={'h2'} fontWeight={500}>Categorias utilizadas</Typography>
-                    <MenuCategorias req={jsonCat}/>
+                    <MenuCategorias />
                 </section>
                 <section className="containerMenuCategorias">
                     <MenuRecomendacoes />

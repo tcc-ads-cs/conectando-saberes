@@ -21,9 +21,10 @@ const trataFormPostagem = async (data: FormData) => {
                         "type": 0,
                         "dcTitulo": null,
                         "userId": Number(localStorage.getItem('idUsuario')),
-                        "areaId": 0
+                        "areaId": 0,
+                        "ExternalLink": null
                     },
-                    "categories": [348]
+                    "categories": [1]
                 };
             case '1':
             return {
@@ -35,9 +36,10 @@ const trataFormPostagem = async (data: FormData) => {
                         "type": 1,
                         "dcTitulo": data.get('dcTitulo'),
                         "userId": Number(localStorage.getItem('idUsuario')),
-                        "areaId": 0
+                        "areaId": 0,
+                        "ExternalLink": null
                     },
-                    "categories": categories,
+                    "categories": categories.concat(2),
             };
             case '2':
             return {
@@ -49,9 +51,10 @@ const trataFormPostagem = async (data: FormData) => {
                         "type": 2,
                         "dcTitulo": data.get('dcTitulo'),
                         "userId": Number(localStorage.getItem('idUsuario')),
-                        "areaId": 0
+                        "areaId": 0,
+                        "ExternalLink": null
                     },
-                    "categories": categories,
+                    "categories": categories.concat(3),
             };
             case '3':
             return {
@@ -60,13 +63,13 @@ const trataFormPostagem = async (data: FormData) => {
                         "postDate": getCurrentDateInISO(),
                         "textPost": data.get('textPost'),
                         "quantityLikes": 0,
-                        //TODO: Implementar o link externo com o Ronald
                         "type": 3,
                         "dcTitulo": data.get('dcTitulo'),
                         "userId": Number(localStorage.getItem('idUsuario')),
-                        "areaId": 0
+                        "areaId": 0,
+                        "ExternalLink": data.get('lkPost') || null
                     },
-                    "categories": categories,
+                    "categories": categories.concat(4),
             };
             default: return {};
         }

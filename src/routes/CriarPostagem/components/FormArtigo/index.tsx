@@ -12,7 +12,7 @@ const FormArtigo: React.FC = () => {
         type: 3,
         dcTitulo: "",
         textPost: "",
-        flPost: "",
+        lkPost: "",
         dcCategorias: [] as string[]
     });
 
@@ -73,7 +73,7 @@ const FormArtigo: React.FC = () => {
                 <label htmlFor="inputDetalhesArtigo" className="inputLabel">Insira aqui o resumo do seu trabalho.</label>
                 <textarea id="inputDetalhesArtigo" value={formData.textPost} name="textPost" rows={20} cols={colsTextArea()} maxLength={2000} className="inputTextArea" onChange={handleChange} required></textarea>
                 <Typography fontFamily={'poppins'} className="obsForm">Máximo de 2.000 (dois mil) caracteres.</Typography>
-                <Campo id="inputLinkExterno" classe="mBottom-16 inputLongo" tipo="text" label="Insira aqui o link externo do seu trabalho." name="flPost" onChange={handleChange} value={formData.flPost} />
+                <Campo id="inputLinkExterno" classe="mBottom-16 inputLongo" tipo="text" label="Insira aqui o link externo do seu trabalho." name="lkPost" onChange={handleChange} value={formData.lkPost} />
                 <InputPalavrasChave
                     keywords={formData.dcCategorias}
                     setKeywords={(keywords) => setFormData({ ...formData, dcCategorias: keywords })} />

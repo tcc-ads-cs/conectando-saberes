@@ -5,12 +5,8 @@ import MenuRecomendacoes from "../../components/MenuRecomendacoes";
 import Navbar from "../../components/Navbar";
 import { useEffect, useState } from "react";
 import Loading from "../../components/Loading";
-import { getRequest } from "../../hooks/useRequests";
-
-//TODO: Atualizar para requisição do banco de dados.
-import * as categorias from '../../assets/tags.json';
 import ProgramaIndicado from "./components/ProgramaIndicado";
-let jsonCat = JSON.stringify(categorias);
+import { getRequest } from "../../hooks/useRequests";
 
 const Editais: React.FC = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -110,7 +106,7 @@ const Editais: React.FC = () => {
                 </section>
                 <section className="containerMenuCategorias">
                     <Typography fontFamily={'poppins'} variant={'h2'} fontWeight={500}>Categorias utilizadas</Typography>
-                    <MenuCategorias req={jsonCat}/>
+                    <MenuCategorias />
                 </section>
                 <section className="containerMenuCategorias">
                     <MenuRecomendacoes />

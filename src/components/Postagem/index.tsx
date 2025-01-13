@@ -9,6 +9,10 @@ import { formataTextoPostagem } from "./functions/formataTextoPostagem";
 import { formataNumero } from "../functions/formataNumero";
 import './index.css';
 import formatarData from "./functions/formataData";
+import retornaNome from "./functions/retornaNome";
+import retornaInteresse from "./functions/retornaInteresse";
+import retornaFacul from "./functions/retornaFacul";
+import { useState, useEffect } from "react";
 
 interface PostagemProps {
     post: string | any,
@@ -16,10 +20,16 @@ interface PostagemProps {
 
 const Postagem: React.FC<PostagemProps> = ({post}) => {  
     let url = useParams();
-    
-    const simplificaNome = (nome: string) => {
-        return nome.split(' ').slice(0, 2).join(' ');
-    }
+
+    const [nomeFacul, setFacul] = useState<string>('');
+
+    useEffect(() => {
+        if (post.user.cdCampus == undefined) {
+            retornaFacul(post.user.idCampus).then(setFacul);
+        } else {
+            retornaFacul(post.user.cdCampus).then(setFacul);
+        }
+    }, [post.user.cdCampus]);
 
     //TODO: Atribuir as fotos de perfil
     switch (post.post.type) {
@@ -29,9 +39,11 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     <Link to={"/perfil/" + post.post.userId} className="headerPostagem">
                         <img src='https://cdn-icons-png.flaticon.com/512/6596/6596121.png' alt="" />
                         <div className="infoAutorPostagem">
-                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.user.nmUsuario ? simplificaNome(post.user.nmUsuario) : simplificaNome(post.user.nmAutor)}</Typography>
-                            <Broche classN="itemInfoAutorPostagem" tipo={post.user.tpPreferencia} />
-                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {post.user.nmInstituicao}</Typography>
+                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>
+                            {retornaNome(post.user.nmUsuario, post.user.nmUsuario, post.user.nmAutor, post.user.nmSocial)}
+                            </Typography>
+                            <Broche classN="itemInfoAutorPostagem" tipo={retornaInteresse(post.user.tpPreferencia, post.user.tipoInteresse)} />
+                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {nomeFacul}</Typography>
                         </div>
                         {Object.keys(url).includes('guidPostagem') ? <Typography fontFamily={'poppins'}>{formatarData(post.post.postDate)}</Typography> : <></> }
                         {Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }
@@ -60,9 +72,11 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     <Link to={"/perfil/" + post.post.userId} className="headerPostagem">
                         <img src='https://cdn-icons-png.flaticon.com/512/6596/6596121.png' alt="" />
                         <div className="infoAutorPostagem">
-                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.user.nmUsuario ? simplificaNome(post.user.nmUsuario) : simplificaNome(post.user.nmAutor)}</Typography>
-                            <Broche classN="itemInfoAutorPostagem" tipo={post.user.tpPreferencia} />
-                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {post.user.nmInstituicao}</Typography>
+                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>
+                            {retornaNome(post.user.nmUsuario, post.user.nmUsuario, post.user.nmAutor, post.user.nmSocial)}
+                            </Typography>
+                            <Broche classN="itemInfoAutorPostagem" tipo={retornaInteresse(post.user.tpPreferencia, post.user.tipoInteresse)} />
+                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {nomeFacul}</Typography>
                         </div>
                         {Object.keys(url).includes('guidPostagem') ? <Typography fontFamily={'poppins'}>{formatarData(post.post.postDate)}</Typography> : <></> }
                         {Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }
@@ -92,9 +106,11 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     <Link to={"/perfil/" + post.post.userId} className="headerPostagem">
                         <img src='https://cdn-icons-png.flaticon.com/512/6596/6596121.png' alt="" />
                         <div className="infoAutorPostagem">
-                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.user.nmUsuario ? simplificaNome(post.user.nmUsuario) : simplificaNome(post.user.nmAutor)}</Typography>
-                            <Broche classN="itemInfoAutorPostagem" tipo={post.post.tpInteresse} />
-                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {post.user.nmInstituicao}</Typography>
+                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>
+                            {retornaNome(post.user.nmUsuario, post.user.nmUsuario, post.user.nmAutor, post.user.nmSocial)}
+                            </Typography>
+                            <Broche classN="itemInfoAutorPostagem" tipo={retornaInteresse(post.user.tpPreferencia, post.user.tipoInteresse)} />
+                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {nomeFacul}</Typography>
                         </div>
                         {Object.keys(url).includes('guidPostagem') ? <Typography fontFamily={'poppins'}>{formatarData(post.post.postDate)}</Typography> : <></> }
                         {Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }
@@ -124,9 +140,11 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
                     <Link to={"/perfil/" + post.post.userId} className="headerPostagem">
                         <img src='https://cdn-icons-png.flaticon.com/512/6596/6596121.png' alt="" />
                         <div className="infoAutorPostagem">
-                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>{post.user.nmUsuario ? simplificaNome(post.user.nmUsuario) : simplificaNome(post.user.nmAutor)}</Typography>
-                            <Broche classN="itemInfoAutorPostagem" tipo={post.post.tpInteresse} />
-                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {post.user.nmInstituicao}</Typography>
+                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'} fontWeight={'bold'}>
+                            {retornaNome(post.user.nmUsuario, post.user.nmUsuario, post.user.nmAutor, post.user.nmSocial)}
+                            </Typography>
+                            <Broche classN="itemInfoAutorPostagem" tipo={retornaInteresse(post.user.tpPreferencia, post.user.tipoInteresse)} />
+                            <Typography className="itemInfoAutorPostagem" fontFamily={'poppins'}>{getGrauEscolaridade(post.user.grauEscolaridade)} • {nomeFacul}</Typography>
                         </div>
                         {Object.keys(url).includes('guidPostagem') ? <Typography fontFamily={'poppins'}>{formatarData(post.post.postDate)}</Typography> : <></> }
                         {Object.keys(url).includes('guidPostagem') ? <BtnInteracao guid={post.post.guid} tipo="deletar" /> : <></> }

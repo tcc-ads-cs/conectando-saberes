@@ -8,10 +8,6 @@ import { Typography } from '@mui/material';
 import NotFound from '../NotFound';
 import './index.css';
 
-//TODO: Atualizar para requisição do banco de dados.
-import * as categorias from '../../assets/tags.json';
-let jsonCat = JSON.stringify(categorias);
-
 interface MenuPostagemProps {
     type: string,
     user?: Array<string> | any,
@@ -103,6 +99,32 @@ const MenuPostagem: React.FC<MenuPostagemProps> = ({type, user}) => {
                     console.error("Erro ao buscar postagens:", e);
                 }
                 break;
+            case "feed":
+                idPerfil != undefined ? id = idPerfil : id = null;
+                try {
+                    let meuFeed = await getRequest(`/Post/feed?pageNumber=${pageNumber}&pageSize=${pageSize}`, {
+                        "token": localStorage.getItem('token') || ''
+                    });
+
+                    if (meuFeed.length < pageSize) {
+                        setHasMorePosts(false);
+                    } 
+                    if (meuFeed.length > 0) {
+                        meuFeed.forEach((post: any) => {
+                            if (post.post.type === 2) {
+                                setTopicos((prevTopicos) => [...prevTopicos, post]);
+                            } else if ((post.post.type !== 2)) {
+                                setPosts((prevPosts) => [...prevPosts, post]);
+                            } else {
+                                setPosts([]);
+                                setTopicos([]);
+                            }
+                        });
+                    }
+                } catch (e) {
+                    console.error("Erro ao buscar postagens:", e);
+                }
+                break;
             default: <></>
         }
     };
@@ -117,11 +139,11 @@ const MenuPostagem: React.FC<MenuPostagemProps> = ({type, user}) => {
             <a id="btnComunidade" onClick={handleTabClick}>Comunidade</a>
             <a id="btnCategorias" onClick={handleTabClick}>Categorias</a>
         </div>
-        {posts && 
+        {posts &&
             <div className="conteudoMenuPostagem">
                 {showPostagens && (posts.length > 0 ? <FeedPostagem postagens={posts} /> : <NotFound text="Esse usuário não tem postagens" />)}
                 {showComunidade && (topicos.length > 0 ? <FeedPostagem postagens={topicos} /> : <NotFound text="Esse usuário não tem postagens na comunidade" />)}
-                {showCategorias && <MenuCategorias req={jsonCat} />}
+                {showCategorias && <MenuCategorias />}
                 
                 {hasMorePosts && (showPostagens || showComunidade) && (
                 <button type="button" id="btnMaisPosts" onClick={buscaPosts}>

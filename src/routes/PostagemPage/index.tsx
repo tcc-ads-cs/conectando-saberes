@@ -11,10 +11,6 @@ import NotFound from "../../components/NotFound";
 import Loading from "../../components/Loading";
 import './index.css';
 
-//TODO: Atualizar para requisição do banco de dados.
-import * as categorias from '../../assets/tags.json';
-let jsonCat = JSON.stringify(categorias);
-
 const PostagemPage: React.FC = () => {
     const { guidPostagem } = useParams();
     const [postagem, setPostagem] = useState<any>(null);
@@ -61,7 +57,7 @@ const PostagemPage: React.FC = () => {
                 </section>
                 <section className="containerMenuCategorias">
                     <Typography fontFamily={'poppins'} variant={'h2'} fontWeight={500}>Categorias utilizadas</Typography>
-                    <MenuCategorias req={jsonCat}/>
+                    <MenuCategorias />
                 </section>
                 <section className="containerMenuCategorias">
                     <MenuRecomendacoes />

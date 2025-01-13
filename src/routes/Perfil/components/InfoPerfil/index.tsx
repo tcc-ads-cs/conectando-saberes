@@ -6,20 +6,36 @@ import { getSiglaEstado } from "../../../../components/functions/getSiglaEstado"
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { useState } from "react";
 import './index.css';
-
-//TODO: Perguntar pro Ronald sobre endpoint/função de seguir usuários.
-const seguirUsuario = async () => {
-    // Requisição de seguir usuário (x segue y, aumenta nº de seguindo de x e seguidores de y).
-}
+import { getRequest } from "../../../../hooks/useRequests";
+import { useParams } from "react-router-dom";
 
 //TODO: Alterar para o link da foto de perfil do usuário.
 const InfoPerfil = ({ obj }: { obj: any }) => {
     const [copied, setCopied] = useState(false);
+    const { idPerfil } = useParams();
     const handleCopy = () => {
-        navigator.clipboard.writeText(obj.email);
+        window.location.href = `mailto:${obj.email}`;
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };
+
+    const [isDisabled, setIsDisabled] = useState(false);
+
+    const seguirUsuario = async () => {
+        try {
+            let response = await getRequest(`/User/seguir/${idPerfil}`, {
+                'token': localStorage.getItem('token') || ''
+            })
+            if (response.status == 200) {
+                alert('Usuário seguido com sucesso');
+                setIsDisabled(true);
+            } else {
+                alert(`Erro ao seguir usuário.`);
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    }
     
     return (
         <>
@@ -36,9 +52,9 @@ const InfoPerfil = ({ obj }: { obj: any }) => {
             <div className="contatoUsuario">
                 <img src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png" alt="Ícone de perfil" />
                 <div className="ctaUsuario">
-                    <button id="btnSeguir" className="iconInteracao" onClick={seguirUsuario}><PersonAddIcon /></button>
+                    <button id="btnSeguir" className={`iconInteracao`} onClick={seguirUsuario} disabled={isDisabled ? true : false}><PersonAddIcon /></button>
                     <button className={`btnUsuario ${copied ? 'copied' : ''}`} type="button" onClick={handleCopy}>
-                        <Typography fontFamily={'poppins'}> {copied ? 'Copiado!' : 'Contato'}</Typography>
+                        <Typography fontFamily={'poppins'}> {copied ? 'Abrindo...' : 'E-mail'}</Typography>
                     </button>
                 </div>
             </div>

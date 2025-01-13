@@ -19,7 +19,6 @@ const comparaCategorias = async (categorias: FormDataEntryValue): Promise<Number
                 nome: categoria,
                 descricao: categoria,
             };
-            //TODO: Implementar a requisição de criação de categoria
             idsCategorias.push(Number(novaCategoria.id));
         }
     }

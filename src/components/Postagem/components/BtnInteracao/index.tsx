@@ -5,7 +5,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
 import { postRequest, deleteRequest } from "../../../../hooks/useRequests";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './index.css';
 
 interface BtnInteracaoProps {
@@ -16,7 +16,7 @@ interface BtnInteracaoProps {
 
 const BtnInteracao: React.FC<BtnInteracaoProps> = ({guid, tipo, qtInteracao}) => {
     const [liked, setLiked] = useState(false);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const curtirPostagem = async (event: React.MouseEvent<HTMLButtonElement>) => {
         const button = event.currentTarget;
@@ -42,9 +42,13 @@ const BtnInteracao: React.FC<BtnInteracaoProps> = ({guid, tipo, qtInteracao}) =>
                 "token": localStorage.getItem('token') || ''
             });
 
+            response.status == 200 ? navigate('..') : console.log(response);
+
             console.log(response);
         } catch (error) {
             console.error('Erro ao deletar a postagem:', error);
+        } finally {
+            
         }
     };
     
