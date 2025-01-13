@@ -6,7 +6,7 @@ import { getSiglaEstado } from "../../../../components/functions/getSiglaEstado"
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { useState } from "react";
 import './index.css';
-import { getRequest } from "../../../../hooks/useRequests";
+import { postRequest } from "../../../../hooks/useRequests";
 import { useParams } from "react-router-dom";
 
 //TODO: Alterar para o link da foto de perfil do usuário.
@@ -23,13 +23,18 @@ const InfoPerfil = ({ obj }: { obj: any }) => {
 
     const seguirUsuario = async () => {
         try {
-            let response = await getRequest(`/User/seguir/${idPerfil}`, {
+            let response = await postRequest(`/User/seguir/${idPerfil}`, '', {
                 'token': localStorage.getItem('token') || ''
             })
-            if (response.status == 200) {
-                alert('Usuário seguido com sucesso');
+
+            if (response.data.status) {
+                alert(response.message);
                 setIsDisabled(true);
+            } else if (!response.data.status) {
+                alert(response.message);
+                setIsDisabled(false);
             } else {
+                console.log(response);
                 alert(`Erro ao seguir usuário.`);
             }
         } catch (e) {

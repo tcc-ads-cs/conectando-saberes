@@ -24,11 +24,15 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
     const [nomeFacul, setFacul] = useState<string>('');
 
     useEffect(() => {
-        if (post.user.cdCampus == undefined) {
-            retornaFacul(post.user.idCampus).then(setFacul);
-        } else {
-            retornaFacul(post.user.cdCampus).then(setFacul);
-        }
+        const fetchFacul = async () => {
+            if (post.user.nmInstituicao) {
+            setFacul(post.user.nmInstituicao);
+            } else {
+            const facul = await retornaFacul(post.user.cdCampus ?? post.user.idCampus);
+            setFacul(facul);
+            }
+        };
+        fetchFacul();
     }, [post.user.cdCampus]);
 
     //TODO: Atribuir as fotos de perfil

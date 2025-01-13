@@ -4,6 +4,8 @@ import { FormEvent, useState } from "react";
 import Campo from "../../../../components/Campo";
 import NotFound from "../../../../components/NotFound";
 import './index.css';
+import { getRequest } from "../../../../hooks/useRequests";
+import ItemBusca from "../../../../components/ItemBusca";
 
 interface FormDataType {
     IType: string;
@@ -12,44 +14,66 @@ interface FormDataType {
 
 const FormPesquisa: React.FC = () => {
     const [isLoading, setIsLoading] = useState(false);
-    const [busca, setBusca] = useState<JSX.Element>();
+    const [result, setResult] = useState<JSX.Element[]>([]);
     const [formData, setFormData] = useState<FormDataType>({
         IType: "0",
         IQuery: "",
     });
+    let pageNumber = 1;
+    const pageSize = 8; 
 
     const pesquisar = async (form: FormData) => {
         switch (form.get('IType')) {
             case "0":
-                let perfilEncontrado = <NotFound text='Pesquisa de postagens ainda em construção.' />
                 try {
-                    //TODO: Requisição para encontrar um perfil via nome.
-                    
-                    //* Achou? Atribui à perfilEncontrado 
+                    let response = await getRequest(`/User/buscar?namePart=${form.get('IQuery')}&pageNumber=${pageNumber}&pageSize=${pageSize}`);
+
+                    if ('code' in response) {
+                        console.log(response);
+                    } else if (response.length > 0) {
+                        console.log(response);
+                        setResult(response.map((r: any) => {
+                            return <ItemBusca key={r.id} tipo="perfil" infos={r} />
+                        }));
+                    }
                 } catch (e) {
                     console.log(e);
                 }
-                return perfilEncontrado;
+                break;
             case "1":
-                let postagensEncontradas = <NotFound text='Pesquisa de categorias ainda em construção.' />
                 try {
-                    //TODO: Requisição para listar postagens de uma categoria.
+                    let response = await getRequest(`/Category/buscar?partName=${form.get('IQuery')}&pageNumber=${pageNumber}&pageSize=${pageSize}`);
+                        if ('code' in response) {
+                            console.log(response);
+                        } else if (response.length > 0) {
+                            console.log(response);
+                            setResult(response.map((r: any) => {
+                                return <ItemBusca key={r.post.guid} tipo="postagem" infos={r} />
+                            }));
+                        } else {
+                            setResult([<NotFound key="semResultados" text='Sem resultados.' />]);
+                        }
                     
-                    //* Achou? Atribui à postagensEncontradas 
                 } catch (e) {
                     console.log(e);
                 }
-                return postagensEncontradas
+                break;
             case "2":
-                let postagemEncontrada = <NotFound text='Pesquisa de perfis ainda em construção.' />
                 try {
-                    //TODO: Requisição para encontrar um post via nome.
-                    
-                    //* Achou? Atribui à postagemEncontrada 
+                    let response = await getRequest(`/Post/buscar?titlePart=${form.get('IQuery')}&pageNumber=${pageNumber}&pageSize=${pageSize}`);
+
+                    if ('code' in response) {
+                        console.log(response);
+                    } else if (response.length > 0) {
+                        console.log(response);
+                        setResult(response.map((r: any) => {
+                            return <ItemBusca key={r.user.userId} tipo="postagem" infos={r} />
+                        }));
+                    }
                 } catch (e) {
                     console.log(e);
                 }
-                return postagemEncontrada;
+                break;
             default:
                 return <NotFound text='Erro no tipo de pesquisa.' />
         }
@@ -74,10 +98,7 @@ const FormPesquisa: React.FC = () => {
         }
 
         try {
-            let resultQuery = await pesquisar(data);
-            if (resultQuery != undefined) {
-                setBusca(resultQuery);
-            }
+            await pesquisar(data);
         } catch (error) {
             console.error(error);
         } finally {
@@ -121,8 +142,8 @@ const FormPesquisa: React.FC = () => {
                     />
                     <Campo
                         tipo="radio"
-                        label="Usuário"
-                        id="inputPesqUsuario"
+                        label="Postagem"
+                        id="inputPesqPostagem"
                         name="IType"
                         className="optionPesquisa"
                         value="2"
@@ -148,7 +169,12 @@ const FormPesquisa: React.FC = () => {
                 alt="Carregando..."
                 style={{ width: '24px', height: '24px', filter: 'invert(1)' }}
             />
-            ) : busca}
+            ) : 
+            <div className="resultadosBusca">
+                {result}
+            </div>
+            
+            }
         </>
     );
 };
