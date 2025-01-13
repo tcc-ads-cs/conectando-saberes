@@ -44,12 +44,10 @@ const BtnInteracao: React.FC<BtnInteracaoProps> = ({guid, idComentario, tipo, qt
             });
 
             response.status == 200 ? navigate('..') : console.log(response);
-
-            console.log(response);
+            document.location.reload();
         } catch (error) {
             console.error('Erro ao deletar a postagem:', error);
         } finally {
-            
         }
     };
 
@@ -60,8 +58,7 @@ const BtnInteracao: React.FC<BtnInteracaoProps> = ({guid, idComentario, tipo, qt
             });
 
             response.status == 200 ? document.location.reload : console.log(response);
-
-            console.log(response);
+            document.location.reload();
         } catch (error) {
             console.error('Erro ao deletar a comentario:', error);
         }

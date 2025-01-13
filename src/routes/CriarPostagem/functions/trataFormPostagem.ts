@@ -8,10 +8,10 @@ const getCurrentDateInISO = (): string => {
 
 const trataFormPostagem = async (data: FormData) => {    
     const bodyPost = async (data: FormData): Promise<Object> => {
-        let categories = data.get('dcCategorias') ? await comparaCategorias(data.get('dcCategorias') as FormDataEntryValue) : [];
-
+        let categories = data.getAll('dcCategorias') ? await comparaCategorias((data.getAll('dcCategorias')?.toString() || '').split(',')) : [];
         switch (data.get('type')?.toString()) {
             case '0':
+                categories.push('postagem-simples');
                 return {
                     "post": {
                         "guid": "string",
@@ -24,10 +24,11 @@ const trataFormPostagem = async (data: FormData) => {
                         "areaId": 0,
                         "ExternalLink": null
                     },
-                    "categories": [1]
+                    "categories": categories
                 };
             case '1':
-            return {
+                categories.push('postagem-completa');
+                return {
                     "post": {
                         "guid": "string",
                         "postDate": getCurrentDateInISO(),
@@ -39,10 +40,11 @@ const trataFormPostagem = async (data: FormData) => {
                         "areaId": 0,
                         "ExternalLink": null
                     },
-                    "categories": categories.concat(2),
+                    "categories": categories
             };
             case '2':
-            return {
+                categories.push('topico');
+                return {
                     "post": {
                         "guid": "string",
                         "postDate": getCurrentDateInISO(),
@@ -54,10 +56,11 @@ const trataFormPostagem = async (data: FormData) => {
                         "areaId": 0,
                         "ExternalLink": null
                     },
-                    "categories": categories.concat(3),
+                    "categories": categories
             };
             case '3':
-            return {
+                categories.push('topico');
+                return {
                     "post": {
                         "guid": "string",
                         "postDate": getCurrentDateInISO(),
@@ -69,13 +72,14 @@ const trataFormPostagem = async (data: FormData) => {
                         "areaId": 0,
                         "ExternalLink": data.get('lkPost') || null
                     },
-                    "categories": categories.concat(4),
+                    "categories": categories
             };
             default: return {};
         }
     }
 
     try {
+        console.log(await bodyPost(data));
         const postPublicado = JSON.stringify(await bodyPost(data));
         const response = await postRequest('/Post/criar-post', postPublicado, {
             'Content-Type': 'application/json',

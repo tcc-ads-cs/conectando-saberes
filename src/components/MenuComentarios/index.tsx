@@ -45,6 +45,8 @@ const MenuComentarios: React.FC<MenuComentariosProps> = ({guid}) => {
             }), {
                 token: localStorage.getItem('token') || ''
             });
+
+            document.location.reload();
         } catch (e) {
              console.log(e)
         }
@@ -65,8 +67,7 @@ const MenuComentarios: React.FC<MenuComentariosProps> = ({guid}) => {
     return <>
     <div className="secaoComment">
         <Typography fontFamily={'poppins'} variant='h3'>Comentários</Typography>
-        {comentarios.length != 0 ? comentarios.map((c: any) => {return <Comentario key={c.id}comment={c} guid={guid} />}) : <NotFound text='Essa postagem não tem comentários.'/>}
-        <hr></hr>
+        {comentarios.length != 0 ? comentarios.map((c: any) => {return <Comentario key={c.comment.id} comment={c} guid={c.comment.postGUID} />}) : <NotFound text='Essa postagem não tem comentários.'/>}
         <div className="containerInputComentario">
             <form onSubmit={handleSubmit}>
                 <Typography fontFamily={'poppins'} variant='h3'>Faça um comentário</Typography>

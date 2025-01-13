@@ -9,7 +9,7 @@ const FormTopico: React.FC = () => {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
-        type: 1,
+        type: 2,
         dcTitulo: "",
         textPost: "",
         dcCategorias: [] as string[]
