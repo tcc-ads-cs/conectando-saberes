@@ -1,0 +1,79 @@
+@media (min-width: 320px) {
+    .editaisPage {
+        color: var(--corTextoPreto);
+        padding: var(--t16px);
+        margin-bottom: 10em;
+    }
+    
+    .editaisPage h2 {
+        font-size: var(--t40px);
+    }
+
+    .editaisPage h3 {
+        font-size: var(--t32px);
+    }
+
+    .editaisPage h4 {
+        font-size: var(--t24px);
+        margin-top: var(--t16px);
+    }
+
+    .editaisPage h5 {
+        font-size: var(--t16px);
+    }
+
+    .infosEditais {
+        margin-bottom: var(--t48px);
+    }
+
+    .infosEditaisUser {
+        border: var(--corEnfase) solid 4px;
+        border-radius: var(--t16px);
+        padding: var(--t24px);
+        background: rgb(250,247,255);
+        background: linear-gradient(180deg, rgba(250,247,255,1) 0%, rgba(227,212,255,1) 100%);
+    }
+
+    .infosEditaisUser h4 {
+        margin: 0;
+    }
+
+    .renderFacul {
+        margin: var(--t32px) 0;
+        
+    }
+
+    .btnEmail {
+        margin-top: var(--t16px);
+    }
+
+    .testeEditais {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .perguntasEditais {
+        margin: var(--t16px) 0;
+        text-align: center;
+    }
+    
+    .interacoesTesteEditais {
+        display: flex;
+        gap: var(--t16px);
+        justify-content: center;
+    }
+}
+
+@media (min-width: 420px) {
+    .formsPostagens {
+        color: var(--corTextoPreto);
+        padding: var(--t32px);
+        margin-bottom: 7.5em;
+    }
+    
+    .tituloPostagem {
+        width: 100%;
+    }
+}

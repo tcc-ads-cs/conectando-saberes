@@ -3,7 +3,11 @@ import React, { useState } from "react";
 
 type Program = "PIBIC-EM" | "PIVICT" | "PIBIC ou PIBIFSP";
 
-const ProgramaIndicado: React.FC = () => {
+interface ProgramaIndicadoProps {
+    nomeFacul: string
+}
+
+const ProgramaIndicado: React.FC<ProgramaIndicadoProps> = ({nomeFacul}) => {
     const [step, setStep] = useState(0);
     const [program, setProgram] = useState<Program | null>(null);
 
@@ -13,30 +17,33 @@ const ProgramaIndicado: React.FC = () => {
 
     if (program) {
     return (
-        <div>
+        <div className='perguntasEditais'>
             <Typography fontFamily='poppins' variant='h5'>Programa Indicado</Typography>
-            <Typography fontFamily='poppins' fontWeight='500'>O programa indicado para você é: {program}</Typography>
+            <Typography fontFamily='poppins'>O programa oferecido por {nomeFacul} indicado para você é:</Typography>
+            <Typography fontFamily='poppins' fontWeight='bold'>{program}</Typography>
         </div>
     );
     }
 
     return (
-        <div>
-            <Typography fontFamily='poppins' variant='h5'>Qual programa mais indicado para você?</Typography>
-            <Typography fontFamily='poppins'>
+        <div className='testeEditais'>
+            <Typography fontFamily='poppins' variant='h4' fontWeight={'bold'}>Descubra qual programa mais indicado para você!</Typography>
+            <Typography fontFamily='poppins' className='perguntasEditais'>
                 { step === 0
                     ? "Você está no ensino médio?"
                     : "Você está trabalhando?"
                 }
             </Typography>
+            <div className="interacoesTesteEditais">
             <button
                 onClick={() => handleAnswer(true)}
-                className='btnTesteEdital'
-            >Sim</button>
+                className='btnForm'
+            ><Typography fontFamily='poppins'>Sim</Typography></button>
             <button
                 onClick={() => handleAnswer(false)}
-                className='btnTesteEdital'
-            >Não</button>
+                className='btnForm'
+            ><Typography fontFamily='poppins'>Não</Typography></button>
+            </div>
         </div>
     );
 };
