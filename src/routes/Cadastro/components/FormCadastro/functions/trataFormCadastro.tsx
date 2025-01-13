@@ -1,24 +1,4 @@
-import { getRequest, postRequest } from "../../../../../hooks/useRequests";
-
-const consultaCurso = async (nomeCurso: string | undefined) => {
-    let cdCurso: number = 0;
-    
-    if (typeof nomeCurso != undefined) {
-        try {
-            const response = await getRequest('/Category/Cursos');
-            if (response) {
-                response.forEach((curso: any) => {
-                    if (nomeCurso == curso.nmCourse) {
-                        cdCurso = curso.idCourse;
-                    }
-                });
-            }
-        } catch (error) {
-            console.error(error);
-        }
-    }
-    return cdCurso;
-} 
+import { postRequest } from "../../../../../hooks/useRequests";
 
 function calcularIdade(dataNascimento: FormDataEntryValue | any): number {
     const hoje = new Date();
@@ -77,7 +57,7 @@ const trataFormCadastro = async (data: FormData) => {
     const cdCidade: string | any = data.get('ICidade')?.toString();
     const tpPreferencia: string | any = data.get('IPrefer')?.toString();
     const descTitulo: string | any = data.get('IGrauEsc')?.toString();
-    const curso: string | any = await consultaCurso(data.get('ICurso')?.toString());
+    const curso: string | any = await data.get('ICurso')?.toString();
 
     usuarioCadastrado = {
         "name": data.get('INomeComp'),
@@ -90,7 +70,7 @@ const trataFormCadastro = async (data: FormData) => {
         "descTitulo": parseInt(descTitulo),
         "tpColor": 1,
         'profilePictureUrl': 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png',
-        'curso': curso,
+        'cursoId': curso,
         "dtNasc": data.get('IDtNasc') + "T00:00:00",
         "isEmailVerified": false
     };

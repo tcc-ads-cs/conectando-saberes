@@ -8,6 +8,7 @@ import trataFormCadastro from './functions/trataFormCadastro';
 const FormCadastro: React.FC = () => {      
     const navigate = useNavigate();  
     const [campi, setCampi] = useState([]);
+    const [cursos, setCursos] = useState([]);
     const [cidades, setCidades] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
@@ -35,6 +36,11 @@ const FormCadastro: React.FC = () => {
     let getCidades = async () => {
       let cidades = await getRequest('/Location/listar-cidades');
       setCidades(cidades);
+    };
+
+    let getCursos = async () => {
+      let curso = await getRequest('/Category/cursos');
+      setCursos(curso);
     };
     
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -70,6 +76,7 @@ const FormCadastro: React.FC = () => {
     useEffect(() => {
       getCampi();
       getCidades();
+      getCursos();
     }, []);
     
     return (
@@ -116,7 +123,15 @@ const FormCadastro: React.FC = () => {
                     }
                 </select>
 
-                <Campo id="inputArea" tipo="text" label="Sua área de formação/atuação:" name="ICurso" classe="inputMargin" onChange={handleChange} />             
+                <label className='inputLabel' htmlFor='inputArea'><Typography fontFamily={'poppins'}>Sua área de formação/atuação:</Typography></label>
+                <select id="inputCurso" name="ICurso" className="input inputMargin" onChange={handleChange}>
+                    {
+                        cursos.map((c: any) => {
+                            return <option key={c.idCourse} value={c.idCourse}>{c.nmCourse}</option>
+                        })
+                    }
+                </select>
+                
                 <label className='inputLabel' htmlFor='inputCidade'><Typography fontFamily={'poppins'}>Cidade onde reside:</Typography></label>
                 <select id="inputCidade" name="ICidade" className="input inputMargin" onChange={handleChange}>
                     {

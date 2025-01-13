@@ -12,7 +12,7 @@ interface RecomendacaoProps {
 const Recomendacao: React.FC<RecomendacaoProps> = ({tipo, req}) => {
     switch (tipo) {
         case "perfil": 
-            return (
+            return (              
                 <div className="containerRecomendacao">
                     <img src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png" alt="" />
                     <div className='conteudoRecomendacao'>
