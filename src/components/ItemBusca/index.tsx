@@ -14,8 +14,7 @@ const ItemBusca: React.FC<ItemBuscaProps>= ({infos, tipo}) => {
         case "perfil": 
             return <>
                 <div className="containerRecomendacao">
-                    {/* TODO: Adicionar na requisição e aqui! */}
-                    <img src={''} alt="" />
+                    <img src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png" alt="" />
                     <div className='conteudoRecomendacao'>
                         <Link to={'/perfil/' + infos.id} className="link"><Typography fontFamily={'poppins'}  fontSize={24} fontWeight={300}>{infos.nome}</Typography></Link>
                     </div>

@@ -9,7 +9,6 @@ import './index.css';
 import { postRequest } from "../../../../hooks/useRequests";
 import { useParams } from "react-router-dom";
 
-//TODO: Alterar para o link da foto de perfil do usuário.
 const InfoPerfil = ({ obj }: { obj: any }) => {
     const [copied, setCopied] = useState(false);
     const { idPerfil } = useParams();

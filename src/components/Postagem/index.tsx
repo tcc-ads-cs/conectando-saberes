@@ -35,7 +35,6 @@ const Postagem: React.FC<PostagemProps> = ({post}) => {
         fetchFacul();
     }, [post.user.cdCampus]);
 
-    //TODO: Atribuir as fotos de perfil
     switch (post.post.type) {
         case 0:
             return <>
