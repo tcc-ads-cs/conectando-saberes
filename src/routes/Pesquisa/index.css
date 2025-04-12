@@ -28,4 +28,9 @@
     .btnForm {
         align-self: end;
     }
+
+    .resultadosBusca {
+        padding: var(--t16px);
+
+    }
 }

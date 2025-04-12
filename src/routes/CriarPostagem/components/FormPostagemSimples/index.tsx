@@ -31,7 +31,7 @@ const FormPostagemSimples: React.FC = () => {
         const resultadoPostagem = await trataFormPostagem(data);
         if (resultadoPostagem === "OK") {
             alert('Postagem criada com sucesso.');
-            navigate("/meu-perfil");
+            navigate("/");
         } else if (resultadoPostagem === undefined){
             alert('Erro ao criar sua postagem.');
         } else {

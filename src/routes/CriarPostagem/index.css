@@ -69,6 +69,11 @@
         font-size: var(--t48px);
     }
 
+    .btnFormPost:hover {
+        filter: brightness(0.9);
+        cursor: pointer;
+    }
+
     .headerForm {
         margin-bottom: var(--t32px);
     }
@@ -113,7 +118,7 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 420px) {
     .formsPostagens {
         color: var(--corTextoPreto);
         padding: var(--t32px);

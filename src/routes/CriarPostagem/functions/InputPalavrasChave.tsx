@@ -38,7 +38,6 @@ const InputPalavrasChave: React.FC<InputPalavrasChaveProps> = ({ keywords, setKe
                             handleAddKeyword();
                         }
                     }}
-                    required
                 />
                 <button type='button' onClick={handleAddKeyword} className="btnKeyword"><AddIcon /></button>
             </div>

@@ -9,7 +9,7 @@ const FormPostagemCompleta: React.FC = () => {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
-        type: 2,
+        type: 1,
         dcTitulo: "",
         textPost: "",
         dcCategorias: [] as string[]

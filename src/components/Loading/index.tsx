@@ -6,10 +6,10 @@ interface LoadingProps {
 } 
 
 const Loading: React.FC<LoadingProps> = ({text}) => {
-    return <>
-    <CircularProgress />
-    <Typography fontFamily='poppins' fontSize={20}>{text}</Typography>
-    </>
+    return <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '1em' }}>
+        <CircularProgress />
+        <Typography fontFamily='poppins' fontSize={20}>{text}</Typography>
+    </div>
 }
 
 export default Loading;

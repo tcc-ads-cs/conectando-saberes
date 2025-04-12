@@ -11,9 +11,6 @@ import NotFound from "../../components/NotFound";
 import { getRequest } from "../../hooks/useRequests";
 import './index.css';
 
-import * as postagem from '../../assets/tags.json';
-let mockCategorias = JSON.stringify(postagem);
-
 export let perfilUsuario: any;
 
 const Perfil: React.FC = () => {  
@@ -42,6 +39,7 @@ const Perfil: React.FC = () => {
     
     useEffect(() => { 
         buscaPerfil();
+        console.log(perfil);
     }, [idPerfil]);
 
     useEffect(() => {
@@ -64,8 +62,6 @@ const Perfil: React.FC = () => {
     }
 
     return <>
-        
-        
         <Navbar />
         {
             perfil ? 
@@ -81,9 +77,7 @@ const Perfil: React.FC = () => {
                 </section>
                 <section className="containerMenuCategorias">
                     <Typography fontFamily={'poppins'} variant={'h2'} fontWeight={500}>Categorias utilizadas</Typography>
-                    
-                    {/* TODO: Requisição das últimas categorias utilizadas em posts. */}
-                    <MenuCategorias req={mockCategorias}/>
+                    <MenuCategorias />
                 </section>
             </aside>
             {infoPerfil && (

@@ -13,15 +13,20 @@ import PostagemPage from './routes/PostagemPage';
 import ProtectedRoute from './auth/ProtectedRoute';
 import Logout from './auth/Logout';
 import RootRoute from './auth/RootRoute';
+import VerificarEmail from './routes/VerificarEmail';
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("token");
 
   const routerCS = createBrowserRouter([
     {
+      path: "/",
+      element: <ProtectedRoute isAuthenticated={isAuthenticated}><RootRoute isAuthenticated={isAuthenticated} /></ProtectedRoute>,
+      errorElement: <Erro404 />
+    },
+    {
       path: "home",
       element: <LandingPage />,
-      errorElement: <Erro404 />,
     },
     {
       path: "logout",
@@ -32,8 +37,8 @@ function App() {
       element: <Login />
     },
     {
-      path: "/",
-      element: <ProtectedRoute isAuthenticated={isAuthenticated}><RootRoute isAuthenticated={isAuthenticated} /></ProtectedRoute>
+      path: "verificar-email",
+      element: <VerificarEmail />
     },
     {
       path: "meu-feed",
